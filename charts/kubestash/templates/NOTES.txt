@@ -1,0 +1,5 @@
+Set cloudProvider for installing KubeStash
+
+To verify that KubeStash has started, run:
+
+  kubectl get deployment --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "kubestash.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"

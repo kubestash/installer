@@ -1,0 +1,39 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: admission.kubestash.com
+  labels:
+    {{- include "kubestash.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+webhooks:
+- name: admission.kubestash.com
+  clientConfig:
+    service:
+      namespace: default
+      name: kubernetes
+      path: /apis/admission.kubestash.com/v1/admissionreviews
+    caBundle: {{ b64enc .Values.apiserver.ca }}
+  rules:
+  - operations:
+    - CREATE
+    - UPDATE
+    apiGroups:
+    - kubestash.com
+    apiVersions:
+    - "*"
+    resources:
+    - "*"
+  - operations:
+    - CREATE
+    - UPDATE
+    apiGroups:
+    - networking.k8s.io
+    apiVersions:
+    - "*"
+    resources:
+    - ingresses
+  admissionReviewVersions: ["v1beta1"]
+  failurePolicy: Fail
+  sideEffects: None
