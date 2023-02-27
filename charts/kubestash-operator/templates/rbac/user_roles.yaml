@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: appscode:kubestash:edit
+  name: appscode:{{ include "kubestash-operator.fullname" . }}:edit
   labels:
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
     rbac.authorization.k8s.io/aggregate-to-edit: "true"
@@ -10,16 +10,17 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
 rules:
 - apiGroups:
-  - kubestash.com
+  - addons.kubestash.com
+  - core.kubestash.com
+  - storage.kubestash.com
   resources:
-  - certificates
-  - ingresses
+  - "*"
   verbs: ["*"]
 ---
-kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
 metadata:
-  name: appscode:kubestash:view
+  name: appscode:{{ include "kubestash-operator.fullname" . }}:view
   labels:
     rbac.authorization.k8s.io/aggregate-to-view: "true"
   annotations:
@@ -27,8 +28,9 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
 rules:
 - apiGroups:
-  - kubestash.com
+  - addons.kubestash.com
+  - core.kubestash.com
+  - storage.kubestash.com
   resources:
-  - certificates
-  - ingresses
+  - "*"
   verbs: ["get", "list", "watch"]

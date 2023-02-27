@@ -2,17 +2,17 @@ project:
   name: KubeStash by AppsCode
   shortName: KubeStash
   url: https://github.com/stashed/kubestash
-  description: Backup your Kubernetes native applications
-  app: Backup operator
+  description: KubeStash a successor of Stash by AppsCode is a Kubernetes native disaster recovery tool.
+  app: KubeStash operator
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
 chart:
-  name: kubestash
+  name: kubestash-operator
   values: -- generate from values file --
-  valuesExample: global.registry=stashed
+  valuesExample: -- generate from values file --
 prerequisites:
-- Kubernetes 1.14+
+- Kubernetes 1.21+
 release:
-  name: kubestash
+  name: kubestash-operator
   namespace: kubestash

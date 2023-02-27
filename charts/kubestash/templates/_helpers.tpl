@@ -1,4 +1,3 @@
-{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -66,40 +65,60 @@ Create the name of the service account to use
 Returns the appscode license
 */}}
 {{- define "appscode.license" -}}
-{{- .Values.license }}
+{{- default .Values.global.license .Values.license }}
 {{- end }}
 
 {{/*
 Returns the registry used for operator docker image
 */}}
 {{- define "operator.registry" -}}
-{{- list .Values.registryFQDN .Values.operator.registry | compact | join "/" }}
+{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.operator.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
 {{/*
-Returns the registry used for haproxy docker image
+Returns the registry used for catalog docker images
 */}}
-{{- define "haproxy.registry" -}}
-{{- list .Values.registryFQDN .Values.haproxy.registry | compact | join "/" }}
+{{- define "catalog.registry" -}}
+{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.image.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
 {{/*
 Returns the registry used for cleaner docker image
 */}}
 {{- define "cleaner.registry" -}}
-{{- list .Values.registryFQDN .Values.cleaner.registry | compact | join "/" }}
+{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.cleaner.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
 {{/*
 Returns whether the cleaner job YAML will be generated or not
 */}}
 {{- define "cleaner.generate" -}}
-{{- ternary "false" "true" .Values.cleaner.skip -}}
+{{- ternary "false" "true" (or .Values.global.skipCleaner .Values.cleaner.skip) -}}
 {{- end }}
 
+{{/*
+Returns the appscode image pull secrets
+*/}}
 {{- define "appscode.imagePullSecrets" -}}
-{{- with .Values.imagePullSecrets -}}
+{{- with .Values.global.imagePullSecrets -}}
 imagePullSecrets:
 {{- toYaml . | nindent 2 }}
+{{- else -}}
+imagePullSecrets:
+{{- toYaml $.Values.imagePullSecrets | nindent 2 }}
 {{- end }}
 {{- end }}
+
+{{- define "image-pull-secrets" -}}
+{{- $secrets:= list -}}
+{{- with .Values.global.imagePullSecrets -}}
+{{- range $x := . -}}
+{{- $secrets = append $secrets $x.name -}}
+{{- end -}}
+{{- else -}}
+{{- range $x := $.Values.imagePullSecrets -}}
+{{- $secrets = append $secrets $x.name -}}
+{{- end -}}
+{{- end }}
+{{- $secrets | join "," | print -}}
+{{- end -}}

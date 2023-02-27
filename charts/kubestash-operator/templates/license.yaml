@@ -3,10 +3,10 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "kubestash.fullname" . }}-license
+  name: {{ include "kubestash-operator.fullname" . }}-license
   namespace: {{ .Release.Namespace }}
   labels:
-  {{- include "kubestash.labels" . | nindent 4 }}
+    {{- include "kubestash-operator.labels" . | nindent 4 }}
 type: Opaque
 data:
   key.txt: {{ include "appscode.license" . | b64enc }}
