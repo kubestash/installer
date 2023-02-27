@@ -42,14 +42,6 @@ operator:
   # runAsNonRoot: true
   # runAsUser: 1000
 
-crdInstaller:
-  # Docker registry of the CRD installer image. By default, it will use the same registry as the operator.
-  registry: ""
-  # Name of CRD installer image. Default `kubestash-crd-installer`
-  repository: kubestash-crd-installer
-  # Tag of the CRD installer image. By default, it will use the same tag as the operator.
-  tag: ""
-
 cleaner:
   # Docker registry used to pull Webhook cleaner image
   registry: appscode
