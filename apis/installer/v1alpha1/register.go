@@ -56,6 +56,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&Kubestash{},
 		&KubestashList{},
+		&KubestashOperator{},
+		&KubestashOperatorList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,
