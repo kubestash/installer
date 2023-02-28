@@ -139,3 +139,6 @@ security:
   seccomp:
     # `Optional:` Allows the default seccomp profile, requires setting the default.
     enabled: false
+platform:
+  # Set true, if installed in OpenShift
+  openshift: false

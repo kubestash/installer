@@ -78,6 +78,8 @@ type KubestashOperatorSpec struct {
 	Apiserver  WebHookSpec  `json:"apiserver"`
 	Monitoring Monitoring   `json:"monitoring"`
 	Security   SecuritySpec `json:"security"`
+	//+optional
+	Platform Platform `json:"platform"`
 	// +optional
 	License string `json:"license"`
 	// +optional
@@ -170,6 +172,11 @@ type ApparmorSpec struct {
 type SeccompSpec struct {
 	//+optional
 	Enabled bool `json:"enabled"`
+}
+
+type Platform struct {
+	//+optional
+	Openshift bool `json:"openshift"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

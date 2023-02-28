@@ -1098,6 +1098,11 @@ properties:
         - repository
         - tag
         type: object
+      platform:
+        properties:
+          openshift:
+            type: boolean
+        type: object
       podAnnotations:
         additionalProperties:
           type: string
