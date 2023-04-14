@@ -18,8 +18,8 @@ set -eou pipefail
 
 crd_dir=${1:-}
 
-api_repo_url=https://github.com/kubestash/kubestash.git
-api_repo_tag=${KUBESTASH_KUBESTASH_TAG:-master}
+api_repo_url=https://github.com/kubestash/apimachinery.git
+api_repo_tag=${KUBESTASH_APIMACHINERY_TAG:-master}
 
 if [ "$#" -ne 1 ]; then
     if [ "${api_repo_tag}" == "master" ]; then
