@@ -20,9 +20,13 @@ _testmain.go
 *.test
 *.prof
 
+
 /bin
 /.go
+/.idea
 /.crds
+/charts/kubestash/charts
+
 /.idea
 /.markdownlint.json
 /.vscode

@@ -2,7 +2,8 @@ project:
   name: KubeStash by AppsCode
   shortName: KubeStash
   url: https://github.com/stashed/kubestash
-  description: KubeStash a successor of Stash by AppsCode is a Kubernetes native disaster recovery tool.
+  description: KubeStash a successor of Stash by AppsCode is a Kubernetes native disaster
+    recovery tool.
   app: KubeStash operator
 repository:
   url: https://charts.appscode.com/stable/
