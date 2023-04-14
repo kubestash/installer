@@ -18,7 +18,6 @@ GO_PKG   := kubestash.dev
 REPO     := $(notdir $(shell pwd))
 BIN      := installer
 
-# Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS          ?= "crd:crdVersions={v1}"
 # https://github.com/appscodelabs/gengo-builder
 CODE_GENERATOR_IMAGE ?= ghcr.io/appscode/gengo:release-1.25
@@ -97,13 +96,17 @@ build-%:
 
 all-build: $(addprefix build-, $(subst /,_, $(BIN_PLATFORMS)))
 
-version:
+version: version-PROD version-DBG
+	@echo IMAGE=$(IMAGE)
+	@echo BIN=$(BIN)
 	@echo version=$(VERSION)
 	@echo version_strategy=$(version_strategy)
 	@echo git_tag=$(git_tag)
 	@echo git_branch=$(git_branch)
 	@echo commit_hash=$(commit_hash)
 	@echo commit_timestamp=$(commit_timestamp)
+version-%:
+	@echo TAG_$*=$(TAG_$*)
 
 .PHONY: clientset
 clientset:
@@ -172,23 +175,6 @@ gen-crds:
 			paths="./apis/..."              \
 			output:crd:artifacts:config=.crds
 
-crds_to_patch := installer.kubestash.com_voyagers.yaml
-
-.PHONY: patch-crds
-patch-crds: $(addprefix patch-crd-, $(crds_to_patch))
-patch-crd-%: $(BUILD_DIRS)
-	@echo "patching $*"
-	@kubectl patch -f .crds/$* -p "$$(cat hack/crd-patch.json)" --type=json --local=true -o yaml > bin/$*
-	@mv bin/$* .crds/$*
-
-.PHONY: label-crds
-label-crds: $(BUILD_DIRS)
-	@for f in .crds/*.yaml; do \
-		echo "applying app.kubernetes.io/name=voyager label to $$f"; \
-		kubectl label --overwrite -f $$f --local=true -o yaml app.kubernetes.io/name=voyager > bin/crd.yaml; \
-		mv bin/crd.yaml $$f; \
-	done
-
 .PHONY: gen-values-schema
 gen-values-schema: $(BUILD_DIRS)
 	@for dir in charts/*/; do \
@@ -231,21 +217,17 @@ APP_VERSION        ?= $(CHART_VERSION)
 update-charts: $(shell find $$(pwd)/charts -maxdepth 1 -mindepth 1 -type d -printf 'chart-%f ')
 
 chart-%:
-	@$(MAKE) chart-contents-$* gen-chart-doc-$* --no-print-directory
+	@$(MAKE) contents-$* gen-chart-doc-$* --no-print-directory
 
-chart-contents-%:
+contents-%:
 	@yq -y --indentless -i '.repository.name="$(CHART_REGISTRY)"' ./charts/$*/doc.yaml
 	@yq -y --indentless -i '.repository.url="$(CHART_REGISTRY_URL)"' ./charts/$*/doc.yaml
-	@if [ -n "$(CHART_VERSION)" ]; then                                                  \
-	  yq -y --indentless -i '.version="$(CHART_VERSION)"' ./charts/$*/Chart.yaml;        \
+	@if [ -n "$(CHART_VERSION)" ]; then \
+	  yq -y --indentless -i '.version="$(CHART_VERSION)"' ./charts/$*/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/kubestash/Chart.yaml; \
 	fi
-	@if [ -n "$(APP_VERSION)" ]; then                                                    \
-		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml;       \
-		case "$*" in                                                                       \
-		  voyager)                                                                         \
-		    yqq w -i ./charts/$*/values.yaml haproxy.tag --tag '!!str' $(HAPROXY_VERSION); \
-		    ;;                                                                             \
-		esac;                                                                              \
+	@if [ ! -z "$(APP_VERSION)" ]; then                                               \
+		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml;    \
 	fi
 
 fmt: $(BUILD_DIRS)
@@ -339,7 +321,6 @@ ct: $(BUILD_DIRS)
 	@docker run                                                 \
 	    -i                                                      \
 	    --rm                                                    \
-	    -u $$(id -u):$$(id -g)                                  \
 	    -v $$(pwd):/src                                         \
 	    -w /src                                                 \
 	    --net=host                                              \
@@ -354,8 +335,10 @@ ct: $(BUILD_DIRS)
 	    --env KUBECONFIG=$(subst $(HOME),,$(KUBECONFIG))        \
 	    $(CHART_TEST_IMAGE)                                     \
 	    /bin/sh -c "                                            \
-	        kubectl delete crds --selector=app.kubernetes.io/name=voyager; \
-	        ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
+	      set -x; \
+	      kubectl delete crds --all; \
+	      ./hack/scripts/update-chart-dependencies.sh; \
+	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
 	    "
 
 ADDTL_LINTERS   := goconst,gofmt,goimports,unparam
