@@ -49,7 +49,7 @@ rules:
       - daemonsets
       - deployments
       - statefulsets
-    verbs: ["get"]
+    verbs: ["get","list", "watch", "create", "delete", "patch", "update"]
   - apiGroups:
       - ""
     resources:
@@ -60,7 +60,8 @@ rules:
     resources:
       - services
       - endpoints
-    verbs: ["get"]
+      - pods
+    verbs: ["get", "list", "watch"]
   - apiGroups:
       - ""
     resources:
