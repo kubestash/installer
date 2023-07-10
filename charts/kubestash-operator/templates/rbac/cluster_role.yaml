@@ -27,7 +27,7 @@ rules:
       - appcatalog.appscode.com
     resources:
       - "*"
-    verbs: ["get"]
+    verbs: ["get", "list", "watch"]
   - apiGroups:
       - config.kubestash.com
     resources:
@@ -49,12 +49,12 @@ rules:
       - daemonsets
       - deployments
       - statefulsets
-    verbs: ["get","list", "watch", "create", "delete", "patch", "update"]
+    verbs: ["get", "list", "watch"]
   - apiGroups:
       - ""
     resources:
       - persistentvolumeclaims
-    verbs: ["get"]
+    verbs: ["get", "list", "watch", "create", "patch", "delete", "update"]
   - apiGroups:
       - ""
     resources:
