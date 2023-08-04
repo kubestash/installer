@@ -62,6 +62,13 @@ rules:
       - endpoints
       - pods
     verbs: ["get", "list", "watch"]
+
+  - apiGroups:
+      - ""
+    resources:
+      - pods/exec
+    verbs: ["create"]
+
   - apiGroups:
       - ""
     resources:
