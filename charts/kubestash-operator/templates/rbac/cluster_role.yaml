@@ -49,6 +49,7 @@ rules:
       - daemonsets
       - deployments
       - statefulsets
+      - replicasets
     verbs: ["get", "list", "watch"]
   - apiGroups:
       - ""
