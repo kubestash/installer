@@ -7,9 +7,10 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}-ci
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -83,12 +84,13 @@ jobs:
         run: |
           export KUBECONFIG="${HOME}/.kube/config"
           CLUSTER_UID=$(kubectl get ns kube-system -o=jsonpath='{.metadata.uid}')
-          LICENSE_KEY=$(curl -X POST -d "name=1gtm&email=1gtm@appscode.com&product=voyager-enterprise&cluster=${CLUSTER_UID}&tos=true&token=${BYTEBUILDERS_LICENSE_TOKEN}" https://license-issuer.appscode.com/issue-license)
+          LICENSE_KEY=$(curl -X POST -d "name=1gtm&email=1gtm@appscode.com&product=stash-enterprise&cluster=${CLUSTER_UID}&tos=true&token=${BYTEBUILDERS_LICENSE_TOKEN}" https://license-issuer.appscode.com/issue-license)
+          echo "${LICENSE_KEY}" > /tmp/license.txt
           # ref: https://github.com/mikefarah/yq/issues/230#issuecomment-487458629
-          yqq w -i ./charts/voyager/ci/ci-values.yaml license --tag '!!str' -- "${LICENSE_KEY}"
-          cat ./charts/voyager/ci/ci-values.yaml
+          yqq w -i ./charts/kubestash-operator/ci/ci-values.yaml license --tag '!!str' -- "${LICENSE_KEY}"
 
       - name: Test charts
         run: |
           export KUBECONFIG="${HOME}/.kube/config"
+          ./hack/scripts/update-chart-dependencies.sh
           ./hack/scripts/ct.sh
