@@ -35,3 +35,8 @@ data:
       registry: {{ .Values.operator.registry }}
       image: {{ .Values.operator.repository }}
       tag: {{ .Values.operator.tag }}
+    netVolAccessor:
+      cpu: {{ .Values.netVolAccessor.cpu }}
+      memory: {{ .Values.netVolAccessor.memory }}
+      user: {{ .Values.netVolAccessor.runAsUser }}
+      privilegedMode: {{ .Values.netVolAccessor.privileged }}
