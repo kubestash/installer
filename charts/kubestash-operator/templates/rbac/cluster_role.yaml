@@ -108,3 +108,8 @@ rules:
     resources:
       - volumesnapshots
     verbs: ["get","delete"]
+  - apiGroups:
+      - storage.k8s.io
+    resources:
+      - storageclasses
+    verbs: [ "get", "watch" ]
