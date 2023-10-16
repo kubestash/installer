@@ -81,6 +81,8 @@ type KubestashOperatorSpec struct {
 	//+optional
 	Platform Platform `json:"platform"`
 	// +optional
+	NetVolAccessor NetVolAccessor `json:"netVolAccessor"`
+	// +optional
 	License string `json:"license"`
 	// +optional
 	LicenseApiService string `json:"licenseApiService"`
@@ -177,6 +179,17 @@ type SeccompSpec struct {
 type Platform struct {
 	//+optional
 	Openshift bool `json:"openshift"`
+}
+
+type NetVolAccessor struct {
+	// +optional
+	CPU string `json:"cpu"`
+	// +optional
+	Memory string `json:"memory"`
+	// +optional
+	User int64 `json:"user"`
+	// +optional
+	Privileged bool `json:"privileged"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
