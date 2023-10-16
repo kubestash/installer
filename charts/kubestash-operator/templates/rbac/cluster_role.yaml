@@ -103,3 +103,8 @@ rules:
       - rolebindings
       - clusterrolebindings
     verbs: ["get","list", "watch", "create", "delete", "patch", "update"]
+  - apiGroups:
+      - snapshot.storage.k8s.io
+    resources:
+      - volumesnapshots
+    verbs: ["get","delete"]
