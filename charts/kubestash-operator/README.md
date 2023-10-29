@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/kubestash-operator --version=v0.1.0
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.1.0
+$ helm search repo appscode/kubestash-operator --version=v0.2.0-rc.0
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.2.0-rc.0
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys KubeStash operator on a [Kubernetes](http://kubernetes.io) cl
 To install/upgrade the chart with the release name `kubestash-operator`:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.1.0
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.2.0-rc.0
 ```
 
 The command deploys KubeStash operator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -52,8 +52,8 @@ The following table lists the configurable parameters of the `kubestash-operator
 | replicaCount                          | Number of stash operator replicas to create (only 1 is supported)                                                                                                                                                                                                                                                                                                              | <code>1</code>                                        |
 | license                               | License for the product. Get a license by following the steps from [here](https://stash.run/docs/latest/setup/install/enterprise#get-a-trial-license). <br> Example: <br> `helm install appscode/kubestash-operator \` <br> `--set-file license=/path/to/license/file` <br> `or` <br> `helm install appscode/kubestash-operator \` <br> `--set license=<license file content>` | <code>""</code>                                       |
 | licenseApiService                     | Name of the ApiService to use by the addon to identify the respective service and certificate for license verification request                                                                                                                                                                                                                                                 | <code>v1beta1.admission.kubestash.appscode.com</code> |
-| registryFQDN                          | Docker registry fqdn used to pull Stash related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}                                                                                                                                                                                                                                         | <code>""</code>                                       |
-| operator.registry                     | Docker registry used to pull operator image                                                                                                                                                                                                                                                                                                                                    | <code>stashed</code>                                  |
+| registryFQDN                          | Docker registry fqdn used to pull Stash related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}                                                                                                                                                                                                                                         | <code>ghcr.io</code>                                  |
+| operator.registry                     | Docker registry used to pull operator image                                                                                                                                                                                                                                                                                                                                    | <code>kubestash</code>                                |
 | operator.repository                   | Name of operator container image                                                                                                                                                                                                                                                                                                                                               | <code>kubestash</code>                                |
 | operator.tag                          | Operator container image tag                                                                                                                                                                                                                                                                                                                                                   | <code>v0.1.0</code>                                   |
 | operator.resources                    | Compute Resources required by the operator container                                                                                                                                                                                                                                                                                                                           | <code>{"requests":{"cpu":"100m"}}</code>              |
@@ -103,12 +103,12 @@ The following table lists the configurable parameters of the `kubestash-operator
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.1.0 --set replicaCount=1
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.2.0-rc.0 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.1.0 --values values.yaml
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.2.0-rc.0 --values values.yaml
 ```
