@@ -48,3 +48,7 @@ fi
 crd-importer \
     --input=${crd_dir} \
     --out=. --output-yaml=crds/kubestash-crds.yaml
+
+crd-importer \
+    --input=${crd_dir} \
+    --out=./charts/kubestash-operator/crds
