@@ -10684,7 +10684,7 @@ func schema_k8sio_api_core_v1_ServiceProxyOptions(ref common.ReferenceCallback) 
 					},
 					"path": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Path is the part of URLs that include service endpoints, suffixes, and parameters to use for the current proxy request to service. For example, the whole request URL is http://localhost/api/v1/namespaces/kube-system/services/elasticsearch-logging/_search?q=user:kimchy. Path is _search?q=user:kimchy.",
+							Description: "Path is the part of URLs that include service endpoints, suffixes, and parameters to use for the current proxy request to service. For example, the whole request URL is http://localhost/api/v1/namespaces/kube-system/services/workload-logging/_search?q=user:kimchy. Path is _search?q=user:kimchy.",
 							Type:        []string{"string"},
 							Format:      "",
 						},

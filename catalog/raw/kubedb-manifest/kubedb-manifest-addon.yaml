@@ -1,0 +1,57 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: kubedb-manifest
+spec:
+  backupTasks:
+  - name: LogicalBackup
+    function: kubedb-manifest-backup
+    driver: Restic
+    executor: Job
+    singleton: true
+    parameters:
+    - name: args
+      usage: Arguments to be passed to the dump command.
+      required: false
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp/data
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp
+  restoreTasks:
+  - name: LogicalBackupRestore
+    function: kubedb-manifest-restore
+    driver: Restic
+    executor: Job
+    singleton: true
+    parameters:
+    - name: args
+      usage: Arguments to be passed to the dump command.
+      required: false
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp/data
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp

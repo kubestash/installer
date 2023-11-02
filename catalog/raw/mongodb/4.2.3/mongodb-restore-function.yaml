@@ -1,0 +1,17 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-restore-4.2.3
+spec:
+  image: ghcr.io/kubestash/mongodb:v0.1.0-rc.0_4.2.3
+  args:
+    - restore
+    - --namespace=${namespace:=default}
+    - --restoresession=${restoreSession:=}
+    - --snapshot=${snapshot:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:}
+    - --wait-timeout=${waitTimeout:=300}
+    - --mongo-args=${args:=}
+    - --max-concurrency=${maxConcurrency:=3}
+    - --authentication-database=${authenticationDatabase:=admin}

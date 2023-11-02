@@ -1,0 +1,16 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: elasticsearch-backup
+spec:
+  image: ghcr.io/kubestash/elasticsearch:v0.1.0-rc.0
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  - --wait-timeout=${waitTimeout:=300}
+  - --es-args=${args:=}
+  - --interim-data-dir=${interimDataDir:=}
+

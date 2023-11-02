@@ -1,0 +1,15 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: workload-restore
+spec:
+  image: ghcr.io/kubestash/workload:v0.1.0-rc.0
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:}
+  - --exclude=${exclude:=}
+  - --include=${include:=}

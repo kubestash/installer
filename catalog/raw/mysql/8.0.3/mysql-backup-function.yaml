@@ -1,0 +1,16 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mysql-backup-8.0.3
+spec:
+  image: ghcr.io/kubestash/mysql:v0.1.0-rc.0_8.0.3
+  args:
+    - backup
+    - --namespace=${namespace:=default}
+    - --backupsession=${backupSession:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}
+    - --wait-timeout=${waitTimeout:=300}
+    - --mysql-args=${args:=}
+    - --db-version=${dbVersion:=}
+

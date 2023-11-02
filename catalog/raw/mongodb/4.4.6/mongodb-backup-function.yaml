@@ -1,0 +1,16 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-backup-4.4.6
+spec:
+  image: ghcr.io/kubestash/mongodb:v0.1.0-rc.0_4.4.6
+  args:
+    - backup
+    - --namespace=${namespace:=default}
+    - --backupsession=${backupSession:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}
+    - --wait-timeout=${waitTimeout:=300}
+    - --mongo-args=${args:=}
+    - --max-concurrency=${maxConcurrency:=3}
+    - --authentication-database=${authenticationDatabase:=admin}
