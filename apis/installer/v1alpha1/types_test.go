@@ -28,6 +28,8 @@ import (
 func TestDefaultValues(t *testing.T) {
 	checker := schemachecker.New(os.DirFS("../../.."),
 		schemachecker.TestCase{Obj: v1alpha1.KubestashSpec{}},
+		schemachecker.TestCase{Obj: v1alpha1.KubestashOperatorSpec{}},
+		schemachecker.TestCase{Obj: v1alpha1.KubestashCatalogSpec{}},
 	)
 	checker.TestAll(t)
 }

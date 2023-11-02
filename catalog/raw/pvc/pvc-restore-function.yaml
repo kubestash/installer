@@ -10,4 +10,4 @@ spec:
   - --restoresession=${restoreSession:=}
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
-  - --scratch-dir=${scratchDir:}
+  - --scratch-dir=${scratchDir:=}

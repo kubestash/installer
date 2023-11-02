@@ -1,0 +1,84 @@
+{{ if .Values.elasticsearch.enabled }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: 'elasticsearch-addon'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  backupTasks:
+  - driver: Restic
+    executor: Job
+    function: elasticsearch-backup
+    name: LogicalBackup
+    parameters:
+    - default: --match=^(?![.])(?!apm-agent-configuration)(?!kubedb-system).+
+      name: args
+      required: false
+      usage: Arguments to be passed to the dump command.
+    - default: /kubestash-interim-volume/data
+      name: interimDataDir
+      required: false
+      usage: Directory where data will be stored temporarily before uploading to the backend.
+    - default: "true"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp/data
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-interim-volume
+      name: interim-volume
+    - mountPath: /kubestash-tmp
+      name: temp-volume
+    volumeTemplate:
+    - name: interim-volume
+      source:
+        emptyDir: {}
+      usage: Holds backed up data temporarily before uploading to the backend.
+    - name: temp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+  restoreTasks:
+  - driver: Restic
+    executor: Job
+    function: elasticsearch-restore
+    name: LogicalBackupRestore
+    parameters:
+    - default: --match=^(?![.])(?!apm-agent-configuration)(?!kubedb-system).+
+      name: args
+      required: false
+      usage: Arguments to be passed to the dump command.
+    - default: /kubestash-interim-volume/tmp
+      name: interimDataDir
+      required: false
+      usage: Specifes the directory where data will be stored temporarily before uploading to the backend.
+    - default: "true"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp/data
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-interim-volume
+      name: interim-volume
+    - mountPath: /kubestash-tmp
+      name: temp-volume
+    volumeTemplate:
+    - name: interim-volume
+      source:
+        emptyDir: {}
+      usage: Holds backed up data temporarily before dumping to the database.
+    - name: temp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+{{ end }}
+

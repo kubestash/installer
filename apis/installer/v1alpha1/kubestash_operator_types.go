@@ -47,6 +47,7 @@ type KubestashOperatorSpec struct {
 	NameOverride string `json:"nameOverride"`
 	//+optional
 	FullnameOverride string       `json:"fullnameOverride"`
+	RegistryFQDN     string       `json:"registryFQDN"`
 	ReplicaCount     int32        `json:"replicaCount"`
 	Operator         ContianerRef `json:"operator"`
 	Cleaner          CleanerRef   `json:"cleaner"`
@@ -84,8 +85,6 @@ type KubestashOperatorSpec struct {
 	NetVolAccessor NetVolAccessor `json:"netVolAccessor"`
 	// +optional
 	License string `json:"license"`
-	// +optional
-	LicenseApiService string `json:"licenseApiService"`
 }
 
 type ImageRef struct {
@@ -118,9 +117,11 @@ type ServiceAccountSpec struct {
 }
 
 type WebHookSpec struct {
-	GroupPriorityMinimum int32  `json:"groupPriorityMinimum"`
-	VersionPriority      int32  `json:"versionPriority"`
-	CA                   string `json:"ca"`
+	GroupPriorityMinimum    int32  `json:"groupPriorityMinimum"`
+	VersionPriority         int32  `json:"versionPriority"`
+	EnableMutatingWebhook   bool   `json:"enableMutatingWebhook"`
+	EnableValidatingWebhook bool   `json:"enableValidatingWebhook"`
+	CA                      string `json:"ca"`
 	//+optional
 	BypassValidatingWebhookXray bool            `json:"bypassValidatingWebhookXray"`
 	UseKubeapiserverFqdnForAks  bool            `json:"useKubeapiserverFqdnForAks"`
@@ -187,7 +188,7 @@ type NetVolAccessor struct {
 	// +optional
 	Memory string `json:"memory"`
 	// +optional
-	User int64 `json:"user"`
+	RunAsUser int `json:"runAsUser"`
 	// +optional
 	Privileged bool `json:"privileged"`
 }

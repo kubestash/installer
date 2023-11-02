@@ -1,7 +1,7 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Addon
 metadata:
-  name: mysql
+  name: mysql-addon
 spec:
   backupTasks:
   - name: LogicalBackup

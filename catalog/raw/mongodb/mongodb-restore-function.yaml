@@ -10,7 +10,7 @@ spec:
     - --restoresession=${restoreSession:=}
     - --snapshot=${snapshot:=}
     - --enable-cache=${enableCache:=}
-    - --scratch-dir=${scratchDir:}
+    - --scratch-dir=${scratchDir:=}
     - --wait-timeout=${waitTimeout:=300}
     - --mongo-args=${args:=}
     - --max-concurrency=${maxConcurrency:=3}

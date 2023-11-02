@@ -51,4 +51,9 @@ crd-importer \
 
 crd-importer --no-description \
     --input=${crd_dir} \
+    --out=./charts/kubestash-catalog/crds \
+    --group=addons.kubestash.com
+
+crd-importer --no-description \
+    --input=${crd_dir} \
     --out=./charts/kubestash-operator/crds

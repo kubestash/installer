@@ -1,7 +1,7 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Addon
 metadata:
-  name: pvc
+  name: pvc-addon
 spec:
   backupTasks:
   - name: PhysicalBackup

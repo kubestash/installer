@@ -9,7 +9,7 @@ fullnameOverride: ""
 # Number of stash operator replicas to create (only 1 is supported)
 replicaCount: 1
 # License for the product.
-# Get a license by following the steps from [here](https://stash.run/docs/latest/setup/install/enterprise#get-a-trial-license).
+# Get a license by following the steps from [here](https://kubestash.com/docs/latest/setup/install/enterprise#get-a-trial-license).
 # Example:
 # helm install appscode/kubestash-operator \
 #   --set-file license=/path/to/license/file
@@ -46,7 +46,7 @@ cleaner:
   # Webhook cleaner container image
   repository: kubectl
   # Webhook cleaner container image tag
-  tag: v1.16
+  tag: v1.24
   # Skip generating cleaner YAML
   skip: false
 # Specify an array of imagePullSecrets.

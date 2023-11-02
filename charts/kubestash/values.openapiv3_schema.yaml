@@ -808,6 +808,10 @@ properties:
             type: boolean
           ca:
             type: string
+          enableMutatingWebhook:
+            type: boolean
+          enableValidatingWebhook:
+            type: boolean
           groupPriorityMinimum:
             format: int32
             type: integer
@@ -836,6 +840,8 @@ properties:
             type: integer
         required:
         - ca
+        - enableMutatingWebhook
+        - enableValidatingWebhook
         - groupPriorityMinimum
         - healthcheck
         - servingCerts
@@ -870,8 +876,6 @@ properties:
         type: array
       license:
         type: string
-      licenseApiService:
-        type: string
       logLevel:
         format: int32
         type: integer
@@ -904,8 +908,7 @@ properties:
             type: string
           privileged:
             type: boolean
-          user:
-            format: int64
+          runAsUser:
             type: integer
         type: object
       nodeSelector:
@@ -1274,6 +1277,8 @@ properties:
                 type: string
             type: object
         type: object
+      registryFQDN:
+        type: string
       replicaCount:
         format: int32
         type: integer
@@ -1349,6 +1354,7 @@ properties:
     - imagePullPolicy
     - monitoring
     - operator
+    - registryFQDN
     - replicaCount
     - security
     - serviceAccount
