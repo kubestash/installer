@@ -11,4 +11,3 @@ spec:
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
   - --paths=${paths:=}
-

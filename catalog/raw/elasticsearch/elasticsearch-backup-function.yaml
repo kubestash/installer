@@ -13,4 +13,3 @@ spec:
   - --wait-timeout=${waitTimeout:=300}
   - --es-args=${args:=}
   - --interim-data-dir=${interimDataDir:=}
-

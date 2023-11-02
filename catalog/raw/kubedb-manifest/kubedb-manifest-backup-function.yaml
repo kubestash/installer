@@ -10,4 +10,3 @@ spec:
     - --backupsession=${backupSession:=}
     - --enable-cache=${enableCache:=}
     - --scratch-dir=${scratchDir:=}
-

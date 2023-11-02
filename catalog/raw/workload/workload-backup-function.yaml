@@ -12,4 +12,3 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --paths=${paths:=}
   - --exclude=${exclude:=}
-

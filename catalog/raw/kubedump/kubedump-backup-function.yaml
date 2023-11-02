@@ -13,4 +13,3 @@ spec:
     - --sanitize=${sanitize:=true}
     - --label-selector=${labelSelector:=}
     - --include-dependants=${includeDependants:=false}
-

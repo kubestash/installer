@@ -12,4 +12,3 @@ spec:
     - --scratch-dir=${scratchDir:=}
     - --wait-timeout=${waitTimeout:=300}
     - --redis-args=${args:=}
-
