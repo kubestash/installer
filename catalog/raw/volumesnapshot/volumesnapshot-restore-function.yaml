@@ -1,0 +1,12 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: volumesnapshot-restore
+spec:
+  image: ghcr.io/kubestash/volume-snapshotter:v0.1.0-rc.0
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --task-name=${taskName:=}

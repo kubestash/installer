@@ -1,0 +1,15 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: redis-backup
+spec:
+  image: ghcr.io/kubestash/redis:v0.1.0-rc.0
+  args:
+    - backup
+    - --namespace=${namespace:=default}
+    - --backupsession=${backupSession:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}
+    - --sanitize=${sanitize:=true}
+    - --label-selector=${labelSelector:=}
+    - --include-dependants=${includeDependants:=false}

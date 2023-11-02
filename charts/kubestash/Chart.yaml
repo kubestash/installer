@@ -15,3 +15,6 @@ dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
   version: v0.2.0-rc.0
+- name: kubestash-catalog
+  repository: file://../kubestash-catalog
+  version: v2023.11.2

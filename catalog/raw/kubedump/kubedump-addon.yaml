@@ -1,0 +1,28 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: kubedump-addon
+spec:
+  backupTasks:
+  - name: LogicalBackup
+    function: kubedump-backup
+    driver: Restic
+    executor: Job
+    singleton: true
+    parameters:
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp/data
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp

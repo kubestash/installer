@@ -1,0 +1,13 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedbmanifest-restore
+spec:
+  image: ghcr.io/kubestash/kubedb-manifest:v0.1.0-rc.0
+  args:
+    - restore
+    - --namespace=${namespace:=default}
+    - --restoresession=${restoreSession:=}
+    - --snapshot=${snapshot:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}

@@ -9,7 +9,7 @@ fullnameOverride: ""
 # Number of stash operator replicas to create (only 1 is supported)
 replicaCount: 1
 # License for the product.
-# Get a license by following the steps from [here](https://stash.run/docs/latest/setup/install/enterprise#get-a-trial-license).
+# Get a license by following the steps from [here](https://kubestash.com/docs/latest/setup/install/enterprise#get-a-trial-license).
 # Example:
 # helm install appscode/kubestash-operator \
 #   --set-file license=/path/to/license/file
@@ -17,8 +17,6 @@ replicaCount: 1
 # helm install appscode/kubestash-operator \
 #   --set license=<license file content>
 license: ""
-# Name of the ApiService to use by the addon to identify the respective service and certificate for license verification request
-licenseApiService: v1beta1.admission.kubestash.appscode.com
 # Docker registry fqdn used to pull Stash related images.
 # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
 registryFQDN: ghcr.io
@@ -48,7 +46,7 @@ cleaner:
   # Webhook cleaner container image
   repository: kubectl
   # Webhook cleaner container image tag
-  tag: v1.16
+  tag: v1.24
   # Skip generating cleaner YAML
   skip: false
 # Specify an array of imagePullSecrets.

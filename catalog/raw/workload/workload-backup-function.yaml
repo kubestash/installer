@@ -1,0 +1,14 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: workload-backup
+spec:
+  image: ghcr.io/kubestash/workload:v0.1.0-rc.0
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  - --paths=${paths:=}
+  - --exclude=${exclude:=}

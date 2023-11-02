@@ -1,0 +1,11 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: volumesnapshot-backup
+spec:
+  image: ghcr.io/kubestash/volume-snapshotter:v0.1.0-rc.0
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --snapshot-class-name=${snapshotClassName:=}

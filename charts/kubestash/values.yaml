@@ -4,7 +4,7 @@
 
 global:
   # License for the product.
-  # Get a license by following the steps from [here](https://stash.run/docs/latest/setup/install/enterprise#get-a-trial-license).
+  # Get a license by following the steps from [here](https://kubestash.com/docs/latest/setup/install/enterprise#get-a-trial-license).
   # Example:
   # helm install appscode/kubestash \
   #   --set-file global.license=/path/to/license/file

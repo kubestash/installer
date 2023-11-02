@@ -1,0 +1,71 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: workload-addon
+spec:
+  backupTasks:
+  - name: PhysicalBackup
+    function: workload-backup
+    driver: Restic
+    executor: Job
+    singleton: false
+    parameters:
+    - name: paths
+      usage: List of file paths to backup.
+      required: true
+    - name: exclude
+      usage: List of patterns for the files that should be ignored during backup.
+      required: false
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp/data
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp
+  - name: VolumeSnapshot
+    function: volume-snapshot-backup
+    singleton: true
+    driver: VolumeSnapshotter
+    parameters:
+    - name: snapshotClassName
+      usage: The VolumeSnapshotClassName to be used by volumeSnapshot
+      required: false
+  restoreTasks:
+  - name: PhysicalBackupRestore
+    function: workload-restore
+    driver: Restic
+    executor: Job
+    singleton: false
+    parameters:
+    - name: exclude
+      usage: List of patterns for the files that should be ignored during restore.
+      required: false
+    - name: include
+      usage: List of patterns for the files that should be restored.
+      required: false
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp/data
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp
