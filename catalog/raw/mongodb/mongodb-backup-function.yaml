@@ -1,9 +1,9 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: mysql-backup-8.0.21
+  name: mongodb-backup
 spec:
-  image: ghcr.io/kubestash/mysql:v0.1.0-rc.0_8.0.21
+  image: ghcr.io/kubestash/mongodb:v0.1.0-rc.0_${DB_VERSION}
   args:
     - backup
     - --namespace=${namespace:=default}
@@ -11,6 +11,6 @@ spec:
     - --enable-cache=${enableCache:=}
     - --scratch-dir=${scratchDir:=}
     - --wait-timeout=${waitTimeout:=300}
-    - --mysql-args=${args:=}
-    - --db-version=${dbVersion:=}
-
+    - --mongo-args=${args:=}
+    - --max-concurrency=${maxConcurrency:=3}
+    - --authentication-database=${authenticationDatabase:=admin}

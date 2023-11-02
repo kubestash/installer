@@ -1,9 +1,9 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: mysql-backup-8.0.3
+  name: mysql-backup
 spec:
-  image: ghcr.io/kubestash/mysql:v0.1.0-rc.0_8.0.3
+  image: ghcr.io/kubestash/mysql:v0.1.0-rc.0_${DB_VERSION}
   args:
     - backup
     - --namespace=${namespace:=default}

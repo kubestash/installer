@@ -1,9 +1,9 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: mongodb-restore-5.0.3
+  name: mongodb-restore
 spec:
-  image: ghcr.io/kubestash/mongodb:v0.1.0-rc.0_5.0.3
+  image: ghcr.io/kubestash/mongodb:v0.1.0-rc.0_${DB_VERSION}
   args:
     - restore
     - --namespace=${namespace:=default}
