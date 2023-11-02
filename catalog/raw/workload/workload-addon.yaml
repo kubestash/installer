@@ -8,7 +8,7 @@ spec:
     function: workload-backup
     driver: Restic
     executor: Job
-    singleton: true
+    singleton: false
     parameters:
     - name: paths
       usage: List of file paths to backup.
@@ -45,7 +45,7 @@ spec:
     function: workload-restore
     driver: Restic
     executor: Job
-    singleton: true
+    singleton: false
     parameters:
     - name: exclude
       usage: List of patterns for the files that should be ignored during restore.
