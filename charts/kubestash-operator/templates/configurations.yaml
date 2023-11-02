@@ -22,7 +22,6 @@ data:
     {{- if include "appscode.license" . }}
     license:
       path: /var/run/secrets/appscode/license/key.txt
-      apiService: {{ .Values.licenseApiService }}
     {{- end }}
     webhookInfo:
       validating:
