@@ -25,7 +25,7 @@ spec:
     - name: scratchDir
       usage: Directory for holding temporary files and restic cache.
       required: false
-      default: /kubestash-tmp/data
+      default: /kubestash-tmp
     volumeTemplate:
     - name: interim-volume
       usage: Holds backed up data temporarily before uploading to the backend.
@@ -62,7 +62,7 @@ spec:
     - name: scratchDir
       usage: Directory for holding temporary files and restic cache.
       required: false
-      default: /kubestash-tmp/data
+      default: /kubestash-tmp
     volumeTemplate:
     - name: interim-volume
       usage: Holds backed up data temporarily before dumping to the database.
