@@ -19,6 +19,16 @@ elasticsearch:
   restore:
     # Arguments to pass to `multielasticdump` command during restore process
     args: ""
+opensearch:
+  # If true, deploys Opensearch addon
+  enabled: true
+  # optional argument to send multielasticdump
+  backup:
+    # Arguments to pass to `multielasticdump` command  during backup process
+    args: ""
+  restore:
+    # Arguments to pass to `multielasticdump` command during restore process
+    args: ""
 kubedbmanifest:
   # If true, deploys KubeDBManifest addon
   enabled: true

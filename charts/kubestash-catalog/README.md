@@ -52,6 +52,9 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 | elasticsearch.enabled             | If true, deploys Elasticsearch addon                                                                                            | <code>true</code>    |
 | elasticsearch.backup.args         | Arguments to pass to `multielasticdump` command  during backup process                                                          | <code>""</code>      |
 | elasticsearch.restore.args        | Arguments to pass to `multielasticdump` command during restore process                                                          | <code>""</code>      |
+| opensearch.enabled                | If true, deploys Opensearch addon                                                                                               | <code>true</code>    |
+| opensearch.backup.args            | Arguments to pass to `multielasticdump` command  during backup process                                                          | <code>""</code>      |
+| opensearch.restore.args           | Arguments to pass to `multielasticdump` command during restore process                                                          | <code>""</code>      |
 | kubedbmanifest.enabled            | If true, deploys KubeDBManifest addon                                                                                           | <code>true</code>    |
 | kubedump.enabled                  | If true, deploy kubedump addon                                                                                                  | <code>true</code>    |
 | kubedump.backup.sanitize          | Specify whether to remove the decorator                                                                                         | <code>true</code>    |

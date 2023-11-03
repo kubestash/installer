@@ -92,6 +92,26 @@ properties:
     - enabled
     - restore
     type: object
+  opensearch:
+    description: StashOpensearchSpec is the schema for Stash Opensearch values file
+    properties:
+      backup:
+        properties:
+          args:
+            type: string
+        type: object
+      enabled:
+        type: boolean
+      restore:
+        properties:
+          args:
+            type: string
+        type: object
+    required:
+    - backup
+    - enabled
+    - restore
+    type: object
   proxies:
     properties:
       ghcr:
@@ -148,6 +168,7 @@ required:
 - kubedump
 - mongodb
 - mysql
+- opensearch
 - pvc
 - redis
 - volumesnapshot

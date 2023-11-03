@@ -47,6 +47,7 @@ type KubestashCatalogSpec struct {
 	Proxies        RegistryProxies         `json:"proxies"`
 	WaitTimeout    int64                   `json:"waitTimeout"`
 	Elasticsearch  StashElasticsearchSpec  `json:"elasticsearch"`
+	Opensearch     StashOpensearchSpec     `json:"opensearch"`
 	Kubedbmanifest StashKubedbmanifestSpec `json:"kubedbmanifest"`
 	KubeDump       KubeDumpSpec            `json:"kubedump"`
 	Mongodb        StashMongodbSpec        `json:"mongodb"`
@@ -76,6 +77,23 @@ type ElasticsearchBackup struct {
 }
 
 type ElasticsearchRestore struct {
+	//+optional
+	Args string `json:"args"`
+}
+
+// StashOpensearchSpec is the schema for Stash Opensearch values file
+type StashOpensearchSpec struct {
+	Enabled bool              `json:"enabled"`
+	Backup  OpensearchBackup  `json:"backup"`
+	Restore OpensearchRestore `json:"restore"`
+}
+
+type OpensearchBackup struct {
+	//+optional
+	Args string `json:"args"`
+}
+
+type OpensearchRestore struct {
 	//+optional
 	Args string `json:"args"`
 }
