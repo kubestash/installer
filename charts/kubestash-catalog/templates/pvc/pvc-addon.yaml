@@ -12,25 +12,29 @@ spec:
     function: pvc-backup
     name: PhysicalBackup
     parameters:
-    - name: paths
+    - default: /kubestash-data
+      name: paths
       required: true
       usage: List of file paths to backup.
-    - name: exclude
-      required: false
-      usage: List of patterns for the files that should be ignored during backup.
     - default: "true"
       name: enableCache
       required: false
       usage: Enable or disable caching. Disabling caching may impact backup performance.
-    - default: /kubestash-tmp/data
+    - default: /kubestash-tmp
       name: scratchDir
       required: false
       usage: Directory for holding temporary files and restic cache.
     singleton: true
     volumeMounts:
+    - mountPath: /kubestash-data
+      name: data-volume
     - mountPath: /kubestash-tmp
       name: temp-volume
     volumeTemplate:
+    - name: data-volume
+      source:
+        persistentVolumeClaim:
+          claimName: ${PVC_NAME}
     - name: temp-volume
       source:
         emptyDir: {}
@@ -49,21 +53,43 @@ spec:
     function: pvc-restore
     name: PhysicalBackupRestore
     parameters:
-    - name: exclude
-      required: false
-      usage: List of patterns for the files that should be ignored during restore.
-    - name: include
-      required: false
-      usage: List of patterns for the files that should be restored.
     - default: "true"
       name: enableCache
       required: false
       usage: Enable or disable caching. Disabling caching may impact backup performance.
-    - default: /kubestash-tmp/data
+    - default: /kubestash-tmp
       name: scratchDir
       required: false
       usage: Directory for holding temporary files and restic cache.
     singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-data
+      name: data-volume
+    - mountPath: /kubestash-tmp
+      name: temp-volume
+    volumeTemplate:
+    - name: data-volume
+      source:
+        persistentVolumeClaim:
+          claimName: ${PVC_NAME}
+    - name: temp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+  - driver: Restic
+    executor: Job
+    function: pvc-restore
+    name: volume-clone
+    parameters:
+    - default: "true"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    singleton: false
     volumeMounts:
     - mountPath: /kubestash-tmp
       name: temp-volume
@@ -73,6 +99,7 @@ spec:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
   - driver: VolumeSnapshotter
+    executor: Job
     function: volume-snapshot-restore
     name: VolumeSnapshotRestore
     singleton: true

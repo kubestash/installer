@@ -23,11 +23,17 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
+    - name: data-volume
+      source:
+        persistentVolumeClaim:
+          claimName: ${PVC_NAME}
     - name: temp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
+    - name: data-volume
+      mountPath: /kubestash-data
     - name: temp-volume
       mountPath: /kubestash-tmp
   - name: VolumeSnapshot
@@ -54,14 +60,43 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
+    - name: data-volume
+      source:
+        persistentVolumeClaim:
+          claimName: ${PVC_NAME}
     - name: temp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-      - name: temp-volume
-        mountPath: /kubestash-tmp
+    - name: data-volume
+      mountPath: /kubestash-data
+    - name: temp-volume
+      mountPath: /kubestash-tmp
+  - name: volume-clone
+    function: pvc-restore
+    driver: Restic
+    executor: Job
+    singleton: false
+    parameters:
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp
+    volumeTemplate:
+    - name: temp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: temp-volume
+      mountPath: /kubestash-tmp
   - name: VolumeSnapshotRestore
     function: volume-snapshot-restore
-    singleton: true
     driver: VolumeSnapshotter
+    executor: Job
+    singleton: true
