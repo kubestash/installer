@@ -9,7 +9,7 @@ spec:
   backupTasks:
   - driver: Restic
     executor: Job
-    function: elasticsearch-backup
+    function: opensearch-backup
     name: LogicalBackup
     parameters:
     - default: --match=^(?![.])(?!security-auditlog)(?!kubedb-system).+
@@ -46,7 +46,7 @@ spec:
   restoreTasks:
   - driver: Restic
     executor: Job
-    function: elasticsearch-restore
+    function: opensearch-restore
     name: LogicalBackupRestore
     parameters:
     - default: --match=^(?![.])(?!security-auditlog)(?!kubedb-system).+

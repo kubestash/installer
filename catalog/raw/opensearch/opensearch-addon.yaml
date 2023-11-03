@@ -5,7 +5,7 @@ metadata:
 spec:
   backupTasks:
     - name: LogicalBackup
-      function: elasticsearch-backup
+      function: opensearch-backup
       driver: Restic
       executor: Job
       singleton: true
@@ -42,7 +42,7 @@ spec:
           mountPath: /kubestash-tmp
   restoreTasks:
     - name: LogicalBackupRestore
-      function: elasticsearch-restore
+      function: opensearch-restore
       driver: Restic
       executor: Job
       singleton: true

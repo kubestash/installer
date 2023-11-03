@@ -83,7 +83,19 @@ type ElasticsearchRestore struct {
 
 // StashOpensearchSpec is the schema for Stash Opensearch values file
 type StashOpensearchSpec struct {
-	Enabled bool `json:"enabled"`
+	Enabled bool              `json:"enabled"`
+	Backup  OpensearchBackup  `json:"backup"`
+	Restore OpensearchRestore `json:"restore"`
+}
+
+type OpensearchBackup struct {
+	//+optional
+	Args string `json:"args"`
+}
+
+type OpensearchRestore struct {
+	//+optional
+	Args string `json:"args"`
 }
 
 type StashKubedbmanifestSpec struct {
