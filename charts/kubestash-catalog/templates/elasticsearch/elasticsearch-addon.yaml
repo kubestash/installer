@@ -24,7 +24,7 @@ spec:
       name: enableCache
       required: false
       usage: Enable or disable caching. Disabling caching may impact backup performance.
-    - default: /kubestash-tmp/data
+    - default: /kubestash-tmp
       name: scratchDir
       required: false
       usage: Directory for holding temporary files and restic cache.
@@ -61,7 +61,7 @@ spec:
       name: enableCache
       required: false
       usage: Enable or disable caching. Disabling caching may impact backup performance.
-    - default: /kubestash-tmp/data
+    - default: /kubestash-tmp
       name: scratchDir
       required: false
       usage: Directory for holding temporary files and restic cache.
