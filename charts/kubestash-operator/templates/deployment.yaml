@@ -71,8 +71,8 @@ spec:
         resources:
           {{- toYaml .Values.operator.resources | nindent 10 }}
         volumeMounts:
-        - name: kubestash-temp-dir
-          mountPath: /tmp
+        - name: kubestash-tmp-volume
+          mountPath: /kubestash-tmp
         - name: serving-cert
           mountPath: /var/serving-cert
           readOnly: true
@@ -96,7 +96,7 @@ spec:
         securityContext:
           runAsNonRoot: true
       volumes:
-      - name: kubestash-temp-dir
+      - name: kubestash-tmp-volume
         emptyDir: {}
       - name: serving-cert
         secret:
