@@ -17,7 +17,7 @@ spec:
     - name: interimDataDir
       usage: Directory where data will be stored temporarily before uploading to the backend.
       required: false
-      default: /kubestash-interim-volume/data
+      default: /kubestash-interim/data
     - name: enableCache
       usage: Enable or disable caching. Disabling caching may impact backup performance.
       required: false
@@ -27,18 +27,18 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
-    - name: interim-volume
+    - name: kubestash-interim-volume
       usage: Holds backed up data temporarily before uploading to the backend.
       source:
         emptyDir: {}
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: interim-volume
-      mountPath: /kubestash-interim-volume
-    - name: temp-volume
+    - name: kubestash-interim-volume
+      mountPath: /kubestash-interim
+    - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
   restoreTasks:
   - name: LogicalBackupRestore
@@ -54,7 +54,7 @@ spec:
     - name: interimDataDir
       usage: Specifes the directory where data will be stored temporarily before uploading to the backend.
       required: false
-      default: /kubestash-interim-volume/tmp
+      default: /kubestash-interim/tmp
     - name: enableCache
       usage: Enable or disable caching. Disabling caching may impact backup performance.
       required: false
@@ -64,16 +64,16 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
-    - name: interim-volume
+    - name: kubestash-interim-volume
       usage: Holds backed up data temporarily before dumping to the database.
       source:
         emptyDir: {}
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: interim-volume
-      mountPath: /kubestash-interim-volume
-    - name: temp-volume
+    - name: kubestash-interim-volume
+      mountPath: /kubestash-interim
+    - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp

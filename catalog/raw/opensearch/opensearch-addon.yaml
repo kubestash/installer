@@ -31,14 +31,14 @@ spec:
           usage: Holds backed up data temporarily before uploading to the backend.
           source:
             emptyDir: {}
-        - name: temp-volume
+        - name: kubestash-tmp-volume
           usage: Holds temporary files and restic cache.
           source:
             emptyDir: {}
       volumeMounts:
         - name: interim-volume
           mountPath: /kubestash-interim-volume
-        - name: temp-volume
+        - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp
   restoreTasks:
     - name: LogicalBackupRestore
@@ -68,12 +68,12 @@ spec:
           usage: Holds backed up data temporarily before dumping to the database.
           source:
             emptyDir: {}
-        - name: temp-volume
+        - name: kubestash-tmp-volume
           usage: Holds temporary files and restic cache.
           source:
             emptyDir: {}
       volumeMounts:
         - name: interim-volume
           mountPath: /kubestash-interim-volume
-        - name: temp-volume
+        - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp

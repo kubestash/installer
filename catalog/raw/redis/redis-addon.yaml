@@ -22,12 +22,12 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
   restoreTasks:
   - name: LogicalBackupRestore
@@ -48,10 +48,10 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
