@@ -52,9 +52,9 @@ spec:
       required: false
       default: "--match=^(?![.])(?!apm-agent-configuration)(?!kubedb-system).+"
     - name: interimDataDir
-      usage: Specifes the directory where data will be stored temporarily before uploading to the backend.
+      usage: Specifes the directory where data will be stored temporarily before dumping to the database.
       required: false
-      default: /kubestash-interim/tmp
+      default: /kubestash-interim/data
     - name: enableCache
       usage: Enable or disable caching. Disabling caching may impact backup performance.
       required: false
