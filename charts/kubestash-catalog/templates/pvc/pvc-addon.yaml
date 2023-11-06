@@ -27,15 +27,15 @@ spec:
     singleton: true
     volumeMounts:
     - mountPath: /kubestash-data
-      name: data-volume
+      name: kubestash-data-volume
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: data-volume
+    - name: kubestash-data-volume
       source:
         persistentVolumeClaim:
           claimName: ${PVC_NAME}
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
@@ -64,15 +64,15 @@ spec:
     singleton: true
     volumeMounts:
     - mountPath: /kubestash-data
-      name: data-volume
+      name: kubestash-data-volume
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: data-volume
+    - name: kubestash-data-volume
       source:
         persistentVolumeClaim:
           claimName: ${PVC_NAME}
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
@@ -92,9 +92,9 @@ spec:
     singleton: false
     volumeMounts:
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.

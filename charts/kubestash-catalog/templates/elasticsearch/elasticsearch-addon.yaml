@@ -16,7 +16,7 @@ spec:
       name: args
       required: false
       usage: Arguments to be passed to the dump command.
-    - default: /kubestash-interim-volume/data
+    - default: /kubestash-interim/data
       name: interimDataDir
       required: false
       usage: Directory where data will be stored temporarily before uploading to the backend.
@@ -30,16 +30,16 @@ spec:
       usage: Directory for holding temporary files and restic cache.
     singleton: true
     volumeMounts:
-    - mountPath: /kubestash-interim-volume
-      name: interim-volume
+    - mountPath: /kubestash-interim
+      name: kubestash-interim-volume
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: interim-volume
+    - name: kubestash-interim-volume
       source:
         emptyDir: {}
       usage: Holds backed up data temporarily before uploading to the backend.
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
@@ -53,10 +53,10 @@ spec:
       name: args
       required: false
       usage: Arguments to be passed to the dump command.
-    - default: /kubestash-interim-volume/tmp
+    - default: /kubestash-interim/data
       name: interimDataDir
       required: false
-      usage: Specifes the directory where data will be stored temporarily before uploading to the backend.
+      usage: Specifes the directory where data will be stored temporarily before dumping to the database.
     - default: "true"
       name: enableCache
       required: false
@@ -67,16 +67,16 @@ spec:
       usage: Directory for holding temporary files and restic cache.
     singleton: true
     volumeMounts:
-    - mountPath: /kubestash-interim-volume
-      name: interim-volume
+    - mountPath: /kubestash-interim
+      name: kubestash-interim-volume
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: interim-volume
+    - name: kubestash-interim-volume
       source:
         emptyDir: {}
       usage: Holds backed up data temporarily before dumping to the database.
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
