@@ -29,9 +29,9 @@ spec:
     singleton: false
     volumeMounts:
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
@@ -66,9 +66,9 @@ spec:
     singleton: false
     volumeMounts:
     - mountPath: /kubestash-tmp
-      name: temp-volume
+      name: kubestash-tmp-volume
     volumeTemplate:
-    - name: temp-volume
+    - name: kubestash-tmp-volume
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
