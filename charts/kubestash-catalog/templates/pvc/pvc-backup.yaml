@@ -12,6 +12,7 @@ spec:
   - --backupsession=${backupSession:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
+  - --exclude=${exclude:=}
   - --paths=${paths:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.1.0-rc.0'
 {{ end }}
