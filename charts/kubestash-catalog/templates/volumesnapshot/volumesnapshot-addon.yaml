@@ -1,0 +1,25 @@
+{{ if .Values.volumesnapshot.enabled }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: 'volumesnapshot-addon'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  backupTasks:
+  - driver: VolumeSnapshotter
+    function: volume-snapshot-backup
+    name: VolumeSnapshot
+    parameters:
+    - name: snapshotClassName
+      required: false
+      usage: The VolumeSnapshotClassName to be used by volumeSnapshot
+    singleton: true
+  restoreTasks:
+  - driver: VolumeSnapshotter
+    executor: Job
+    function: volume-snapshot-restore
+    name: VolumeSnapshotRestore
+    singleton: true
+{{ end }}
+
