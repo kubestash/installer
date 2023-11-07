@@ -4,7 +4,7 @@ metadata:
   name: kubedbmanifest-addon
 spec:
   backupTasks:
-  - name: LogicalBackup
+  - name: ManifestBackup
     function: kubedbmanifest-backup
     driver: Restic
     executor: Job
@@ -27,7 +27,7 @@ spec:
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
   restoreTasks:
-  - name: LogicalBackupRestore
+  - name: ManifestRestore
     function: kubedbmanifest-restore
     driver: Restic
     executor: Job

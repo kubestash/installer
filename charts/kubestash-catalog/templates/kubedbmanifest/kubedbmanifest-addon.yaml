@@ -10,7 +10,7 @@ spec:
   - driver: Restic
     executor: Job
     function: kubedbmanifest-backup
-    name: LogicalBackup
+    name: ManifestBackup
     parameters:
     - default: "true"
       name: enableCache
@@ -33,7 +33,7 @@ spec:
   - driver: Restic
     executor: Job
     function: kubedbmanifest-restore
-    name: LogicalBackupRestore
+    name: ManifestRestore
     parameters:
     - default: "true"
       name: enableCache
