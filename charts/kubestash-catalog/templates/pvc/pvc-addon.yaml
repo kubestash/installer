@@ -18,7 +18,7 @@ spec:
       usage: List of file paths to backup.
     - name: exclude
       required: false
-      usage: List of patterns for the files that should be ignored during restore.
+      usage: List of patterns for the files that should be ignored during backup.
     - default: "true"
       name: enableCache
       required: false
