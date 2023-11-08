@@ -32,6 +32,14 @@ spec:
     volumeMounts:
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
+  - name: VolumeSnapshot
+    function: volume-snapshot-backup
+    singleton: true
+    driver: VolumeSnapshotter
+    parameters:
+      - name: snapshotClassName
+        usage: The VolumeSnapshotClassName to be used by volumeSnapshot
+        required: false
   restoreTasks:
   - name: PhysicalBackupRestore
     function: workload-restore

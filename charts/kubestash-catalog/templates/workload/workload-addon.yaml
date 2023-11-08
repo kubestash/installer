@@ -35,6 +35,14 @@ spec:
       source:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
+  - driver: VolumeSnapshotter
+    function: volume-snapshot-backup
+    name: VolumeSnapshot
+    parameters:
+    - name: snapshotClassName
+      required: false
+      usage: The VolumeSnapshotClassName to be used by volumeSnapshot
+    singleton: true
   restoreTasks:
   - driver: Restic
     executor: Job
