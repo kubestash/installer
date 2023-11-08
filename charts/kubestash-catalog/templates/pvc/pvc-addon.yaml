@@ -14,8 +14,11 @@ spec:
     parameters:
     - default: /kubestash-data
       name: paths
-      required: true
+      required: false
       usage: List of file paths to backup.
+    - name: exclude
+      required: false
+      usage: List of patterns for the files that should be ignored during restore.
     - default: "true"
       name: enableCache
       required: false
