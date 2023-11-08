@@ -66,7 +66,7 @@ mysql:
     # Arguments to pass to `mysql` command during restore process
     args: ""
 pvc:
-  # If true, deploys PostgreSQL addon
+  # If true, deploys PVC addon
   enabled: true
 redis:
   # If true, deploys Redis addon
@@ -79,8 +79,8 @@ redis:
     # Arguments to pass to `redis` command during restore process
     args: ""
 volumesnapshot:
-  # If true, deploys NATS addon
+  # If true, deploys VolumeSnapshot addon
   enabled: true
 workload:
-  # If true, deploys ETCD addon
+  # If true, deploys Workload addon
   enabled: true

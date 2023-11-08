@@ -67,12 +67,12 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 | mysql.enabled                     | If true, deploys MySQL addon                                                                                                    | <code>true</code>    |
 | mysql.backup.args                 | Arguments to pass to `mysqldump` command  during bakcup process                                                                 | <code>""</code>      |
 | mysql.restore.args                | Arguments to pass to `mysql` command during restore process                                                                     | <code>""</code>      |
-| pvc.enabled                       | If true, deploys PostgreSQL addon                                                                                               | <code>true</code>    |
+| pvc.enabled                       | If true, deploys PVC addon                                                                                                      | <code>true</code>    |
 | redis.enabled                     | If true, deploys Redis addon                                                                                                    | <code>true</code>    |
 | redis.backup.args                 | Arguments to pass to `redis-dump` command  during bakcup process                                                                | <code>""</code>      |
 | redis.restore.args                | Arguments to pass to `redis` command during restore process                                                                     | <code>""</code>      |
-| volumesnapshot.enabled            | If true, deploys NATS addon                                                                                                     | <code>true</code>    |
-| workload.enabled                  | If true, deploys ETCD addon                                                                                                     | <code>true</code>    |
+| volumesnapshot.enabled            | If true, deploys VolumeSnapshot addon                                                                                           | <code>true</code>    |
+| workload.enabled                  | If true, deploys Workload addon                                                                                                 | <code>true</code>    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
