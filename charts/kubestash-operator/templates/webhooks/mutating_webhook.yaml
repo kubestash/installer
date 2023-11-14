@@ -78,6 +78,27 @@ webhooks:
       service:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
+        path: /mutate-core-kubestash-com-v1alpha1-backupconfiguration
+      caBundle: {{ b64enc .Values.apiserver.ca }}
+    failurePolicy: Fail
+    name: mbackupconfiguration.kb.io
+    rules:
+      - apiGroups:
+          - core.kubestash.com
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - backupconfigurations
+    sideEffects: None
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: {{ include "kubestash-operator.webhookServiceName" . }}
+        namespace: {{ .Release.Namespace }}
         path: /mutate-core-kubestash-com-v1alpha1-hooktemplate
       caBundle: {{ b64enc .Values.apiserver.ca }}
     failurePolicy: Fail
