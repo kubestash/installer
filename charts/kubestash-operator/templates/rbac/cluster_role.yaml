@@ -118,4 +118,10 @@ rules:
       - storage.k8s.io
     resources:
       - storageclasses
-    verbs: [ "get", "watch", "list" ]
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - catalog.kubedb.com
+    resources:
+      - "elasticsearch"
+      - "elasticsearchversions"
+    verbs: [ "get", "list", "watch" ]
