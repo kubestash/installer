@@ -1,9 +1,9 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: redis-backup
+  name: kubedump-backup
 spec:
-  image: ghcr.io/kubestash/redis:v0.1.0-rc.0
+  image: ghcr.io/kubestash/kubedump:v0.1.0-rc.0
   args:
     - backup
     - --namespace=${namespace:=default}
