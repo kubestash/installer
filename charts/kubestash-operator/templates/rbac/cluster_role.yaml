@@ -122,6 +122,10 @@ rules:
   - apiGroups:
       - catalog.kubedb.com
     resources:
-      - "elasticsearch"
-      - "elasticsearchversions"
+      - elasticsearchs
+      - elasticsearchversions
+      - mongodbs
+      - mongodbversions
+      - mysqls
+      - mysqlversions
     verbs: [ "get", "list", "watch" ]
