@@ -123,9 +123,9 @@ rules:
       - catalog.kubedb.com
     resources:
       - elasticsearchs
-      - elasticsearchversions
-      - mongodbs
-      - mongodbversions
-      - mysqls
-      - mysqlversions
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - appcatalog.appscode.com
+    resources:
+      - appbindings
     verbs: [ "get", "list", "watch" ]
