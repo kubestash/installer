@@ -102,9 +102,11 @@ imagePullSecrets:
 {{- end }}
 
 {{- define "image-pull-secrets" -}}
+{{- with .Values.imagePullSecrets -}}
 {{- $secrets:= list -}}
 {{- range $x:=.Values.imagePullSecrets -}}
 {{- $secrets = append $secrets $x.name -}}
 {{- end -}}
 {{- $secrets | join "," | print -}}
+{{- end -}}
 {{- end -}}
