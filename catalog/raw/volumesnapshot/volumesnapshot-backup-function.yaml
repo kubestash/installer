@@ -8,4 +8,4 @@ spec:
   - backup
   - --namespace=${namespace:=default}
   - --backupsession=${backupSession:=}
-  - --snapshot-class-name=${snapshotClassName:=}
+  - --volume-snapshot-class-name=${volumeSnapshotClassName:=}

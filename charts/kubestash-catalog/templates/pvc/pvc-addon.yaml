@@ -43,10 +43,10 @@ spec:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
   - driver: VolumeSnapshotter
-    function: volume-snapshot-backup
+    function: volumesnapshot-backup
     name: VolumeSnapshot
     parameters:
-    - name: snapshotClassName
+    - name: volumeSnapshotClassName
       required: false
       usage: The VolumeSnapshotClassName to be used by volumeSnapshot
     singleton: true
@@ -103,7 +103,7 @@ spec:
       usage: Holds temporary files and restic cache.
   - driver: VolumeSnapshotter
     executor: Job
-    function: volume-snapshot-restore
+    function: volumesnapshot-restore
     name: VolumeSnapshotRestore
     singleton: true
 {{ end }}
