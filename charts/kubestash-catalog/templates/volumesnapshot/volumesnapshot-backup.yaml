@@ -10,7 +10,7 @@ spec:
   - backup
   - --namespace=${namespace:=default}
   - --backupsession=${backupSession:=}
-  - --snapshot-class-name=${snapshotClassName:=}
+  - --volume-snapshot-class-name=${volumeSnapshotClassName:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter") $) }}:v0.1.0-rc.0'
 {{ end }}
 
