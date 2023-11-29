@@ -46,14 +46,8 @@ type KubestashCatalogSpec struct {
 	//+optional
 	Proxies        RegistryProxies         `json:"proxies"`
 	WaitTimeout    int64                   `json:"waitTimeout"`
-	Elasticsearch  StashElasticsearchSpec  `json:"elasticsearch"`
-	Opensearch     StashOpensearchSpec     `json:"opensearch"`
-	Kubedbmanifest StashKubedbmanifestSpec `json:"kubedbmanifest"`
 	KubeDump       KubeDumpSpec            `json:"kubedump"`
-	Mongodb        StashMongodbSpec        `json:"mongodb"`
-	Mysql          StashMysqlSpec          `json:"mysql"`
 	Pvc            StashPvcSpec            `json:"pvc"`
-	Redis          StashRedisSpec          `json:"redis"`
 	Volumesnapshot StashVolumesnapshotSpec `json:"volumesnapshot"`
 	Workload       StashWorkloadSpec       `json:"workload"`
 }
@@ -62,44 +56,6 @@ type RegistryProxies struct {
 	// ghcr.io
 	//+optional
 	GHCR string `json:"ghcr"`
-}
-
-// StashElasticsearchSpec is the schema for Stash Elasticsearch values file
-type StashElasticsearchSpec struct {
-	Enabled bool                 `json:"enabled"`
-	Backup  ElasticsearchBackup  `json:"backup"`
-	Restore ElasticsearchRestore `json:"restore"`
-}
-
-type ElasticsearchBackup struct {
-	//+optional
-	Args string `json:"args"`
-}
-
-type ElasticsearchRestore struct {
-	//+optional
-	Args string `json:"args"`
-}
-
-// StashOpensearchSpec is the schema for Stash Opensearch values file
-type StashOpensearchSpec struct {
-	Enabled bool              `json:"enabled"`
-	Backup  OpensearchBackup  `json:"backup"`
-	Restore OpensearchRestore `json:"restore"`
-}
-
-type OpensearchBackup struct {
-	//+optional
-	Args string `json:"args"`
-}
-
-type OpensearchRestore struct {
-	//+optional
-	Args string `json:"args"`
-}
-
-type StashKubedbmanifestSpec struct {
-	Enabled bool `json:"enabled"`
 }
 
 type KubeDumpSpec struct {
@@ -113,60 +69,8 @@ type KubeDumpBackup struct {
 	IncludeDependants bool   `json:"includeDependants"`
 }
 
-// StashMongodbSpec is the schema for Stash MongoDB values file
-type StashMongodbSpec struct {
-	Enabled        bool           `json:"enabled"`
-	MaxConcurrency int32          `json:"maxConcurrency"`
-	Backup         MongoDBBackup  `json:"backup"`
-	Restore        MongoDBRestore `json:"restore"`
-}
-
-type MongoDBBackup struct {
-	// +optional
-	Args string `json:"args"`
-}
-
-type MongoDBRestore struct {
-	// +optional
-	Args string `json:"args"`
-}
-
-// StashMysqlSpec is the schema for Stash MySQL values file
-type StashMysqlSpec struct {
-	Enabled bool         `json:"enabled"`
-	Backup  MySQLBackup  `json:"backup"`
-	Restore MySQLRestore `json:"restore"`
-}
-
-type MySQLBackup struct {
-	// +optional
-	Args string `json:"args"`
-}
-
-type MySQLRestore struct {
-	// +optional
-	Args string `json:"args"`
-}
-
 type StashPvcSpec struct {
 	Enabled bool `json:"enabled"`
-}
-
-// StashRedisSpec is the schema for Stash Redis values file
-type StashRedisSpec struct {
-	Enabled bool         `json:"enabled"`
-	Backup  RedisBackup  `json:"backup"`
-	Restore RedisRestore `json:"restore"`
-}
-
-type RedisBackup struct {
-	// +optional
-	Args string `json:"args"`
-}
-
-type RedisRestore struct {
-	// +optional
-	Args string `json:"args"`
 }
 
 type StashVolumesnapshotSpec struct {

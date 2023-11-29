@@ -49,28 +49,11 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------|
 | proxies.ghcr                      |                                                                                                                                 | <code>ghcr.io</code> |
 | waitTimeout                       | proxies: ghcr: harbor.appscode.ninja/ghcr Number of seconds to wait for the database to be ready before backup/restore process. | <code>300</code>     |
-| elasticsearch.enabled             | If true, deploys Elasticsearch addon                                                                                            | <code>true</code>    |
-| elasticsearch.backup.args         | Arguments to pass to `multielasticdump` command  during backup process                                                          | <code>""</code>      |
-| elasticsearch.restore.args        | Arguments to pass to `multielasticdump` command during restore process                                                          | <code>""</code>      |
-| opensearch.enabled                | If true, deploys Opensearch addon                                                                                               | <code>true</code>    |
-| opensearch.backup.args            | Arguments to pass to `multielasticdump` command  during backup process                                                          | <code>""</code>      |
-| opensearch.restore.args           | Arguments to pass to `multielasticdump` command during restore process                                                          | <code>""</code>      |
-| kubedbmanifest.enabled            | If true, deploys KubeDBManifest addon                                                                                           | <code>true</code>    |
 | kubedump.enabled                  | If true, deploy kubedump addon                                                                                                  | <code>true</code>    |
 | kubedump.backup.sanitize          | Specify whether to remove the decorator                                                                                         | <code>true</code>    |
 | kubedump.backup.labelSelector     | Specify label selector to filter resources                                                                                      | <code>""</code>      |
 | kubedump.backup.includeDependants | Specify whether to include the dependants resources along with it's parent                                                      | <code>false</code>   |
-| mongodb.enabled                   | If true, deploys MongoDB addon                                                                                                  | <code>true</code>    |
-| mongodb.maxConcurrency            | Maximum concurrency to perform backup or restore tasks                                                                          | <code>3</code>       |
-| mongodb.backup.args               | Arguments to pass to `mongodump` command during backup process                                                                  | <code>""</code>      |
-| mongodb.restore.args              | Arguments to pass to `mongorestore` command during restore process                                                              | <code>""</code>      |
-| mysql.enabled                     | If true, deploys MySQL addon                                                                                                    | <code>true</code>    |
-| mysql.backup.args                 | Arguments to pass to `mysqldump` command  during bakcup process                                                                 | <code>""</code>      |
-| mysql.restore.args                | Arguments to pass to `mysql` command during restore process                                                                     | <code>""</code>      |
 | pvc.enabled                       | If true, deploys PVC addon                                                                                                      | <code>true</code>    |
-| redis.enabled                     | If true, deploys Redis addon                                                                                                    | <code>true</code>    |
-| redis.backup.args                 | Arguments to pass to `redis-dump` command  during bakcup process                                                                | <code>""</code>      |
-| redis.restore.args                | Arguments to pass to `redis` command during restore process                                                                     | <code>""</code>      |
 | volumesnapshot.enabled            | If true, deploys VolumeSnapshot addon                                                                                           | <code>true</code>    |
 | workload.enabled                  | If true, deploys Workload addon                                                                                                 | <code>true</code>    |
 
