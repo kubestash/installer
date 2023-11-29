@@ -10,7 +10,7 @@ spec:
   - driver: Restic
     executor: Job
     function: workload-backup
-    name: PhysicalBackup
+    name: LogicalBackup
     parameters:
     - name: paths
       required: true
@@ -47,7 +47,7 @@ spec:
   - driver: Restic
     executor: Job
     function: workload-restore
-    name: PhysicalBackupRestore
+    name: LogicalBackupRestore
     parameters:
     - name: exclude
       required: false

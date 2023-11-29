@@ -4,7 +4,7 @@ metadata:
   name: workload-addon
 spec:
   backupTasks:
-  - name: PhysicalBackup
+  - name: LogicalBackup
     function: workload-backup
     driver: Restic
     executor: Job
@@ -41,7 +41,7 @@ spec:
       usage: The VolumeSnapshotClassName to be used by volumeSnapshot
       required: false
   restoreTasks:
-  - name: PhysicalBackupRestore
+  - name: LogicalBackupRestore
     function: workload-restore
     driver: Restic
     executor: Job
