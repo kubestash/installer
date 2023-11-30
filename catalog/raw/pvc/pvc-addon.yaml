@@ -4,7 +4,7 @@ metadata:
   name: pvc-addon
 spec:
   backupTasks:
-  - name: PhysicalBackup
+  - name: LogicalBackup
     function: pvc-backup
     driver: Restic
     executor: Job
@@ -48,7 +48,7 @@ spec:
         usage: The VolumeSnapshotClassName to be used by volumeSnapshot
         required: false
   restoreTasks:
-  - name: PhysicalBackupRestore
+  - name: LogicalBackupRestore
     function: pvc-restore
     driver: Restic
     executor: Job

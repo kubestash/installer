@@ -1,32 +1,4 @@
 properties:
-  elasticsearch:
-    description: StashElasticsearchSpec is the schema for Stash Elasticsearch values
-      file
-    properties:
-      backup:
-        properties:
-          args:
-            type: string
-        type: object
-      enabled:
-        type: boolean
-      restore:
-        properties:
-          args:
-            type: string
-        type: object
-    required:
-    - backup
-    - enabled
-    - restore
-    type: object
-  kubedbmanifest:
-    properties:
-      enabled:
-        type: boolean
-    required:
-    - enabled
-    type: object
   kubedump:
     properties:
       backup:
@@ -48,70 +20,6 @@ properties:
     - backup
     - enabled
     type: object
-  mongodb:
-    description: StashMongodbSpec is the schema for Stash MongoDB values file
-    properties:
-      backup:
-        properties:
-          args:
-            type: string
-        type: object
-      enabled:
-        type: boolean
-      maxConcurrency:
-        format: int32
-        type: integer
-      restore:
-        properties:
-          args:
-            type: string
-        type: object
-    required:
-    - backup
-    - enabled
-    - maxConcurrency
-    - restore
-    type: object
-  mysql:
-    description: StashMysqlSpec is the schema for Stash MySQL values file
-    properties:
-      backup:
-        properties:
-          args:
-            type: string
-        type: object
-      enabled:
-        type: boolean
-      restore:
-        properties:
-          args:
-            type: string
-        type: object
-    required:
-    - backup
-    - enabled
-    - restore
-    type: object
-  opensearch:
-    description: StashOpensearchSpec is the schema for Stash Opensearch values file
-    properties:
-      backup:
-        properties:
-          args:
-            type: string
-        type: object
-      enabled:
-        type: boolean
-      restore:
-        properties:
-          args:
-            type: string
-        type: object
-    required:
-    - backup
-    - enabled
-    - restore
-    type: object
   proxies:
     properties:
       ghcr:
@@ -124,26 +32,6 @@ properties:
         type: boolean
     required:
     - enabled
-    type: object
-  redis:
-    description: StashRedisSpec is the schema for Stash Redis values file
-    properties:
-      backup:
-        properties:
-          args:
-            type: string
-        type: object
-      enabled:
-        type: boolean
-      restore:
-        properties:
-          args:
-            type: string
-        type: object
-    required:
-    - backup
-    - enabled
-    - restore
     type: object
   volumesnapshot:
     properties:
@@ -163,14 +51,8 @@ properties:
     - enabled
     type: object
 required:
-- elasticsearch
-- kubedbmanifest
 - kubedump
-- mongodb
-- mysql
-- opensearch
 - pvc
-- redis
 - volumesnapshot
 - waitTimeout
 - workload

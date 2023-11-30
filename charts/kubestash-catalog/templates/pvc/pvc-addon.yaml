@@ -10,7 +10,7 @@ spec:
   - driver: Restic
     executor: Job
     function: pvc-backup
-    name: PhysicalBackup
+    name: LogicalBackup
     parameters:
     - default: /kubestash-data
       name: paths
@@ -54,7 +54,7 @@ spec:
   - driver: Restic
     executor: Job
     function: pvc-restore
-    name: PhysicalBackupRestore
+    name: LogicalBackupRestore
     parameters:
     - default: "true"
       name: enableCache
