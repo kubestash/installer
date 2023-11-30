@@ -84,7 +84,21 @@ func main() {
 		panic(err)
 	}
 
+	/*
+		Key/Value map used to update pg-coordinator and replication mode detector image
+		// MySQL, MongoDB
+		--update-spec=spec.replicationModeDetector.image=_new_image
+		//Postgres
+		--update-spec=spec.coordinator.image=_new_image
+	*/
+	specUpdates := map[string]string{}
+	var apiKind string
+	var objName string
+
 	flag.StringVar(&dir, "dir", dir, "Path to directory where the kubestash/installer project resides (default is set o current directory)")
+	flag.StringVar(&apiKind, "kind", apiKind, "Kind of the CRD")
+	flag.StringVar(&objName, "name", objName, "Name of object used for update-spec")
+	flag.StringToStringVar(&specUpdates, "update-spec", specUpdates, "Key/Value map used to update pg-coordinator and replication mode detector image")
 
 	flag.CommandLine.AddGoFlagSet(goflag.CommandLine)
 	flag.Parse()
@@ -110,8 +124,36 @@ func main() {
 
 	var buf bytes.Buffer
 
-	for _, ri := range resources {
-		obj := ri.Object.DeepCopy()
+	for idx, ri := range resources {
+		obj := ri.Object
+
+		var modified bool
+		for jp, val := range specUpdates {
+			if apiKind == "" ||
+				(apiKind == obj.GetKind() && (objName == "" || objName == obj.GetName())) {
+				if _, ok, _ := unstructured.NestedFieldNoCopy(obj.Object, strings.Split(jp, ".")...); ok {
+					err = unstructured.SetNestedField(obj.Object, val, strings.Split(jp, ".")...)
+					if err != nil {
+						panic(fmt.Sprintf("failed to set %s to %s in group=%s,kind=%s,name=%s", jp, val, ri.Object.GetAPIVersion(), ri.Object.GetKind(), ri.Object.GetName()))
+					}
+					modified = true
+					resources[idx].Object = obj
+				}
+			}
+		}
+
+		obj = ri.Object.DeepCopy()
+		if modified {
+			obj.SetNamespace("")
+			data, err := yaml.Marshal(obj)
+			if err != nil {
+				panic(err)
+			}
+			err = os.WriteFile(ri.Filename, data, 0o644)
+			if err != nil {
+				panic(err)
+			}
+		}
 
 		app := obj.GetName()
 		if idx := strings.IndexRune(app, '-'); idx != -1 {
@@ -160,53 +202,6 @@ func main() {
 			for i := range args {
 				if strings.HasPrefix(args[i], "--wait-timeout=") {
 					args[i] = `--wait-timeout=${waitTimeout:={{ .Values.waitTimeout}}}`
-				}
-
-				switch app {
-				case "elasticsearch":
-					if strings.HasPrefix(args[i], "--es-args=") {
-						args[i] = fmt.Sprintf(`--es-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-				case "opensearch":
-					if strings.HasPrefix(args[i], "--os-args=") {
-						args[i] = fmt.Sprintf(`--os-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-				case "mariadb":
-					if strings.HasPrefix(args[i], "--mariadb-args=") {
-						args[i] = fmt.Sprintf(`--mariadb-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-
-				case "mongodb":
-					if strings.HasPrefix(args[i], "--mongo-args=") {
-						args[i] = fmt.Sprintf(`--mongo-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-					// --max-concurrency=${MAX_CONCURRENCY:={{ .Values.maxConcurrency}}}
-					if strings.HasPrefix(args[i], "--max-concurrency=") {
-						args[i] = fmt.Sprintf(`--max-concurrency=${maxConcurrency:={{ .Values.%s.maxConcurrency}}}`, app)
-					}
-
-				case "mysql":
-					if strings.HasPrefix(args[i], "--mysql-args=") {
-						args[i] = fmt.Sprintf(`--mysql-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-
-				case "perconaxtradb":
-					if strings.HasPrefix(args[i], "--xtradb-args=") {
-						args[i] = fmt.Sprintf(`--xtradb-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-					//
-					if strings.HasPrefix(args[i], "--target-app-replicas=") {
-						args[i] = fmt.Sprintf(`--target-app-replicas=${TARGET_APP_REPLICAS:={{ .Values.%s.restore.targetAppReplicas }}}`, app)
-					}
-
-				case "postgres":
-					if strings.HasPrefix(args[i], "--pg-args=") {
-						args[i] = fmt.Sprintf(`--pg-args=${args:={{ .Values.%s.args }}}`, app)
-					}
-				case "redis":
-					if strings.HasPrefix(args[i], "--redis-args=") {
-						args[i] = fmt.Sprintf(`--redis-args=${args:={{ .Values.%s.args }}}`, app)
-					}
 				}
 			}
 
