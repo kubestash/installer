@@ -3,7 +3,6 @@ kind: Function
 metadata:
   name: pvc-restore
 spec:
-  image: ghcr.io/kubestash/pvc:v0.1.0-rc.0
   args:
   - restore
   - --namespace=${namespace:=default}
@@ -11,3 +10,4 @@ spec:
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
+  image: ghcr.io/kubestash/pvc:v0.1.0

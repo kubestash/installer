@@ -3,7 +3,6 @@ kind: Function
 metadata:
   name: workload-backup
 spec:
-  image: ghcr.io/kubestash/workload:v0.1.0-rc.0
   args:
   - backup
   - --namespace=${namespace:=default}
@@ -12,3 +11,4 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --paths=${paths:=}
   - --exclude=${exclude:=}
+  image: ghcr.io/kubestash/workload:v0.1.0
