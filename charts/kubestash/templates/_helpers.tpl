@@ -76,6 +76,13 @@ Returns the registry used for operator docker image
 {{- end }}
 
 {{/*
+Returns the registry used for kube-rbac-proxy docker image
+*/}}
+{{- define "rbacproxy.registry" -}}
+{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.rbacproxy.registry .Values.global.registry) | compact | join "/" }}
+{{- end }}
+
+{{/*
 Returns the registry used for catalog docker images
 */}}
 {{- define "catalog.registry" -}}

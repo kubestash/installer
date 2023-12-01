@@ -1,0 +1,8 @@
+# https://github.com/helm/charts/blob/master/test/README.md#providing-custom-test-values
+global:
+  license: ""
+kubestash-operator:
+  operator:
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault

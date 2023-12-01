@@ -373,6 +373,7 @@ func (in *KubestashOperatorList) DeepCopyObject() runtime.Object {
 func (in *KubestashOperatorSpec) DeepCopyInto(out *KubestashOperatorSpec) {
 	*out = *in
 	in.Operator.DeepCopyInto(&out.Operator)
+	out.RbacProxy = in.RbacProxy
 	out.Cleaner = in.Cleaner
 	if in.ImagePullSecrets != nil {
 		in, out := &in.ImagePullSecrets, &out.ImagePullSecrets

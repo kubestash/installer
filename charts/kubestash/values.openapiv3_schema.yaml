@@ -1277,6 +1277,19 @@ properties:
                 type: string
             type: object
         type: object
+      rbacproxy:
+        properties:
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - registry
+        - repository
+        - tag
+        type: object
       registryFQDN:
         type: string
       replicaCount:
@@ -1354,6 +1367,7 @@ properties:
     - imagePullPolicy
     - monitoring
     - operator
+    - rbacproxy
     - registryFQDN
     - replicaCount
     - security

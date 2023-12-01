@@ -50,6 +50,7 @@ type KubestashOperatorSpec struct {
 	RegistryFQDN     string       `json:"registryFQDN"`
 	ReplicaCount     int32        `json:"replicaCount"`
 	Operator         ContianerRef `json:"operator"`
+	RbacProxy        ImageRef     `json:"rbacproxy"`
 	Cleaner          CleanerRef   `json:"cleaner"`
 	ImagePullPolicy  string       `json:"imagePullPolicy"`
 	//+optional
