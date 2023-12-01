@@ -103,10 +103,7 @@ imagePullSecrets:
 
 {{- define "image-pull-secrets" -}}
 {{- with .Values.imagePullSecrets -}}
-{{- $secrets:= list -}}
-{{- range $x:=.Values.imagePullSecrets -}}
-{{- $secrets = append $secrets $x.name -}}
-{{- end -}}
-{{- $secrets | join "," | print -}}
+imagePullSecrets:
+{{- toYaml . | nindent 2 }}
 {{- end -}}
 {{- end -}}
