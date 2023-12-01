@@ -69,6 +69,19 @@ Returns the appscode license
 {{- end }}
 
 {{/*
+Returns the appscode license secret name
+*/}}
+{{- define "appscode.licenseSecretName" -}}
+{{- if .Values.licenseSecretName }}
+{{- .Values.licenseSecretName -}}
+{{- else if .Values.global.licenseSecretName }}
+{{- .Values.global.licenseSecretName -}}
+{{- else if (default .Values.global.license .Values.license) }}
+{{- printf "%s-license" (include "kubestash.fullname" .) -}}
+{{- end }}
+{{- end }}
+
+{{/*
 Returns the registry used for operator docker image
 */}}
 {{- define "operator.registry" -}}

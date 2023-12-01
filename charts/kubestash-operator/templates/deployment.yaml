@@ -41,6 +41,9 @@ spec:
         args:
           - run
           - --config=/var/config/config.yaml
+        {{- if include "appscode.licenseSecretName" . }}
+          - --license-file=/var/run/secrets/appscode/license/key.txt
+        {{- end }}
         ports:
         - name: webhook-server
           containerPort: 9443
@@ -78,7 +81,7 @@ spec:
           readOnly: true
         - name: config
           mountPath: /var/config
-        {{- if include "appscode.license" . }}
+        {{- if include "appscode.licenseSecretName" . }}
         - mountPath: /var/run/secrets/appscode/license
           name: license
         {{- end }}
@@ -105,11 +108,11 @@ spec:
       - name: config
         configMap:
           name: {{ include "kubestash-operator.fullname" . }}-config
-      {{- if include "appscode.license" . }}
+      {{- if include "appscode.licenseSecretName" . }}
       - name: license
         secret:
           defaultMode: 420
-          secretName: {{ include "kubestash-operator.fullname" . }}-license
+          secretName: {{ include "appscode.licenseSecretName" . }}
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
