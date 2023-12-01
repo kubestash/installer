@@ -20,12 +20,6 @@ spec:
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
-    - jsonPath: .spec.appRef.Kind/.spec.appRef.name
-      name: App
-      type: string
-    - jsonPath: .spec.storageRef.namespace/.spec.storageRef.name
-      name: BackupStorage
-      type: string
     - jsonPath: .status.integrity
       name: Integrity
       type: boolean
@@ -133,6 +127,7 @@ spec:
               integrity:
                 type: boolean
               lastBackupTime:
+                format: date-time
                 type: string
               phase:
                 enum:

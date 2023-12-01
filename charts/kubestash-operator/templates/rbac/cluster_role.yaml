@@ -84,7 +84,7 @@ rules:
       - ""
     resources:
       - secrets
-    verbs: ["get", "list", "create", "patch", "watch"]
+    verbs: ["get", "list", "create", "patch", "watch", "delete"]
   - apiGroups:
       - batch
     resources:

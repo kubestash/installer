@@ -23,6 +23,7 @@ data:
     license:
       path: /var/run/secrets/appscode/license/key.txt
     {{- end }}
+    {{- include "image-pull-secrets" . | nindent 4 }}
     webhookInfo:
       validating:
         enable: {{ .Values.apiserver.enableValidatingWebhook }}
