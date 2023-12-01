@@ -3,7 +3,6 @@ kind: Function
 metadata:
   name: pvc-backup
 spec:
-  image: ghcr.io/kubestash/pvc:v0.1.0-rc.0
   args:
   - backup
   - --namespace=${namespace:=default}
@@ -12,3 +11,4 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --exclude=${exclude:=}
   - --paths=${paths:=}
+  image: ghcr.io/kubestash/pvc:v0.1.0

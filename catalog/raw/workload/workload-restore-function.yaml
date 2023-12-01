@@ -3,7 +3,6 @@ kind: Function
 metadata:
   name: workload-restore
 spec:
-  image: ghcr.io/kubestash/workload:v0.1.0-rc.0
   args:
   - restore
   - --namespace=${namespace:=default}
@@ -13,3 +12,4 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --exclude=${exclude:=}
   - --include=${include:=}
+  image: ghcr.io/kubestash/workload:v0.1.0
