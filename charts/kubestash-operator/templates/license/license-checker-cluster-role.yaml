@@ -11,7 +11,7 @@ rules:
   - ""
   resources:
   - namespaces
-  verbs: ["get"]
+  verbs: ["get", "list", "watch"]
 # Issue license
 - apiGroups:
   - proxyserver.licenses.appscode.com
@@ -36,3 +36,9 @@ rules:
   resources:
   - events
   verbs: ["get", "list", "create", "patch"]
+# audit site info
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs: ["get", "list", "watch"]
