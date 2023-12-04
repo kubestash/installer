@@ -34,7 +34,7 @@ data:
     docker:
       registry: {{ include "operator.registry" . }}
       image: {{ .Values.operator.repository }}
-      tag: {{ .Values.operator.tag }}
+      tag: {{ .Values.operator.tag | default .Chart.AppVersion }}
     netVolAccessor:
       cpu: {{ .Values.netVolAccessor.cpu }}
       memory: {{ .Values.netVolAccessor.memory }}
