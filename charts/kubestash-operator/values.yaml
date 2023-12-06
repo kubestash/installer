@@ -31,14 +31,16 @@ operator:
   resources: # +doc-gen:break
     requests:
       cpu: "100m"
-  # Security options the operator container should run with
-  securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+  # Security options this container should run with
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    # seccompProfile:
+    #   type: RuntimeDefault
 
 rbacproxy:
   # Docker registry used to pull operator image
@@ -47,6 +49,16 @@ rbacproxy:
   repository: kube-rbac-proxy
   # Operator container image tag
   tag: v0.11.0
+  # Security options this container should run with
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    # seccompProfile:
+    #   type: RuntimeDefault
 
 cleaner:
   # Docker registry used to pull Webhook cleaner image
@@ -57,6 +69,17 @@ cleaner:
   tag: v1.24
   # Skip generating cleaner YAML
   skip: false
+  # Security options this container should run with
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    # seccompProfile:
+    #   type: RuntimeDefault
+
 # Specify an array of imagePullSecrets.
 # Secrets must be manually created in the namespace.
 #

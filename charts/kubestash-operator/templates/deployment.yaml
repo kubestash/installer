@@ -34,10 +34,10 @@ spec:
       serviceAccountName: {{ include "kubestash-operator.serviceAccountName" . }}
       containers:
       - name: operator
-        securityContext:
-          {{- toYaml .Values.operator.securityContext | nindent 10 }}
         image: "{{ include "operator.registry" . }}/{{ .Values.operator.repository }}:{{ .Values.operator.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        securityContext:
+          {{- toYaml .Values.operator.securityContext | nindent 10 }}
         args:
           - run
           - --config=/var/config/config.yaml
@@ -87,6 +87,8 @@ spec:
         {{- end }}
       - name: kube-rbac-proxy
         image: "{{ include "rbacproxy.registry" . }}/{{ .Values.rbacproxy.repository }}:{{ .Values.rbacproxy.tag }}"
+        securityContext:
+          {{- toYaml .Values.rbacproxy.securityContext | nindent 10 }}
         args:
         - --secure-listen-address=0.0.0.0:8443
         - --upstream=http://127.0.0.1:8080/
@@ -96,8 +98,6 @@ spec:
         - containerPort: 8443
           name: https
           protocol: TCP
-        securityContext:
-          runAsNonRoot: true
       volumes:
       - name: kubestash-tmp-volume
         emptyDir: {}
