@@ -6,3 +6,11 @@ kubestash-operator:
     securityContext:
       seccompProfile:
         type: RuntimeDefault
+  rbacproxy:
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+  cleaner:
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
