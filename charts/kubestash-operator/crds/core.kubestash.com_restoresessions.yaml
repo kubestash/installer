@@ -8401,7 +8401,41 @@ spec:
                 type: object
               manifestOptions:
                 properties:
+                  mariaDB:
+                    properties:
+                      authSecret:
+                        type: boolean
+                      authSecretName:
+                        type: string
+                      configSecret:
+                        type: boolean
+                      configSecretName:
+                        type: string
+                      db:
+                        type: boolean
+                      dbName:
+                        type: string
+                      issuerRefName:
+                        type: string
+                    type: object
                   mongoDB:
+                    properties:
+                      authSecret:
+                        type: boolean
+                      authSecretName:
+                        type: string
+                      configSecret:
+                        type: boolean
+                      configSecretName:
+                        type: string
+                      db:
+                        type: boolean
+                      dbName:
+                        type: string
+                      issuerRefName:
+                        type: string
+                    type: object
+                  mySQL:
                     properties:
                       authSecret:
                         type: boolean
