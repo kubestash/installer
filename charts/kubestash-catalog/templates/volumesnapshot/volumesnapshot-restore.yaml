@@ -12,6 +12,7 @@ spec:
   - --restoresession=${restoreSession:=}
   - --snapshot=${snapshot:=}
   - --task-name=${taskName:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter") $) }}:v0.2.0'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter")
+    $) }}:v0.2.0'
 {{ end }}
 
