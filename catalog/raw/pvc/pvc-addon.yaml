@@ -4,7 +4,7 @@ metadata:
   name: pvc-addon
 spec:
   backupTasks:
-  - name: LogicalBackup
+  - name: logical-backup
     function: pvc-backup
     driver: Restic
     executor: Job
@@ -39,7 +39,7 @@ spec:
       mountPath: /kubestash-data
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
-  - name: VolumeSnapshot
+  - name: volume-snapshot
     function: volumesnapshot-backup
     singleton: true
     driver: VolumeSnapshotter
@@ -48,7 +48,7 @@ spec:
         usage: The VolumeSnapshotClassName to be used by volumeSnapshot
         required: false
   restoreTasks:
-  - name: LogicalBackupRestore
+  - name: logical-backup-restore
     function: pvc-restore
     driver: Restic
     executor: Job
@@ -98,7 +98,7 @@ spec:
     volumeMounts:
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
-  - name: VolumeSnapshotRestore
+  - name: volume-snapshot-restore
     function: volumesnapshot-restore
     driver: VolumeSnapshotter
     executor: Job

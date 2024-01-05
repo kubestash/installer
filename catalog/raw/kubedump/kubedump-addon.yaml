@@ -4,7 +4,7 @@ metadata:
   name: kubedump-addon
 spec:
   backupTasks:
-  - name: LogicalBackup
+  - name: logical-backup
     function: kubedump-backup
     driver: Restic
     executor: Job
