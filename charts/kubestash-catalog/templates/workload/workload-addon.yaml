@@ -10,7 +10,7 @@ spec:
   - driver: Restic
     executor: Job
     function: workload-backup
-    name: LogicalBackup
+    name: logical-backup
     parameters:
     - name: paths
       required: true
@@ -37,7 +37,7 @@ spec:
       usage: Holds temporary files and restic cache.
   - driver: VolumeSnapshotter
     function: volumesnapshot-backup
-    name: VolumeSnapshot
+    name: volume-snapshot
     parameters:
     - name: volumeSnapshotClassName
       required: false
@@ -47,7 +47,7 @@ spec:
   - driver: Restic
     executor: Job
     function: workload-restore
-    name: LogicalBackupRestore
+    name: logical-backup-restore
     parameters:
     - name: exclude
       required: false
