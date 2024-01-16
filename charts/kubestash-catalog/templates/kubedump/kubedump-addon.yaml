@@ -10,7 +10,7 @@ spec:
   - driver: Restic
     executor: Job
     function: kubedump-backup
-    name: logical-backup
+    name: manifest-backup
     parameters:
     - default: "true"
       name: enableCache
