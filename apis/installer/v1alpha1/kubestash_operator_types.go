@@ -64,6 +64,8 @@ type KubestashOperatorSpec struct {
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
+	PodLabels map[string]string `json:"podLabels"`
+	//+optional
 	NodeSelector map[string]string `json:"nodeSelector"`
 	// If specified, the pod's tolerations.
 	// +optional

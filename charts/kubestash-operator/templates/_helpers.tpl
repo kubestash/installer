@@ -49,6 +49,9 @@ Selector labels
 {{- define "kubestash-operator.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "kubestash-operator.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- with .Values.podLabels }}
+{{- toYaml . | nindent 0 }}
+{{- end -}}
 {{- end -}}
 
 {{/*
