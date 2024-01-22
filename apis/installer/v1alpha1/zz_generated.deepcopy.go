@@ -394,6 +394,13 @@ func (in *KubestashOperatorSpec) DeepCopyInto(out *KubestashOperatorSpec) {
 			(*out)[key] = val
 		}
 	}
+	if in.PodLabels != nil {
+		in, out := &in.PodLabels, &out.PodLabels
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	if in.NodeSelector != nil {
 		in, out := &in.NodeSelector, &out.NodeSelector
 		*out = make(map[string]string, len(*in))

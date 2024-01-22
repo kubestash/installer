@@ -98,6 +98,8 @@ logLevel: 3
 annotations: {}
 # Annotations passed to operator pod(s).
 podAnnotations: {}
+# Labels passed to operator pod(s)
+podLabels: {}
 # Node labels for pod assignment
 nodeSelector: # +doc-gen:break
   kubernetes.io/os: linux
