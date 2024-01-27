@@ -13,6 +13,6 @@ spec:
   - --snapshot=${snapshot:=}
   - --task-name=${taskName:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter")
-    $) }}:v0.3.0-rc.0'
+    $) }}:v0.3.0-rc.1'
 {{ end }}
 
