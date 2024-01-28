@@ -11,4 +11,4 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --exclude=${exclude:=}
   - --paths=${paths:=}
-  image: ghcr.io/kubestash/pvc:v0.3.0-rc.1
+  image: ghcr.io/kubestash/pvc:v0.3.0-rc.2
