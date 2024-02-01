@@ -2,8 +2,8 @@ apiVersion: v2
 description: KubeStash by AppsCode - Backup your Kubernetes native applications
 name: kubestash
 type: application
-version: v2024.1.28-rc.2
-appVersion: v2024.1.28-rc.2
+version: v2024.1.31
+appVersion: v2024.1.31
 home: https://kubestash.com
 icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
 sources:
@@ -14,7 +14,7 @@ maintainers:
 dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
-  version: v0.4.0-rc.2
+  version: v0.4.0
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
-  version: v2024.1.28-rc.2
+  version: v2024.1.31
