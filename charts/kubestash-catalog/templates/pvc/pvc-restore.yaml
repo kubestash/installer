@@ -13,6 +13,6 @@ spec:
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.3.0'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.4.0'
 {{ end }}
 

@@ -131,6 +131,9 @@ spec:
                             type: string
                           volumeSnapshotName:
                             type: string
+                          volumeSnapshotTime:
+                            format: date-time
+                            type: string
                         type: object
                       type: array
                     walSegments:
