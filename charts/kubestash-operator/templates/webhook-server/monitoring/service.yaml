@@ -1,3 +1,4 @@
+{{- if or .Values.apiserver.enableMutatingWebhook .Values.apiserver.enableValidatingWebhook }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -22,3 +23,4 @@ spec:
     targetPort: https
   selector:
     {{- include "kubestash-operator.selectorLabels" . | nindent 4 }}
+{{ end }}

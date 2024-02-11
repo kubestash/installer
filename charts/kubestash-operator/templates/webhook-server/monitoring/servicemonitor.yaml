@@ -1,3 +1,4 @@
+{{- if or .Values.apiserver.enableMutatingWebhook .Values.apiserver.enableValidatingWebhook }}
 {{- if and (eq .Values.monitoring.agent "prometheus.io/operator") (or .Values.monitoring.backup .Values.monitoring.operator) }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -28,8 +29,9 @@ spec:
     tlsConfig:
       ca:
         secret:
-          name: {{ include "kubestash-operator.fullname" . }}-apiserver-cert
+          name: {{ include "kubestash-operator.fullname" . }}-webhook-cert
           key: tls.crt
       serverName: "{{ include "kubestash-operator.fullname" . }}.{{ .Release.Namespace }}.svc"
   {{- end }}
 {{- end }}
+{{ end }}
