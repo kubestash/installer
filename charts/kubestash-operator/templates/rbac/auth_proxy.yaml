@@ -1,3 +1,5 @@
+{{- if or .Values.apiserver.enableMutatingWebhook .Values.apiserver.enableValidatingWebhook }}
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -28,3 +30,5 @@ subjects:
   - kind: ServiceAccount
     name: {{ include "kubestash-operator.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
+
+{{ end }}
