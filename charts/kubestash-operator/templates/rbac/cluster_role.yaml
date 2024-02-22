@@ -130,3 +130,8 @@ rules:
     resources:
       - appbindings
     verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - elasticsearch.kubedb.com
+    resources:
+      - elasticsearchdashboards
+    verbs: ["list"]
