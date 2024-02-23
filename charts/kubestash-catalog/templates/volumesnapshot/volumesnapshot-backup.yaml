@@ -12,6 +12,6 @@ spec:
   - --backupsession=${backupSession:=}
   - --volume-snapshot-class-name=${volumeSnapshotClassName:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter")
-    $) }}:v0.4.0'
+    $) }}:v0.5.0'
 {{ end }}
 
