@@ -20,6 +20,18 @@ spec:
       name: scratchDir
       required: false
       usage: Directory for holding temporary files and restic cache.
+    - default: "true"
+      name: sanitize
+      required: false
+      usage: Specify whether to remove the decorators from the resource YAML.
+    - default: "false"
+      name: includeDependants
+      required: false
+      usage: Specify whether to backup the dependants object along with their parent.
+    - default: ""
+      name: labelSelector
+      required: false
+      usage: Specify a label selector to filter the resources.
     singleton: true
     volumeMounts:
     - mountPath: /kubestash-tmp

@@ -18,6 +18,18 @@ spec:
       usage: Directory for holding temporary files and restic cache.
       required: false
       default: /kubestash-tmp
+    - name: sanitize
+      default: "true"
+      usage: Specify whether to remove the decorators from the resource YAML.
+      required: false
+    - name: includeDependants
+      default: "false"
+      usage: Specify whether to backup the dependants object along with their parent.
+      required: false
+    - name: labelSelector
+      default: ""
+      usage: Specify a label selector to filter the resources.
+      required: false
     volumeTemplate:
     - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
