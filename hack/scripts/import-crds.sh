@@ -57,3 +57,7 @@ crd-importer --no-description \
 crd-importer --no-description \
     --input=${crd_dir} \
     --out=./charts/kubestash-operator/crds
+
+crd-importer \
+    --input=https://github.com/kmodules/custom-resources/raw/v0.29.1/crds/metrics.appscode.com_metricsconfigurations.yaml \
+    --out=./charts/kubestash-metrics/crds

@@ -1,6 +1,6 @@
 # KubeStash
 
-[KubeStash by AppsCode](https://github.com/stashed/kubestash) - Backup your Kubernetes native applications
+[KubeStash by AppsCode](https://github.com/kubestash) - Backup your Kubernetes native applications
 
 ## TL;DR;
 
