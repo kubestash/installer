@@ -1,7 +1,7 @@
 project:
   name: KubeStash by AppsCode
   shortName: KubeStash
-  url: https://github.com/stashed/kubestash
+  url: https://github.com/kubestash
   description: Backup your Kubernetes native applications
   app: Backup operator
 repository:

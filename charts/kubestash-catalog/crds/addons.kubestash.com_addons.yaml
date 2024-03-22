@@ -71,26 +71,6 @@ spec:
                             type: string
                         type: object
                       type: array
-                    passThroughMounts:
-                      items:
-                        properties:
-                          mountPath:
-                            type: string
-                          mountPropagation:
-                            type: string
-                          name:
-                            type: string
-                          readOnly:
-                            type: boolean
-                          subPath:
-                            type: string
-                          subPathExpr:
-                            type: string
-                        required:
-                        - mountPath
-                        - name
-                        type: object
-                      type: array
                     singleton:
                       type: boolean
                     volumeMounts:
@@ -1049,26 +1029,6 @@ spec:
                             type: boolean
                           usage:
                             type: string
-                        type: object
-                      type: array
-                    passThroughMounts:
-                      items:
-                        properties:
-                          mountPath:
-                            type: string
-                          mountPropagation:
-                            type: string
-                          name:
-                            type: string
-                          readOnly:
-                            type: boolean
-                          subPath:
-                            type: string
-                          subPathExpr:
-                            type: string
-                        required:
-                        - mountPath
-                        - name
                         type: object
                       type: array
                     singleton:

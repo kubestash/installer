@@ -4985,12 +4985,6 @@ spec:
                                 type: object
                               type: array
                           type: object
-                        failurePolicy:
-                          default: Fail
-                          enum:
-                          - Fail
-                          - Retry
-                          type: string
                         hooks:
                           properties:
                             postBackup:
@@ -8922,6 +8916,7 @@ spec:
                             type: object
                           type: array
                         retryConfig:
+                          default: Fail
                           properties:
                             delay:
                               type: string
@@ -11464,50 +11459,6 @@ spec:
                           type: integer
                         timeout:
                           type: string
-                        verificationStrategies:
-                          items:
-                            properties:
-                              name:
-                                type: string
-                              onFailure:
-                                enum:
-                                - Fail
-                                - Retry
-                                type: string
-                              params:
-                                type: object
-                                x-kubernetes-preserve-unknown-fields: true
-                              repository:
-                                type: string
-                              retryConfig:
-                                properties:
-                                  delay:
-                                    type: string
-                                  maxRetry:
-                                    default: 1
-                                    format: int32
-                                    minimum: 1
-                                    type: integer
-                                type: object
-                              verifier:
-                                properties:
-                                  apiGroup:
-                                    type: string
-                                  kind:
-                                    type: string
-                                  name:
-                                    type: string
-                                  namespace:
-                                    type: string
-                                required:
-                                - name
-                                type: object
-                              verifyEvery:
-                                format: int32
-                                minimum: 1
-                                type: integer
-                            type: object
-                          type: array
                       type: object
                     type: array
                 type: object
