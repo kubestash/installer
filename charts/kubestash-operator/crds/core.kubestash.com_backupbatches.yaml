@@ -3969,7 +3969,6 @@ spec:
                     name:
                       type: string
                     retryConfig:
-                      default: Fail
                       properties:
                         delay:
                           type: string

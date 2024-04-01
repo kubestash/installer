@@ -8918,7 +8918,6 @@ spec:
                         type: object
                       type: array
                     retryConfig:
-                      default: Fail
                       properties:
                         delay:
                           type: string
