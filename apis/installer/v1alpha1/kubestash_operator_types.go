@@ -102,6 +102,14 @@ type ImageRef struct {
 type CleanerRef struct {
 	ImageRef `json:",inline"`
 	Skip     bool `json:"skip"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector"`
+	// If specified, the pod's tolerations.
+	// +optional
+	Tolerations []core.Toleration `json:"tolerations"`
+	// If specified, the pod's scheduling constraints
+	// +optional
+	Affinity *core.Affinity `json:"affinity"`
 }
 
 type ContianerRef struct {

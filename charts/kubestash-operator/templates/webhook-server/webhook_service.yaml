@@ -9,6 +9,7 @@ metadata:
 spec:
   selector:
     {{- include "kubestash-operator.selectorLabels" . | nindent 4 }}
+    component: webhook-server
   ports:
   - port: 443
     protocol: TCP
