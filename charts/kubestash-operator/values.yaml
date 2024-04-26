@@ -79,6 +79,13 @@ cleaner:
     runAsUser: 65534
     # seccompProfile:
     #   type: RuntimeDefault
+  # Node labels for pod assignment
+  nodeSelector: # +doc-gen:break
+    kubernetes.io/os: linux
+  # Tolerations for pod assignment
+  tolerations: []
+  # Affinity rules for pod assignment
+  affinity: {}
 
 # Specify an array of imagePullSecrets.
 # Secrets must be manually created in the namespace.
