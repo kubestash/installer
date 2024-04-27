@@ -5,5 +5,8 @@ dependencies:
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
   version: v2024.3.16
-digest: sha256:f1a15da501a233247a3eec3501498e597b7bf0de35c4590b50914ad03256e992
-generated: "2024-03-16T15:27:46.624312887Z"
+- name: kubestash-metrics
+  repository: file://../kubestash-metrics
+  version: v2024.3.16
+digest: sha256:9c8f966ba954daa3b23091262583f88a5c330dc38afc12588a8904f04a8da641
+generated: "2024-03-22T04:57:05.081717768Z"

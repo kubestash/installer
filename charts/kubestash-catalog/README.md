@@ -1,6 +1,6 @@
-# Stash Catalog
+# KubeStash Catalog
 
-[Stash Catalog](https://github.com/stashed) - Catalog of Stash Addons
+[KubeStash Catalog](https://github.com/kubestash) - Catalog of KubeStash Addons
 
 ## TL;DR;
 
@@ -8,12 +8,12 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/kubestash-catalog --version=v2024.3.16
-$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n stash --create-namespace --version=v2024.3.16
+$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n kubestash --create-namespace --version=v2024.3.16
 ```
 
 ## Introduction
 
-This chart deploys Stash catalog on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys KubeStash catalog on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ This chart deploys Stash catalog on a [Kubernetes](http://kubernetes.io) cluster
 To install/upgrade the chart with the release name `kubestash-catalog`:
 
 ```bash
-$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n stash --create-namespace --version=v2024.3.16
+$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n kubestash --create-namespace --version=v2024.3.16
 ```
 
-The command deploys Stash catalog on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys KubeStash catalog on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
@@ -36,7 +36,7 @@ The command deploys Stash catalog on the Kubernetes cluster in the default confi
 To uninstall the `kubestash-catalog`:
 
 ```bash
-$ helm uninstall kubestash-catalog -n stash
+$ helm uninstall kubestash-catalog -n kubestash
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -61,12 +61,12 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n stash --create-namespace --version=v2024.3.16 --set proxies.ghcr=ghcr.io
+$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n kubestash --create-namespace --version=v2024.3.16 --set proxies.ghcr=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n stash --create-namespace --version=v2024.3.16 --values values.yaml
+$ helm upgrade -i kubestash-catalog appscode/kubestash-catalog -n kubestash --create-namespace --version=v2024.3.16 --values values.yaml
 ```
