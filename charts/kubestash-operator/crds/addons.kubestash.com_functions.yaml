@@ -39,6 +39,10 @@ spec:
                 items:
                   type: string
                 type: array
+              availableVersions:
+                items:
+                  type: string
+                type: array
               command:
                 items:
                   type: string
