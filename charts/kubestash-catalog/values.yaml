@@ -29,3 +29,6 @@ volumesnapshot:
 workload:
   # If true, deploys Workload addon
   enabled: true
+manifest:
+  # If true, deploys Manifest addon
+  enabled: true

@@ -54,7 +54,7 @@ rules:
       - daemonsets
       - statefulsets
       - replicasets
-    verbs: ["get", "list", "watch"]
+    verbs: ["get", "list", "watch", "create"]
   - apiGroups:
       - apps
     resources:
@@ -85,6 +85,12 @@ rules:
     resources:
       - secrets
     verbs: ["get", "list", "create", "patch", "watch", "delete"]
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+      - services
+    verbs: ["get", "create"]
   - apiGroups:
       - batch
     resources:
