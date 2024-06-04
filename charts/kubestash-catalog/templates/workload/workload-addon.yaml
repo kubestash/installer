@@ -43,6 +43,28 @@ spec:
       required: false
       usage: The VolumeSnapshotClassName to be used by volumeSnapshot
     singleton: true
+  - driver: Restic
+    executor: Job
+    function: manifest-backup
+    name: manifest-backup
+    parameters:
+    - default: "true"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
   restoreTasks:
   - driver: Restic
     executor: Job
@@ -64,6 +86,28 @@ spec:
       required: false
       usage: Directory for holding temporary files and restic cache.
     singleton: false
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+  - driver: Restic
+    executor: Job
+    function: manifest-restore
+    name: manifest-restore
+    parameters:
+    - default: "true"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    singleton: true
     volumeMounts:
     - mountPath: /kubestash-tmp
       name: kubestash-tmp-volume

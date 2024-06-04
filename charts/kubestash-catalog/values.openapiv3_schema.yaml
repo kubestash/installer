@@ -20,6 +20,13 @@ properties:
     - backup
     - enabled
     type: object
+  manifest:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   proxies:
     properties:
       ghcr:
@@ -52,6 +59,7 @@ properties:
     type: object
 required:
 - kubedump
+- manifest
 - pvc
 - volumesnapshot
 - waitTimeout

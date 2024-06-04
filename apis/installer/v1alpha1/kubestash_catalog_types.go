@@ -50,6 +50,7 @@ type KubestashCatalogSpec struct {
 	Pvc            StashPvcSpec            `json:"pvc"`
 	Volumesnapshot StashVolumesnapshotSpec `json:"volumesnapshot"`
 	Workload       StashWorkloadSpec       `json:"workload"`
+	Manifest       StashManifestSpec       `json:"manifest"`
 }
 
 type RegistryProxies struct {
@@ -78,6 +79,10 @@ type StashVolumesnapshotSpec struct {
 }
 
 type StashWorkloadSpec struct {
+	Enabled bool `json:"enabled"`
+}
+
+type StashManifestSpec struct {
 	Enabled bool `json:"enabled"`
 }
 
