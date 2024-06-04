@@ -85,6 +85,7 @@ spec:
                                 key:
                                   type: string
                                 name:
+                                  default: ""
                                   type: string
                                 optional:
                                   type: boolean
@@ -123,6 +124,7 @@ spec:
                                 key:
                                   type: string
                                 name:
+                                  default: ""
                                   type: string
                                 optional:
                                   type: boolean
@@ -141,6 +143,7 @@ spec:
                         configMapRef:
                           properties:
                             name:
+                              default: ""
                               type: string
                             optional:
                               type: boolean
@@ -151,6 +154,7 @@ spec:
                         secretRef:
                           properties:
                             name:
+                              default: ""
                               type: string
                             optional:
                               type: boolean
@@ -177,6 +181,7 @@ spec:
                                 items:
                                   type: string
                                 type: array
+                                x-kubernetes-list-type: atomic
                             type: object
                           httpGet:
                             properties:
@@ -194,6 +199,7 @@ spec:
                                   - value
                                   type: object
                                 type: array
+                                x-kubernetes-list-type: atomic
                               path:
                                 type: string
                               port:
@@ -235,6 +241,7 @@ spec:
                                 items:
                                   type: string
                                 type: array
+                                x-kubernetes-list-type: atomic
                             type: object
                           httpGet:
                             properties:
@@ -252,6 +259,7 @@ spec:
                                   - value
                                   type: object
                                 type: array
+                                x-kubernetes-list-type: atomic
                               path:
                                 type: string
                               port:
@@ -294,6 +302,7 @@ spec:
                             items:
                               type: string
                             type: array
+                            x-kubernetes-list-type: atomic
                         type: object
                       failureThreshold:
                         format: int32
@@ -324,6 +333,7 @@ spec:
                               - value
                               type: object
                             type: array
+                            x-kubernetes-list-type: atomic
                           path:
                             type: string
                           port:
@@ -378,6 +388,7 @@ spec:
                             items:
                               type: string
                             type: array
+                            x-kubernetes-list-type: atomic
                         type: object
                       failureThreshold:
                         format: int32
@@ -408,6 +419,7 @@ spec:
                               - value
                               type: object
                             type: array
+                            x-kubernetes-list-type: atomic
                           path:
                             type: string
                           port:
@@ -483,16 +495,27 @@ spec:
                     properties:
                       allowPrivilegeEscalation:
                         type: boolean
+                      appArmorProfile:
+                        properties:
+                          localhostProfile:
+                            type: string
+                          type:
+                            type: string
+                        required:
+                        - type
+                        type: object
                       capabilities:
                         properties:
                           add:
                             items:
                               type: string
                             type: array
+                            x-kubernetes-list-type: atomic
                           drop:
                             items:
                               type: string
                             type: array
+                            x-kubernetes-list-type: atomic
                         type: object
                       privileged:
                         type: boolean
@@ -564,6 +587,8 @@ spec:
                       type: string
                     readOnly:
                       type: boolean
+                    recursiveReadOnly:
+                      type: string
                     subPath:
                       type: string
                     subPathExpr:
