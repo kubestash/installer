@@ -142,12 +142,11 @@ spec:
                           items:
                             type: string
                           type: array
+                        duration:
+                          type: string
                         id:
                           type: string
-                        startTime:
-                          format: date-time
-                          type: string
-                        stopTime:
+                        timeStamp:
                           format: date-time
                           type: string
                       type: object
