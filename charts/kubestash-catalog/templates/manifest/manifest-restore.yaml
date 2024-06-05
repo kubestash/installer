@@ -13,7 +13,6 @@ spec:
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  - --wait-timeout=${waitTimeout:={{ .Values.waitTimeout}}}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.1.0'
 {{ end }}
 

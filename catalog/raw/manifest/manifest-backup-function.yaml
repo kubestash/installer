@@ -9,5 +9,4 @@ spec:
   - --backupsession=${backupSession:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  - --wait-timeout=${waitTimeout:=300}
   image: ghcr.io/kubestash/manifest:v0.1.0
