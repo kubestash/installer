@@ -136,6 +136,20 @@ spec:
                             type: string
                         type: object
                       type: array
+                    walGStats:
+                      properties:
+                        databases:
+                          items:
+                            type: string
+                          type: array
+                        duration:
+                          type: string
+                        id:
+                          type: string
+                        timeStamp:
+                          format: date-time
+                          type: string
+                      type: object
                     walSegments:
                       items:
                         properties:

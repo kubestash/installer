@@ -72,7 +72,7 @@ rules:
       - services
       - endpoints
       - pods
-    verbs: ["get", "list", "watch"]
+    verbs: ["get", "list","create", "watch"]
 
   - apiGroups:
       - ""
@@ -135,3 +135,9 @@ rules:
     resources:
       - elasticsearchdashboards
     verbs: ["list"]
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - issuers
+      - clusterIssuers
+    verbs: [ "get","list" ]

@@ -191,6 +191,9 @@ spec:
                       type: string
                   type: object
                 type: array
+              totalSnapshots:
+                format: int32
+                type: integer
               verifications:
                 items:
                   properties:
