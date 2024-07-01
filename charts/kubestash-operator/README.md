@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/kubestash-operator --version=v0.9.0
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.9.0
+$ helm search repo appscode/kubestash-operator --version=v0.10.0
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.10.0
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys KubeStash operator on a [Kubernetes](http://kubernetes.io) cl
 To install/upgrade the chart with the release name `kubestash-operator`:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.9.0
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.10.0
 ```
 
 The command deploys KubeStash operator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -111,12 +111,12 @@ The following table lists the configurable parameters of the `kubestash-operator
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.9.0 --set replicaCount=1
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.10.0 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.9.0 --values values.yaml
+$ helm upgrade -i kubestash-operator appscode/kubestash-operator -n kubestash --create-namespace --version=v0.10.0 --values values.yaml
 ```
