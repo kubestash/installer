@@ -69,17 +69,19 @@ rules:
   - apiGroups:
       - ""
     resources:
-      - services
       - endpoints
       - pods
     verbs: ["get", "list", "watch"]
-
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs: ["get", "list", "watch","create"]
   - apiGroups:
       - ""
     resources:
       - pods/exec
     verbs: ["create"]
-
   - apiGroups:
       - ""
     resources:
@@ -141,3 +143,9 @@ rules:
     resources:
       - elasticsearchdashboards
     verbs: ["list"]
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - issuers
+      - clusterissuers
+    verbs: [ "get", "list", "watch" ]
