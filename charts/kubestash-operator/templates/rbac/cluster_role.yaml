@@ -69,17 +69,19 @@ rules:
   - apiGroups:
       - ""
     resources:
-      - services
       - endpoints
       - pods
-    verbs: ["get", "list", "watch", "create", "patch", "delete", "update"]
-
+    verbs: ["get", "list", "watch"]
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs: ["get", "list", "watch","create"]
   - apiGroups:
       - ""
     resources:
       - pods/exec
     verbs: ["create"]
-
   - apiGroups:
       - ""
     resources:
