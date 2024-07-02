@@ -147,5 +147,5 @@ rules:
       - cert-manager.io
     resources:
       - issuers
-      - clusterIssuers
+      - clusterissuers
     verbs: [ "get", "list", "watch" ]
