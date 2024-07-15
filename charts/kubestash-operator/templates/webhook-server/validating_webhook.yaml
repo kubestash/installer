@@ -198,4 +198,25 @@ webhooks:
         resources:
           - restoresessions
     sideEffects: None
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: {{ include "kubestash-operator.webhookServiceName" . }}
+        namespace: {{ .Release.Namespace }}
+        path: /validate-core-kubestash-com-v1alpha1-backupverificationsession
+      caBundle: {{ b64enc .Values.apiserver.ca }}
+    failurePolicy: Fail
+    name: vbackupverificationsession.kb.io
+    rules:
+      - apiGroups:
+          - core.kubestash.com
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - backupverificationsessions
+    sideEffects: None
 {{ end }}
