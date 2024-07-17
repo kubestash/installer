@@ -148,4 +148,5 @@ rules:
     resources:
       - issuers
       - clusterissuers
-    verbs: [ "get", "list", "watch" ]
+      - certificates
+    verbs: [ "get", "list", "watch", "create"]
