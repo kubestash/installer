@@ -146,7 +146,5 @@ rules:
   - apiGroups:
       - cert-manager.io
     resources:
-      - issuers
-      - clusterissuers
       - certificates
-    verbs: [ "get", "list", "watch", "create"]
+    verbs: [ "get", "create"]
