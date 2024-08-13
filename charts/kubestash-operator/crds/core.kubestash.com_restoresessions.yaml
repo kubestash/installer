@@ -9359,8 +9359,19 @@ spec:
                         type: boolean
                       dbName:
                         type: string
-                      issuerRefName:
-                        type: string
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   mongoDB:
                     properties:
@@ -9376,8 +9387,56 @@ spec:
                         type: boolean
                       dbName:
                         type: string
-                      issuerRefName:
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
+                    type: object
+                  msSQLServer:
+                    properties:
+                      authSecret:
+                        type: boolean
+                      authSecretName:
                         type: string
+                      db:
+                        type: boolean
+                      dbName:
+                        type: string
+                      internalAuthIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   mySQL:
                     properties:
@@ -9393,8 +9452,19 @@ spec:
                         type: boolean
                       dbName:
                         type: string
-                      issuerRefName:
-                        type: string
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   postgres:
                     properties:
@@ -9410,8 +9480,19 @@ spec:
                         type: boolean
                       dbName:
                         type: string
-                      issuerRefName:
-                        type: string
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   restoreNamespace:
                     type: string
