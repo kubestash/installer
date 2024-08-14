@@ -1,12 +1,12 @@
 dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
-  version: v0.10.0
+  version: v0.11.0
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
-  version: v2024.7.1
+  version: v2024.8.14
 - name: kubestash-metrics
   repository: file://../kubestash-metrics
-  version: v2024.7.1
-digest: sha256:c159cafbaf3bc424be8c364bbbf9f6f0de7a29285299e171f812f9f40233e78f
-generated: "2024-07-01T11:34:41.109605624Z"
+  version: v2024.8.14
+digest: sha256:b7f9e82adf80aee72036ba2e7f15aa40508e4e0faf7c7f563c0bb8f0280f0775
+generated: "2024-08-14T17:46:57.376056208Z"
