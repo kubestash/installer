@@ -5226,6 +5226,8 @@ spec:
                                 type: object
                               type: array
                           type: object
+                        backupTimeout:
+                          type: string
                         hooks:
                           properties:
                             postBackup:
@@ -12051,8 +12053,6 @@ spec:
                           default: 1
                           format: int32
                           type: integer
-                        timeout:
-                          type: string
                       type: object
                     type: array
                 type: object
