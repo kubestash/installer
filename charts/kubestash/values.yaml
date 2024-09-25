@@ -27,5 +27,11 @@ global:
   imagePullSecrets: []
   # Skip generating cleaner job YAML
   skipCleaner: false
+
 # Pass values to kubestash-operator chart
-kubestash-operator: {}
+kubestash-operator:
+  enabled: true
+kubestash-catalog:
+  enabled: true
+kubestash-metrics:
+  enabled: true

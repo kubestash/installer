@@ -45,10 +45,26 @@ type KubestashSpec struct {
 
 	//+optional
 	Operator KubestashOperatorValues `json:"kubestash-operator"`
+
+	//+optional
+	Catalog KubestashCatalogValues `json:"kubestash-catalog"`
+
+	//+optional
+	Metrics KubestashMetricsValues `json:"kubestash-metrics"`
 }
 
 type KubestashOperatorValues struct {
+	Enabled                *bool `json:"enabled"`
 	*KubestashOperatorSpec `json:",inline"`
+}
+
+type KubestashCatalogValues struct {
+	Enabled               *bool `json:"enabled"`
+	*KubestashCatalogSpec `json:",inline,omitempty"`
+}
+
+type KubestashMetricsValues struct {
+	Enabled *bool `json:"enabled"`
 }
 
 type GlobalValues struct {
