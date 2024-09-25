@@ -1,14 +1,2 @@
 # https://github.com/helm/charts/blob/master/test/README.md#providing-custom-test-values
 license: ""
-operator:
-  securityContext:
-    seccompProfile:
-      type: RuntimeDefault
-rbacproxy:
-  securityContext:
-    seccompProfile:
-      type: RuntimeDefault
-cleaner:
-  securityContext:
-    seccompProfile:
-      type: RuntimeDefault

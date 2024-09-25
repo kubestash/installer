@@ -39,8 +39,8 @@ operator:
     readOnlyRootFilesystem: true
     runAsNonRoot: true
     runAsUser: 65534
-    # seccompProfile:
-    #   type: RuntimeDefault
+    seccompProfile:
+      type: RuntimeDefault
 
 rbacproxy:
   # Docker registry used to pull operator image
@@ -57,8 +57,8 @@ rbacproxy:
     readOnlyRootFilesystem: true
     runAsNonRoot: true
     runAsUser: 65534
-    # seccompProfile:
-    #   type: RuntimeDefault
+    seccompProfile:
+      type: RuntimeDefault
 
 cleaner:
   # Docker registry used to pull Webhook cleaner image
@@ -77,8 +77,8 @@ cleaner:
     readOnlyRootFilesystem: true
     runAsNonRoot: true
     runAsUser: 65534
-    # seccompProfile:
-    #   type: RuntimeDefault
+    seccompProfile:
+      type: RuntimeDefault
   # Node labels for pod assignment
   nodeSelector: # +doc-gen:break
     kubernetes.io/os: linux
