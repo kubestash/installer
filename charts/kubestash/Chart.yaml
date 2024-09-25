@@ -14,10 +14,13 @@ maintainers:
 dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
+  condition: kubestash-operator.enabled
   version: v0.12.0
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
+  condition: kubestash-catalog.enabled
   version: v2024.8.30
 - name: kubestash-metrics
   repository: file://../kubestash-metrics
+  condition: kubestash-metrics.enabled
   version: v2024.8.30
