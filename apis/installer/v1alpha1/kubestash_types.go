@@ -74,6 +74,12 @@ type GlobalValues struct {
 	//+optional
 	ImagePullSecrets []core.LocalObjectReference `json:"imagePullSecrets"`
 	SkipCleaner      bool                        `json:"skipCleaner"`
+	// +optional
+	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+}
+
+type NetworkPolicy struct {
+	Enabled bool `json:"enabled"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -20,6 +20,13 @@ properties:
         type: array
       license:
         type: string
+      networkPolicy:
+        properties:
+          enabled:
+            type: boolean
+        required:
+        - enabled
+        type: object
       registry:
         type: string
       registryFQDN:

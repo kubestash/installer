@@ -28,6 +28,10 @@ global:
   # Skip generating cleaner job YAML
   skipCleaner: false
 
+  # Controls the network policy creation
+  networkPolicy:
+    enabled: true
+
 # Pass values to kubestash-operator chart
 kubestash-operator:
   enabled: true
