@@ -9,6 +9,10 @@ spec:
     matchLabels:
       {{- include "kubestash-operator.selectorLabels" . | nindent 6 }}
   egress:
+  # Scenarios considered:
+  # - Communication with apiServer
+  # - Initialize BackupStorage
+  # - Calls of discovery.DiscoveryInterface from cloud providers
   - {}
   policyTypes:
   - Egress
