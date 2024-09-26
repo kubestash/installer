@@ -40,3 +40,6 @@ data:
       memory: {{ .Values.netVolAccessor.memory }}
       user: {{ .Values.netVolAccessor.runAsUser }}
       privilegedMode: {{ .Values.netVolAccessor.privileged }}
+    {{- if .Values.global }}
+    networkPolicy: {{ .Values.global.networkPolicy.enabled }}
+    {{- end }}

@@ -8,5 +8,5 @@ dependencies:
 - name: kubestash-metrics
   repository: file://../kubestash-metrics
   version: v2024.8.30
-digest: sha256:9c4cdbb0a0b0f3926187402957a73309cbd1443e9b34df151e2b1fb6380adb1d
-generated: "2024-08-30T08:35:05.913240061Z"
+digest: sha256:9cfa012896e6ac21ed5945f905c2f9b7c9784ac2a9f79187ba8a27829e72a8fe
+generated: "2024-09-26T16:09:48.386757953+06:00"
