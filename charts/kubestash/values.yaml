@@ -30,7 +30,7 @@ global:
 
   # Controls the network policy creation
   networkPolicy:
-    enabled: true
+    enabled: false
 
 # Pass values to kubestash-operator chart
 kubestash-operator:
