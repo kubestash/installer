@@ -9,4 +9,4 @@ spec:
   - --restoresession=${restoreSession:=}
   - --snapshot=${snapshot:=}
   - --task-name=${taskName:=}
-  image: ghcr.io/kubestash/volume-snapshotter:v0.11.0
+  image: ghcr.io/kubestash/volume-snapshotter:v0.12.0
