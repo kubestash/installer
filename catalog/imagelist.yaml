@@ -2,7 +2,7 @@
 - ghcr.io/appscode/kubectl:v1.24
 - ghcr.io/kubestash/kubedump:v0.12.0
 - ghcr.io/kubestash/kubestash:v0.13.0
-- ghcr.io/kubestash/manifest:v0.1.0
+- ghcr.io/kubestash/manifest:v0.5.0
 - ghcr.io/kubestash/pvc:v0.12.0
 - ghcr.io/kubestash/volume-snapshotter:v0.12.0
 - ghcr.io/kubestash/workload:v0.12.0

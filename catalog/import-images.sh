@@ -30,7 +30,7 @@ $CMD push images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/k
 $CMD push images/appscode-kubectl-v1.24.tar $IMAGE_REGISTRY/appscode/kubectl:v1.24
 $CMD push images/kubestash-kubedump-v0.12.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.12.0
 $CMD push images/kubestash-kubestash-v0.13.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.13.0
-$CMD push images/kubestash-manifest-v0.1.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.1.0
+$CMD push images/kubestash-manifest-v0.5.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.5.0
 $CMD push images/kubestash-pvc-v0.12.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.12.0
 $CMD push images/kubestash-volume-snapshotter-v0.12.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.12.0
 $CMD push images/kubestash-workload-v0.12.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.12.0
