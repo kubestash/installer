@@ -110,11 +110,17 @@ spec:
                     resticStats:
                       items:
                         properties:
+                          endTime:
+                            format: date-time
+                            type: string
                           hostPath:
                             type: string
                           id:
                             type: string
                           size:
+                            type: string
+                          startTime:
+                            format: date-time
                             type: string
                           uploaded:
                             type: string
