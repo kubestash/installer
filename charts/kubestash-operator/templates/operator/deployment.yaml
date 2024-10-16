@@ -73,6 +73,8 @@ spec:
         resources:
           {{- toYaml .Values.operator.resources | nindent 10 }}
         volumeMounts:
+        - mountPath: /tmp
+          name: tmpdir
         - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp
         - name: config
@@ -82,6 +84,8 @@ spec:
           name: license
         {{- end }}
       volumes:
+      - name: tmpdir
+        emptyDir: {}
       - name: kubestash-tmp-volume
         emptyDir: {}
       - name: config

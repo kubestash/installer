@@ -74,6 +74,8 @@ spec:
         resources:
           {{- toYaml .Values.operator.resources | nindent 10 }}
         volumeMounts:
+        - mountPath: /tmp
+          name: tmpdir
         - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp
         - name: serving-cert
@@ -95,6 +97,8 @@ spec:
           name: https
           protocol: TCP
       volumes:
+      - name: tmpdir
+        emptyDir: {}
       - name: kubestash-tmp-volume
         emptyDir: {}
       - name: serving-cert
