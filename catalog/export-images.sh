@@ -32,8 +32,8 @@ mv /tmp/crane images
 
 CMD="./images/crane"
 
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-proxy-v0.11.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl:v1.24 images/appscode-kubectl-v1.24.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl:v1.31 images/appscode-kubectl-v1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.12.0 images/kubestash-kubedump-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.13.0 images/kubestash-kubestash-v0.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.5.0 images/kubestash-manifest-v0.5.0.tar
