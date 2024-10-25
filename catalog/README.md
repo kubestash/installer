@@ -1,6 +1,7 @@
 # CVE Report
 |                                                        IMAGE REF                                                        |      OS       | CRITICAL<BR>(OS, OTHER) | HIGH<BR>(OS, OTHER) | MEDIUM<BR>(OS, OTHER) | LOW<BR>(OS, OTHER) | UNKNOWN<BR>(OS, OTHER) |
 |-------------------------------------------------------------------------------------------------------------------------|---------------|-------------------------|---------------------|-----------------------|--------------------|------------------------|
+| ghcr.io/appscode/kube-rbac-proxy:v0.15.0<br>sha256:d8cc6ffb98190e8dd403bfe67ddcb454e6127d32b87acc237b3e5240f70a20fb     | debian 11.8   | 0, 1                    | 0, 6                | 0, 15                 | 0, 0               | 0, 0                   |
 | ghcr.io/appscode/kubectl:v1.31<br>sha256:9963b9e2f28138fffd87c77232a1493a885dcd2580f550cd91282379c0ad0fb4               |               | 0, 0                    | 0, 1                | 0, 2                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/kubedump:v0.12.0<br>sha256:5637437feeaf16fda23be2d5b55eda5596bca810617b3c4c0441b6ed017e0231           |               | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/kubestash:v0.13.0<br>sha256:47f97d12bb0aceb9451b4626ea9258456dcbb303c4e6d769181d7f5e60d4478d          | alpine 3.20.3 | 0, 0                    | 0, 0                | 0, 0                  | 2, 0               | 0, 0                   |
