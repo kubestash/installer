@@ -9362,6 +9362,8 @@ spec:
                                 type: object
                               name:
                                 type: string
+                              verificationStrategy:
+                                type: string
                             type: object
                           type: array
                         retryConfig:

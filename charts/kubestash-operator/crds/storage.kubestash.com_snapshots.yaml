@@ -216,6 +216,8 @@ spec:
               totalComponents:
                 format: int32
                 type: integer
+              verificationSession:
+                type: string
               verificationStatus:
                 enum:
                 - Verified
