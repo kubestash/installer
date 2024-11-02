@@ -1,6 +1,7 @@
 # CVE Report
 |                                                        IMAGE REF                                                        |      OS       | CRITICAL<BR>(OS, OTHER) | HIGH<BR>(OS, OTHER) | MEDIUM<BR>(OS, OTHER) | LOW<BR>(OS, OTHER) | UNKNOWN<BR>(OS, OTHER) |
 |-------------------------------------------------------------------------------------------------------------------------|---------------|-------------------------|---------------------|-----------------------|--------------------|------------------------|
+| ghcr.io/appscode/kubectl:v1.31<br>sha256:f30f43c499140aa5995b3dff0e112358b16393a89c98fa14511927e950bd585a               |               | 0, 0                    | 0, 1                | 0, 2                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/kubedump:v0.12.0<br>sha256:5637437feeaf16fda23be2d5b55eda5596bca810617b3c4c0441b6ed017e0231           |               | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/kubestash:v0.13.0<br>sha256:47f97d12bb0aceb9451b4626ea9258456dcbb303c4e6d769181d7f5e60d4478d          | alpine 3.20.3 | 0, 0                    | 0, 0                | 0, 0                  | 2, 0               | 0, 0                   |
 | ghcr.io/kubestash/manifest:v0.5.0<br>sha256:8befc60e8a5f124238e66a9b62a3cef26abe0e35ee7875aaead93f3bd6040323            |               | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
