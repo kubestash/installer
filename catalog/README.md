@@ -1,7 +1,6 @@
 # CVE Report
 |                                                        IMAGE REF                                                        | OS | CRITICAL<BR>(OS, OTHER) | HIGH<BR>(OS, OTHER) | MEDIUM<BR>(OS, OTHER) | LOW<BR>(OS, OTHER) | UNKNOWN<BR>(OS, OTHER) |
 |-------------------------------------------------------------------------------------------------------------------------|----|-------------------------|---------------------|-----------------------|--------------------|------------------------|
-| ghcr.io/kubestash/manifest:v0.5.0<br>sha256:8befc60e8a5f124238e66a9b62a3cef26abe0e35ee7875aaead93f3bd6040323            |    | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/pvc:v0.12.0<br>sha256:18faee3272380e8150c6e8d7f78560fc9b6afa1d04eb38ceba48fbafacb2f8b9                |    | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/volume-snapshotter:v0.12.0<br>sha256:7b18de137ffec443fe38bd0a4ca33e02879d82a403d43a3a94343ad06851a39a |    | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
 | ghcr.io/kubestash/workload:v0.12.0<br>sha256:ddc84f72f070827f7fa19ebedfff49353caba8ef8d1111f34002aadff2767a85           |    | 0, 0                    | 0, 0                | 0, 0                  | 0, 0               | 0, 0                   |
