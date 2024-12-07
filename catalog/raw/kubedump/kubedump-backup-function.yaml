@@ -12,4 +12,4 @@ spec:
   - --sanitize=${sanitize:=true}
   - --label-selector=${labelSelector:=}
   - --include-dependants=${includeDependants:=false}
-  image: ghcr.io/kubestash/kubedump:v0.12.0
+  image: ghcr.io/kubestash/kubedump:v0.13.0

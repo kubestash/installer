@@ -23,9 +23,6 @@ spec:
     - jsonPath: .spec.dataSource.repository
       name: Repository
       type: string
-    - jsonPath: .spec.failurePolicy
-      name: Failure-Policy
-      type: string
     - jsonPath: .status.phase
       name: Phase
       type: string
@@ -9452,19 +9449,6 @@ spec:
                         type: boolean
                       dbName:
                         type: string
-                      internalAuthIssuerRef:
-                        properties:
-                          apiGroup:
-                            type: string
-                          kind:
-                            type: string
-                          name:
-                            type: string
-                        required:
-                        - kind
-                        - name
-                        type: object
-                        x-kubernetes-map-type: atomic
                       restoreNamespace:
                         type: string
                       tlsIssuerRef:
@@ -9575,6 +9559,34 @@ spec:
                         type: boolean
                       restoreNamespace:
                         type: string
+                      tlsIssuerRef:
+                        properties:
+                          apiGroup:
+                            type: string
+                          kind:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - kind
+                        - name
+                        type: object
+                        x-kubernetes-map-type: atomic
+                    type: object
+                  redisSentinel:
+                    properties:
+                      SentinelName:
+                        type: string
+                      authSecret:
+                        default: true
+                        type: boolean
+                      authSecretName:
+                        type: string
+                      restoreNamespace:
+                        type: string
+                      sentinel:
+                        default: true
+                        type: boolean
                       tlsIssuerRef:
                         properties:
                           apiGroup:
