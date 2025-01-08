@@ -34,11 +34,11 @@ CMD="./images/crane"
 
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl:v1.31 images/appscode-kubectl-v1.31.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.13.0 images/kubestash-kubedump-v0.13.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.14.0 images/kubestash-kubestash-v0.14.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.6.0 images/kubestash-manifest-v0.6.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.13.0 images/kubestash-pvc-v0.13.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.13.0 images/kubestash-volume-snapshotter-v0.13.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.13.0 images/kubestash-workload-v0.13.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.14.0 images/kubestash-kubedump-v0.14.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.15.0 images/kubestash-kubestash-v0.15.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.7.0 images/kubestash-manifest-v0.7.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.14.0 images/kubestash-pvc-v0.14.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.14.0 images/kubestash-volume-snapshotter-v0.14.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.14.0 images/kubestash-workload-v0.14.0.tar
 
 tar -czvf images.tar.gz images
