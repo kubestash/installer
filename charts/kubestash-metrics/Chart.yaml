@@ -2,8 +2,8 @@ apiVersion: v2
 name: kubestash-metrics
 description: KubeStash State Metrics
 type: application
-version: v2024.12.9
-appVersion: v2024.12.9
+version: v2025.1.9
+appVersion: v2025.1.9
 home: https://kubestash.com
 icon: https://cdn.appscode.com/images/products/stash/stash-community-icon.png
 sources:
