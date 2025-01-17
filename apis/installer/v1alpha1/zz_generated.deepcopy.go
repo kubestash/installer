@@ -499,6 +499,20 @@ func (in *KubestashOperatorSpec) DeepCopyInto(out *KubestashOperatorSpec) {
 	out.Security = in.Security
 	out.Platform = in.Platform
 	out.NetVolAccessor = in.NetVolAccessor
+	if in.EnvFrom != nil {
+		in, out := &in.EnvFrom, &out.EnvFrom
+		*out = make([]v1.EnvFromSource, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
+	if in.Env != nil {
+		in, out := &in.Env, &out.Env
+		*out = make([]v1.EnvVar, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	return
 }
 

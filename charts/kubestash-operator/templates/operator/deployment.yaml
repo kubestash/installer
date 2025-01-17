@@ -47,7 +47,14 @@ spec:
         {{- if include "appscode.licenseSecretName" . }}
           - --license-file=/var/run/secrets/appscode/license/key.txt
         {{- end }}
+        {{- with .Values.envFrom }}
+        envFrom:
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         env:
+        {{- with .Values.env }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         - name: POD_NAME
           valueFrom:
             fieldRef:
