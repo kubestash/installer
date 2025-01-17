@@ -189,3 +189,9 @@ netVolAccessor:
   runAsUser: 2000
   # Run the network volume accessor deployments in privileged mode
   privileged: false
+
+
+# List of sources to populate environment variables in the container
+envFrom: []
+# List of environment variables to set in the container
+env: []
