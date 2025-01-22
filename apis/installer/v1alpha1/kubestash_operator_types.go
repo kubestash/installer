@@ -1,9 +1,5 @@
 /*
-Copyright AppsCode Inc. and Contributors
-
-Licensed under the AppsCode Community License 1.0.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Coppy of the License at
 
     https://github.com/appscode/licenses/raw/1.0.0/AppsCode-Community-1.0.0.md
 

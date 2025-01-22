@@ -148,3 +148,8 @@ rules:
     resources:
       - certificates
     verbs: [ "get", "create"]
+  - apiGroups:
+      - archiver.kubedb.com
+    resources:
+      - "*"
+    verbs: [ "get", "create" ]
