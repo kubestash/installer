@@ -39,3 +39,18 @@ kubestash-catalog:
   enabled: true
 kubestash-metrics:
   enabled: true
+ace-user-roles:
+  # If enabled, installs the ace-user-roles chart
+  enabled: true
+  enableClusterRoles:
+    ace: false
+    appcatalog: true
+    catalog: false
+    cert-manager: false
+    kubedb: false
+    kubedb-ui: false
+    kubestash: true
+    license-proxyserver: true
+    metrics: true
+    prometheus: false
+    stash: false
