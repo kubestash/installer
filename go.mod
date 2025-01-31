@@ -20,7 +20,7 @@ require (
 	kmodules.xyz/go-containerregistry v0.0.12
 	kmodules.xyz/image-packer v0.0.0-20241207122203-4cd11a16c36e
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/installer v0.0.0-20250131085809-dbf8b46bec27
+	kubeops.dev/installer v0.0.0-20250131122006-8354eb35b627
 	sigs.k8s.io/yaml v1.4.0
 )
 
