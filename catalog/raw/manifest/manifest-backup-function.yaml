@@ -9,4 +9,4 @@ spec:
   - --backupsession=${backupSession:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  image: ghcr.io/kubestash/manifest:v0.8.0-rc.0
+  image: ghcr.io/kubestash/manifest:v0.8.0
