@@ -26,9 +26,9 @@ tar -zxvf $TARBALL
 
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kubectl-v1.31.tar
-k3s ctr images import images/kubestash-kubedump-v0.15.0-rc.0.tar
-k3s ctr images import images/kubestash-kubestash-v0.16.0-rc.0.tar
-k3s ctr images import images/kubestash-manifest-v0.8.0-rc.0.tar
-k3s ctr images import images/kubestash-pvc-v0.15.0-rc.0.tar
-k3s ctr images import images/kubestash-volume-snapshotter-v0.15.0-rc.0.tar
-k3s ctr images import images/kubestash-workload-v0.15.0-rc.0.tar
+k3s ctr images import images/kubestash-kubedump-v0.15.0.tar
+k3s ctr images import images/kubestash-kubestash-v0.16.0.tar
+k3s ctr images import images/kubestash-manifest-v0.8.0.tar
+k3s ctr images import images/kubestash-pvc-v0.15.0.tar
+k3s ctr images import images/kubestash-volume-snapshotter-v0.15.0.tar
+k3s ctr images import images/kubestash-workload-v0.15.0.tar
