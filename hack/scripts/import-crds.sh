@@ -54,6 +54,7 @@ crd-importer \
 
 crd-importer \
     --no-description \
+    --annotations 'config.kubernetes.io/local-config=true' \
     --input=${crd_dir} \
     --out=./charts/kubestash-catalog/crds \
     --group=addons.kubestash.com
