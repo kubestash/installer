@@ -45,19 +45,25 @@ if [ "$#" -ne 1 ]; then
     crd_dir=${tmp_dir}/${repo_dir}/crds
 fi
 
+KMODULES_CUSTOM_RESOURCES_TAG=${KMODULES_CUSTOM_RESOURCES_TAG:-v0.30.1}
+
 crd-importer \
+    --no-description \
     --input=${crd_dir} \
     --out=. --output-yaml=crds/kubestash-crds.yaml
 
-crd-importer --no-description \
+crd-importer \
+    --no-description \
     --input=${crd_dir} \
     --out=./charts/kubestash-catalog/crds \
     --group=addons.kubestash.com
 
-crd-importer --no-description \
+crd-importer \
+    --no-description \
     --input=${crd_dir} \
     --out=./charts/kubestash-operator/crds
 
 crd-importer \
-    --input=https://github.com/kmodules/custom-resources/raw/v0.29.1/crds/metrics.appscode.com_metricsconfigurations.yaml \
+    --no-description \
+    --input=https://github.com/kmodules/custom-resources/raw/${KMODULES_CUSTOM_RESOURCES_TAG}/crds/metrics.appscode.com_metricsconfigurations.yaml \
     --out=./charts/kubestash-metrics/crds
