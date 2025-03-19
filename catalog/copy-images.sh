@@ -35,11 +35,10 @@ mv /tmp/crane .
 
 CMD="./crane"
 
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl:v1.31 $IMAGE_REGISTRY/appscode/kubectl:v1.31
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.15.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.15.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.16.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.16.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.8.0 $IMAGE_REGISTRY/kubestash/manifest:v0.8.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.15.0 $IMAGE_REGISTRY/kubestash/pvc:v0.15.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.15.0 $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.15.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.15.0 $IMAGE_REGISTRY/kubestash/workload:v0.15.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.16.0-rc.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.16.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.17.0-rc.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.17.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.9.0-rc.0 $IMAGE_REGISTRY/kubestash/manifest:v0.9.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.16.0-rc.0 $IMAGE_REGISTRY/kubestash/pvc:v0.16.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.16.0-rc.0 $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.16.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.16.0-rc.0 $IMAGE_REGISTRY/kubestash/workload:v0.16.0-rc.0
