@@ -9,13 +9,15 @@ data:
   config.yaml: |
     apiVersion: config.kubestash.com/v1alpha1
     kind: KubeStashConfig
+    certDir: /var/serving-cert
+    enableHTTP2: false
     health:
       healthProbeBindAddress: :8081
     metrics:
-      bindAddress: 127.0.0.1:8080
+      bindAddress: 127.0.0.1:8443
+      secureMetrics: true
     webhook:
       port: 9443
-      certDir: /var/serving-cert
     leaderElection:
       leaderElect: false
       resourceName: cba9d7ad.kubestash.com
