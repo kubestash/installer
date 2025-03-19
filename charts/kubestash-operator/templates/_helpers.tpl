@@ -95,13 +95,6 @@ Returns the registry used for operator docker image
 {{- end }}
 
 {{/*
-Returns the registry used for kube-rbac-proxy docker image
-*/}}
-{{- define "rbacproxy.registry" -}}
-{{- list .Values.registryFQDN .Values.rbacproxy.registry | compact | join "/" }}
-{{- end }}
-
-{{/*
 Returns the registry used for cleaner docker image
 */}}
 {{- define "cleaner.registry" -}}
@@ -128,3 +121,33 @@ imagePullSecrets:
 {{- toYaml . | nindent 2 }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Prepare certs
+*/}}
+{{- define "kubestash-operator.prepare-certs" -}}
+{{- if not ._caCrt }}
+{{- $caCrt := "" }}
+{{- $serverCrt := "" }}
+{{- $serverKey := "" }}
+{{- if .Values.apiserver.servingCerts.generate }}
+{{- $ca := genCA "ca" 3650 }}
+{{- $cn := include "kubestash-operator.webhookServiceName" . -}}
+{{- $altName1 := printf "%s.%s" $cn .Release.Namespace }}
+{{- $altName2 := printf "%s.%s.svc" $cn .Release.Namespace }}
+{{- $server := genSignedCert $cn nil (list $altName1 $altName2) 3650 $ca }}
+{{- $caCrt =  b64enc $ca.Cert }}
+{{- $serverCrt = b64enc $server.Cert }}
+{{- $serverKey = b64enc $server.Key }}
+{{- else }}
+{{- $caCrt = required "Required when apiserver.servingCerts.generate is false" .Values.apiserver.servingCerts.caCrt }}
+{{- $serverCrt = required "Required when apiserver.servingCerts.generate is false" .Values.apiserver.servingCerts.serverCrt }}
+{{- $serverKey = required "Required when apiserver.servingCerts.generate is false" .Values.apiserver.servingCerts.serverKey }}
+{{- end }}
+
+{{ $_ := set $ "_caCrt" $caCrt }}
+{{ $_ := set $ "_serverCrt" $serverCrt }}
+{{ $_ := set $ "_serverKey" $serverKey }}
+
+{{- end }}
+{{- end }}

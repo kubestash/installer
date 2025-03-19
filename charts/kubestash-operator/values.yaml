@@ -42,24 +42,6 @@ operator:
     seccompProfile:
       type: RuntimeDefault
 
-rbacproxy:
-  # Docker registry used to pull operator image
-  registry: appscode
-  # Name of operator container image
-  repository: kube-rbac-proxy
-  # Operator container image tag
-  tag: v0.15.0
-  # Security options this container should run with
-  securityContext: # +doc-gen:break
-    allowPrivilegeEscalation: false
-    capabilities:
-      drop: ["ALL"]
-    readOnlyRootFilesystem: true
-    runAsNonRoot: true
-    runAsUser: 65534
-    seccompProfile:
-      type: RuntimeDefault
-
 cleaner:
   # Docker registry used to pull Webhook cleaner image
   registry: appscode
@@ -138,8 +120,6 @@ apiserver:
   enableMutatingWebhook: true
   # If true, validating webhook is configured for Stash CRDss
   enableValidatingWebhook: true
-  # CA certificate used by the Kubernetes api server. This field is automatically assigned by the operator.
-  ca: not-ca-cert
   # If true, bypasses checks that validating webhook is actually enabled in the Kubernetes cluster.
   bypassValidatingWebhookXray: false
   # If true, uses kube-apiserver FQDN for AKS cluster to workaround https://github.com/Azure/AKS/issues/522 (default true)
