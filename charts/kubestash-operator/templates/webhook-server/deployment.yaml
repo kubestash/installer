@@ -97,7 +97,7 @@ spec:
       - name: serving-cert
         secret:
           defaultMode: 420
-          secretName: {{ include "kubestash-operator.fullname" . }}-webhook-cert
+          secretName: {{ include "kubestash-operator.fullname" . }}-cert
       - name: config
         configMap:
           name: {{ include "kubestash-operator.fullname" . }}-config

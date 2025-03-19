@@ -5,7 +5,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "kubestash-operator.fullname" . }}-webhook-cert
+  name: {{ include "kubestash-operator.fullname" . }}-cert
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "kubestash-operator.labels" . | nindent 4 }}
