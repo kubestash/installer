@@ -86,6 +86,8 @@ spec:
           name: tmpdir
         - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp
+        - name: serving-cert
+          mountPath: /var/serving-cert
         - name: config
           mountPath: /var/config
         {{- if include "appscode.licenseSecretName" . }}
@@ -95,6 +97,10 @@ spec:
       volumes:
       - name: tmpdir
         emptyDir: {}
+      - name: serving-cert
+        secret:
+          defaultMode: 420
+          secretName: {{ include "kubestash-operator.fullname" . }}-webhook-cert
       - name: kubestash-tmp-volume
         emptyDir: {}
       - name: config
