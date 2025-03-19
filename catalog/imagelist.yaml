@@ -1,8 +1,7 @@
-- ghcr.io/appscode/kube-rbac-proxy:v0.15.0
 - ghcr.io/appscode/kubectl:v1.31
-- ghcr.io/kubestash/kubedump:v0.15.0
-- ghcr.io/kubestash/kubestash:v0.16.0
-- ghcr.io/kubestash/manifest:v0.8.0
-- ghcr.io/kubestash/pvc:v0.15.0
-- ghcr.io/kubestash/volume-snapshotter:v0.15.0
-- ghcr.io/kubestash/workload:v0.15.0
+- ghcr.io/kubestash/kubedump:v0.16.0-rc.0
+- ghcr.io/kubestash/kubestash:v0.17.0-rc.0
+- ghcr.io/kubestash/manifest:v0.9.0-rc.0
+- ghcr.io/kubestash/pvc:v0.16.0-rc.0
+- ghcr.io/kubestash/volume-snapshotter:v0.16.0-rc.0
+- ghcr.io/kubestash/workload:v0.16.0-rc.0

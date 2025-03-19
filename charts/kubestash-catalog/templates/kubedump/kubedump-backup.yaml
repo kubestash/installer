@@ -15,6 +15,6 @@ spec:
   - --sanitize=${sanitize:=true}
   - --label-selector=${labelSelector:=}
   - --include-dependants=${includeDependants:=false}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.15.0'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.16.0-rc.0'
 {{ end }}
 
