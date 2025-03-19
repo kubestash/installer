@@ -47,6 +47,13 @@ spec:
         {{- if include "appscode.licenseSecretName" . }}
           - --license-file=/var/run/secrets/appscode/license/key.txt
         {{- end }}
+        ports:
+        - containerPort: 8081
+          name: probes
+          protocol: TCP
+        - containerPort: 8443
+          name: metrics
+          protocol: TCP
         {{- with .Values.envFrom }}
         envFrom:
         {{- toYaml . | nindent 8 }}
@@ -63,17 +70,19 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        - name: POD_SERVICE_ACCOUNT
+          value: {{ include "kubestash-operator.serviceAccountName" . }}
       {{- if .Values.apiserver.healthcheck.enabled }}
         readinessProbe:
           httpGet:
             path: /readyz
-            port: 8081
+            port: probes
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 8081
+            port: probes
           initialDelaySeconds: 15
           periodSeconds: 20
       {{- end }}
@@ -84,6 +93,9 @@ spec:
           name: tmpdir
         - name: kubestash-tmp-volume
           mountPath: /kubestash-tmp
+        - name: serving-cert
+          mountPath: /var/serving-cert
+          readOnly: true
         - name: config
           mountPath: /var/config
         {{- if include "appscode.licenseSecretName" . }}
@@ -95,6 +107,10 @@ spec:
         emptyDir: {}
       - name: kubestash-tmp-volume
         emptyDir: {}
+      - name: serving-cert
+        secret:
+          defaultMode: 420
+          secretName: {{ include "kubestash-operator.fullname" . }}-cert
       - name: config
         configMap:
           name: {{ include "kubestash-operator.fullname" . }}-config

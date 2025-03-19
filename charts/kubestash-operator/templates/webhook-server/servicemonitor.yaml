@@ -22,16 +22,24 @@ spec:
       {{- include "kubestash-operator.selectorLabels" . | nindent 6 }}
   endpoints:
   {{- if .Values.monitoring.operator }}
-  - port: https
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     path: /metrics
+    port: metrics
     scheme: https
     tlsConfig:
       ca:
         secret:
-          name: {{ include "kubestash-operator.fullname" . }}-webhook-cert
+          name: {{ include "kubestash-operator.fullname" . }}-cert
+          key: ca.crt
+      cert:
+        secret:
+          name: {{ include "kubestash-operator.fullname" . }}-cert
           key: tls.crt
+      insecureSkipVerify: false
+      keySecret:
+        name: {{ include "kubestash-operator.fullname" . }}-cert
+        key: tls.key
       serverName: "{{ include "kubestash-operator.fullname" . }}.{{ .Release.Namespace }}.svc"
   {{- end }}
 {{- end }}
-{{ end }}
+{{- end }}

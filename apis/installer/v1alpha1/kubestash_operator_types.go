@@ -50,7 +50,6 @@ type KubestashOperatorSpec struct {
 	RegistryFQDN     string       `json:"registryFQDN"`
 	ReplicaCount     int32        `json:"replicaCount"`
 	Operator         ContianerRef `json:"operator"`
-	RbacProxy        ImageRef     `json:"rbacproxy"`
 	Cleaner          CleanerRef   `json:"cleaner"`
 	ImagePullPolicy  string       `json:"imagePullPolicy"`
 	//+optional
@@ -145,11 +144,10 @@ type ServiceAccountSpec struct {
 }
 
 type WebHookSpec struct {
-	GroupPriorityMinimum    int32  `json:"groupPriorityMinimum"`
-	VersionPriority         int32  `json:"versionPriority"`
-	EnableMutatingWebhook   bool   `json:"enableMutatingWebhook"`
-	EnableValidatingWebhook bool   `json:"enableValidatingWebhook"`
-	CA                      string `json:"ca"`
+	GroupPriorityMinimum    int32 `json:"groupPriorityMinimum"`
+	VersionPriority         int32 `json:"versionPriority"`
+	EnableMutatingWebhook   bool  `json:"enableMutatingWebhook"`
+	EnableValidatingWebhook bool  `json:"enableValidatingWebhook"`
 	//+optional
 	BypassValidatingWebhookXray bool            `json:"bypassValidatingWebhookXray"`
 	UseKubeapiserverFqdnForAks  bool            `json:"useKubeapiserverFqdnForAks"`
