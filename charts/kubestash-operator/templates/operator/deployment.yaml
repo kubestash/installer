@@ -25,7 +25,7 @@ spec:
         {{- include "kubestash-operator.selectorLabels" . | nindent 8 }}
         component: operator
       annotations:
-        checksum/apiregistration.yaml: {{ include (print $.Template.BasePath "/webhook-server/cert.yaml") . | sha256sum }}
+        reload: {{ include (print $.Template.BasePath "/webhook-server/cert.yaml") . | sha256sum }}
       {{- if $criticalAddon }}
         scheduler.alpha.kubernetes.io/critical-pod: ''
       {{- end }}
