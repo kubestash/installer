@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/kubestash-metrics --version=v2025.3.19-rc.0
-$ helm upgrade -i kubestash-metrics appscode/kubestash-metrics -n kubestash --create-namespace --version=v2025.3.19-rc.0
+$ helm search repo appscode/kubestash-metrics --version=v2025.3.24
+$ helm upgrade -i kubestash-metrics appscode/kubestash-metrics -n kubestash --create-namespace --version=v2025.3.24
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys KubeStash metrics configurations on a [Kubernetes](http://kub
 To install/upgrade the chart with the release name `kubestash-metrics`:
 
 ```bash
-$ helm upgrade -i kubestash-metrics appscode/kubestash-metrics -n kubestash --create-namespace --version=v2025.3.19-rc.0
+$ helm upgrade -i kubestash-metrics appscode/kubestash-metrics -n kubestash --create-namespace --version=v2025.3.24
 ```
 
 The command deploys KubeStash metrics configurations on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
