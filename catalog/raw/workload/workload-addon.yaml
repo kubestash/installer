@@ -53,6 +53,9 @@ spec:
         name: scratchDir
         required: false
         usage: Directory for holding temporary files and restic cache.
+      - default: "false"
+        name: includeClusterResources
+        usage: Specify whether to backup cluster scoped resources.
     singleton: true
     volumeMounts:
       - mountPath: /kubestash-tmp
@@ -104,6 +107,12 @@ spec:
         name: scratchDir
         required: false
         usage: Directory for holding temporary files and restic cache.
+      - default: "false"
+        name: includeClusterResources
+        usage: Specify whether to restore cluster scoped resources.
+      - default: "false"
+        name: overrideResources
+        usage: Specify whether to override resources while restoring.
     singleton: true
     volumeMounts:
       - mountPath: /kubestash-tmp
