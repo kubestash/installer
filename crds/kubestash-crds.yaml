@@ -41,10 +41,12 @@ spec:
                       - enum:
                         - Restic
                         - WalG
+                        - Medusa
                         - VolumeSnapshotter
                       - enum:
                         - Restic
                         - WalG
+                        - Medusa
                         - VolumeSnapshotter
                       type: string
                     executor:
@@ -1042,10 +1044,12 @@ spec:
                       - enum:
                         - Restic
                         - WalG
+                        - Medusa
                         - VolumeSnapshotter
                       - enum:
                         - Restic
                         - WalG
+                        - Medusa
                         - VolumeSnapshotter
                       type: string
                     executor:
@@ -63482,6 +63486,7 @@ spec:
                       enum:
                       - Restic
                       - WalG
+                      - Medusa
                       - VolumeSnapshotter
                       type: string
                     duration:
@@ -63526,6 +63531,21 @@ spec:
                         totalSucceededCount:
                           format: int64
                           type: integer
+                      type: object
+                    medusaStats:
+                      properties:
+                        backupName:
+                          type: string
+                        backupNodes:
+                          items:
+                            type: string
+                          type: array
+                        finishTime:
+                          type: string
+                        startTime:
+                          type: string
+                        status:
+                          type: string
                       type: object
                     path:
                       type: string
