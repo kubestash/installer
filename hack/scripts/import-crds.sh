@@ -45,7 +45,7 @@ if [ "$#" -ne 1 ]; then
     crd_dir=${tmp_dir}/${repo_dir}/crds
 fi
 
-KMODULES_CUSTOM_RESOURCES_TAG=${KMODULES_CUSTOM_RESOURCES_TAG:-v0.30.1}
+KMODULES_CUSTOM_RESOURCES_TAG=${KMODULES_CUSTOM_RESOURCES_TAG:-v0.32.0}
 
 crd-importer \
     --no-description \
