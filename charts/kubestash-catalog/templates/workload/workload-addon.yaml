@@ -58,7 +58,7 @@ spec:
       usage: Directory for holding temporary files and restic cache.
     - default: "false"
       name: includeRBACResources
-      usage: Specify whether to restore rbac resources.
+      usage: Specify whether to backup rbac resources.
     singleton: true
     volumeMounts:
     - mountPath: /kubestash-tmp
