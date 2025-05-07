@@ -57,8 +57,8 @@ spec:
       required: false
       usage: Directory for holding temporary files and restic cache.
     - default: "false"
-      name: includeClusterResources
-      usage: Specify whether to backup cluster scoped resources.
+      name: includeRBACResources
+      usage: Specify whether to restore rbac resources.
     singleton: true
     volumeMounts:
     - mountPath: /kubestash-tmp
@@ -111,8 +111,8 @@ spec:
       required: false
       usage: Directory for holding temporary files and restic cache.
     - default: "false"
-      name: includeClusterResources
-      usage: Specify whether to restore cluster scoped resources.
+      name: includeRBACResources
+      usage: Specify whether to restore rbac resources.
     - default: "false"
       name: overrideResources
       usage: Specify whether to override resources while restoring.

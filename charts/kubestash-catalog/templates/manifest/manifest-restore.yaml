@@ -13,8 +13,8 @@ spec:
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  - --include-cluster-resources=${includeClusterResources:=}
   - --override-resources=${overrideResources:=}
+  - --include-rbac-resources=${includeRBACResources:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.10.0'
 {{ end }}
 
