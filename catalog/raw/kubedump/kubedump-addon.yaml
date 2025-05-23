@@ -107,6 +107,10 @@ spec:
           name: TargetNamespace
           usage: Namespace where the resources will be restored
           required: false
+        - default: "false"
+          name: RestorePVs
+          usage: Specify whether to restore PersistentVolumes
+          required: false
       singleton: true
       volumeMounts:
         - mountPath: /kubestash-tmp

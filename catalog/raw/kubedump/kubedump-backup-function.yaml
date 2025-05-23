@@ -17,6 +17,6 @@ spec:
   - --include-resources=${IncludeResources:=}
   - --exclude-resources=${ExcludeResources:=}
   - --exclude-namespaces=${ExcludeNamespaces:=}
-  image: arnabbaishnab7620/kubedump:kubedump-restore_linux_amd64431
+  image: arnabbaishnab7620/kubedump:kubedump-restore_linux_amd64441
 
 
