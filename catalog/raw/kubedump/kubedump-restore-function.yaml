@@ -1,0 +1,24 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedump-restore
+spec:
+  args:
+    - restore
+    - --namespace=${namespace:=default}
+    - --restoresession=${restoreSession:=}
+    - --snapshot=${snapshot:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}
+    - --sanitize=${sanitize:=false}
+    - --and-label-selectors=${ANDedLabelSelectors:=}
+    - --or-label-selectors=${ORedLabelSelectors:=}
+    - --include-cluster-resources=${IncludeClusterResources:=}
+    - --include-namespaces=${IncludeNamespaces:=}
+    - --exclude-namespaces=${ExcludeNamespaces:=}
+    - --include-resources=${IncludeResources:=}
+    - --exclude-resources=${ExcludeResources:=}
+    - --override-resources=${OverrideResources:=}
+    - --storage-class-mappings=${StorageClassMappings:=}
+    - --restore-pvs=${RestorePVs:=}
+  image: arnabbaishnab7620/kubedump:kubedump-restore_linux_amd641117
