@@ -51,7 +51,9 @@ type KubestashOperatorSpec struct {
 	ReplicaCount     int32        `json:"replicaCount"`
 	Operator         ContianerRef `json:"operator"`
 	Cleaner          CleanerRef   `json:"cleaner"`
-	ImagePullPolicy  string       `json:"imagePullPolicy"`
+	// +optional
+	TaskQueue       TaskQueue `json:"taskQueue,omitempty"`
+	ImagePullPolicy string    `json:"imagePullPolicy"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional

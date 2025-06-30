@@ -44,6 +44,7 @@ spec:
         args:
           - operator
           - --config=/var/config/config.yaml
+          - --enable-task-queue={{- include "operator.enableTaskQueue" . }}
         {{- if include "appscode.licenseSecretName" . }}
           - --license-file=/var/run/secrets/appscode/license/key.txt
         {{- end }}
