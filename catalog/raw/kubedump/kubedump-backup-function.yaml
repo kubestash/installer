@@ -16,4 +16,4 @@ spec:
   - --exclude-namespaces=${ExcludeNamespaces:=}
   - --include-resources=${IncludeResources:=}
   - --exclude-resources=${ExcludeResources:=}
-  image: arnabbaishnab7620/kubedump:kubedump-restore_linux_amd641117
+  image: ghcr.io/kubestash/kubedump:v0.17.0
