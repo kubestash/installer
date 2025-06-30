@@ -1,12 +1,16 @@
+{{ if .Values.kubedump.enabled }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: kubedump-backup
+  name: 'kubedump-restore'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
 spec:
   args:
-  - backup
+  - restore
   - --namespace=${namespace:=default}
-  - --backupsession=${backupSession:=}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
   - --and-label-selectors=${ANDedLabelSelectors:=}
@@ -16,4 +20,9 @@ spec:
   - --exclude-namespaces=${ExcludeNamespaces:=}
   - --include-resources=${IncludeResources:=}
   - --exclude-resources=${ExcludeResources:=}
-  image: ghcr.io/kubestash/kubedump:v0.17.0
+  - --override-resources=${OverrideResources:=}
+  - --storage-class-mappings=${StorageClassMappings:=}
+  - --restore-pvs=${RestorePVs:=}
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.17.0'
+{{ end }}
+

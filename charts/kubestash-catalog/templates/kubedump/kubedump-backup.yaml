@@ -12,9 +12,13 @@ spec:
   - --backupsession=${backupSession:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  - --sanitize=${sanitize:=true}
-  - --label-selector=${labelSelector:=}
-  - --include-dependants=${includeDependants:=false}
+  - --and-label-selectors=${ANDedLabelSelectors:=}
+  - --or-label-selectors=${ORedLabelSelectors:=}
+  - --include-cluster-resources=${IncludeClusterResources:=}
+  - --include-namespaces=${IncludeNamespaces:=}
+  - --exclude-namespaces=${ExcludeNamespaces:=}
+  - --include-resources=${IncludeResources:=}
+  - --exclude-resources=${ExcludeResources:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.17.0'
 {{ end }}
 
