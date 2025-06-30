@@ -84,7 +84,18 @@ type GlobalValues struct {
 	ImagePullSecrets []core.LocalObjectReference `json:"imagePullSecrets"`
 	SkipCleaner      bool                        `json:"skipCleaner"`
 	// +optional
+	TaskQueue TaskQueue `json:"taskQueue,omitempty"`
+	// +optional
 	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+}
+
+type TaskQueue struct {
+	// Enable Task Queue feature maintains a concurrent Queue pool of Backup or restore sessions,
+	//+optional
+	Enabled bool `json:"enabled"`
+	//+optional
+	// It'll be applicable only If the Enabled=true. It defines the Max concurrent sessions that can run at a time.
+	MaxConcurrentSessions int `json:"maxConcurrentSessions"`
 }
 
 type NetworkPolicy struct {
