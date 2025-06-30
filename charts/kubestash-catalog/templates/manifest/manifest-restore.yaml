@@ -15,6 +15,6 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --include-rbac-resources=${includeRBACResources:=}
   - --override-resources=${overrideResources:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.10.0'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.11.0'
 {{ end }}
 
