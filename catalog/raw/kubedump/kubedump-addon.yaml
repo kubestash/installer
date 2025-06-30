@@ -68,10 +68,6 @@ spec:
           name: scratchDir
           required: false
           usage: Directory for holding temporary files and restic cache.
-        - name: sanitize
-          default: "true"
-          usage: Specify whether to remove the decorators from the resource YAML.
-          required: false
         - default: ""
           name: ANDedLabelSelectors
           usage: A set of labels, all of which need to be matched to filter the resources (comma-separated, e.g., 'key1:value1,key2:value2')

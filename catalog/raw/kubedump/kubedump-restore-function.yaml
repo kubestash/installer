@@ -10,7 +10,6 @@ spec:
     - --snapshot=${snapshot:=}
     - --enable-cache=${enableCache:=}
     - --scratch-dir=${scratchDir:=}
-    - --sanitize=${sanitize:=false}
     - --and-label-selectors=${ANDedLabelSelectors:=}
     - --or-label-selectors=${ORedLabelSelectors:=}
     - --include-cluster-resources=${IncludeClusterResources:=}
