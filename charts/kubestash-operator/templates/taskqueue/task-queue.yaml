@@ -10,7 +10,7 @@ spec:
   tasks:
     - type:
         kind: BackupSession
-        group: backupsessions.core.kubestash.com
+        group: core.kubestash.com
       rules:
         success: "has(self.status.phase) && self.status.phase == 'Succeeded'"
         inProgress: "has(self.status.phase) && self.status.phase == 'Running'"
