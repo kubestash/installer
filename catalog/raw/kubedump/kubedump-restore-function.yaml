@@ -4,20 +4,20 @@ metadata:
   name: kubedump-restore
 spec:
   args:
-    - restore
-    - --namespace=${namespace:=default}
-    - --restoresession=${restoreSession:=}
-    - --snapshot=${snapshot:=}
-    - --enable-cache=${enableCache:=}
-    - --scratch-dir=${scratchDir:=}
-    - --and-label-selectors=${ANDedLabelSelectors:=}
-    - --or-label-selectors=${ORedLabelSelectors:=}
-    - --include-cluster-resources=${IncludeClusterResources:=}
-    - --include-namespaces=${IncludeNamespaces:=}
-    - --exclude-namespaces=${ExcludeNamespaces:=}
-    - --include-resources=${IncludeResources:=}
-    - --exclude-resources=${ExcludeResources:=}
-    - --override-resources=${OverrideResources:=}
-    - --storage-class-mappings=${StorageClassMappings:=}
-    - --restore-pvs=${RestorePVs:=}
-  image: ghcr.io/kubestash/kubedump:v0.17.0
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  - --and-label-selectors=${ANDedLabelSelectors:=}
+  - --or-label-selectors=${ORedLabelSelectors:=}
+  - --include-cluster-resources=${IncludeClusterResources:=}
+  - --include-namespaces=${IncludeNamespaces:=}
+  - --exclude-namespaces=${ExcludeNamespaces:=}
+  - --include-resources=${IncludeResources:=}
+  - --exclude-resources=${ExcludeResources:=}
+  - --override-resources=${OverrideResources:=}
+  - --storage-class-mappings=${StorageClassMappings:=}
+  - --restore-pvs=${RestorePVs:=}
+  image: ghcr.io/kubestash/kubedump:v0.18.0
