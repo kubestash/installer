@@ -1,4 +1,5 @@
 {{- if eq "true" ( include "cleaner.generate" . ) }}
+
 apiVersion: batch/v1
 kind: Job
 metadata:
