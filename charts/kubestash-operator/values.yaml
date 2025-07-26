@@ -53,9 +53,9 @@ cleaner:
   # Docker registry used to pull Webhook cleaner image
   registry: appscode
   # Webhook cleaner container image
-  repository: kubectl
+  repository: kubectl-nonroot
   # Webhook cleaner container image tag
-  tag: v1.31
+  tag: "1.31"
   # Skip generating cleaner YAML
   skip: false
   # Security options this container should run with

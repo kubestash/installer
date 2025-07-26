@@ -26,8 +26,7 @@ tar -zxvf $TARBALL
 
 CMD="./crane"
 
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-v1.31.tar $IMAGE_REGISTRY/appscode/kubectl:v1.31
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.17.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.17.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.18.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.18.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.19.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.19.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.11.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.11.0
