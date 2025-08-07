@@ -41,13 +41,15 @@ spec:
                       - enum:
                         - Restic
                         - WalG
-                        - Medusa
                         - VolumeSnapshotter
+                        - Solr
+                        - Medusa
                       - enum:
                         - Restic
                         - WalG
                         - Medusa
                         - VolumeSnapshotter
+                        - Solr
                       type: string
                     executor:
                       enum:
@@ -1044,13 +1046,15 @@ spec:
                       - enum:
                         - Restic
                         - WalG
-                        - Medusa
                         - VolumeSnapshotter
+                        - Solr
+                        - Medusa
                       - enum:
                         - Restic
                         - WalG
                         - Medusa
                         - VolumeSnapshotter
+                        - Solr
                       type: string
                     executor:
                       enum:
@@ -63486,8 +63490,9 @@ spec:
                       enum:
                       - Restic
                       - WalG
-                      - Medusa
                       - VolumeSnapshotter
+                      - Solr
+                      - Medusa
                       type: string
                     duration:
                       type: string
@@ -63577,6 +63582,27 @@ spec:
                       type: array
                     size:
                       type: string
+                    solrStats:
+                      items:
+                        properties:
+                          backupId:
+                            type: integer
+                          collection:
+                            type: string
+                          indexFileCount:
+                            type: integer
+                          indexSizeMB:
+                            format: double
+                            type: number
+                          location:
+                            type: string
+                          startTime:
+                            type: string
+                          uploadedIndexFileMB:
+                            format: double
+                            type: number
+                        type: object
+                      type: array
                     volumeSnapshotterStats:
                       items:
                         properties:

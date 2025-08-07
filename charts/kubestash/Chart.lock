@@ -1,18 +1,18 @@
 dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
-  version: v0.19.0
+  version: v0.20.0
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
-  version: v2025.6.30
+  version: v2025.7.31
 - name: kubestash-metrics
   repository: file://../kubestash-metrics
-  version: v2025.6.30
+  version: v2025.7.31
 - name: ace-user-roles
   repository: oci://ghcr.io/appscode-charts
   version: v2025.3.14
 - name: taskqueue
   repository: oci://ghcr.io/appscode-charts
   version: v2025.6.30
-digest: sha256:8a74aad865557c045765dca5509fc33ce2a0f2a075d2b08ebf1489fe06c379cf
-generated: "2025-06-30T16:20:46.404313402Z"
+digest: sha256:b047cc75327b24409c3134e10eb3788ddd69ed2fe781d3a58333c0f2c65fcb02
+generated: "2025-08-07T15:23:34.549636635Z"
