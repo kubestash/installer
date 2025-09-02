@@ -83,8 +83,8 @@ type KubestashOperatorSpec struct {
 	Apiserver  WebHookSpec  `json:"apiserver"`
 	Monitoring Monitoring   `json:"monitoring"`
 	Security   SecuritySpec `json:"security"`
-	//+optional
-	Platform Platform `json:"platform"`
+	// +optional
+	Distro DistroSpec `json:"distro"`
 	// +optional
 	NetVolAccessor NetVolAccessor `json:"netVolAccessor"`
 	// +optional
@@ -205,8 +205,7 @@ type SeccompSpec struct {
 	Enabled bool `json:"enabled"`
 }
 
-type Platform struct {
-	//+optional
+type DistroSpec struct {
 	Openshift bool `json:"openshift"`
 }
 

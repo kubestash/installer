@@ -54,6 +54,13 @@ properties:
     type: object
   global:
     properties:
+      distro:
+        properties:
+          openshift:
+            type: boolean
+        required:
+        - openshift
+        type: object
       imagePullSecrets:
         items:
           description: 'LocalObjectReference contains enough information to let you
@@ -3227,6 +3234,13 @@ properties:
         type: object
       criticalAddon:
         type: boolean
+      distro:
+        properties:
+          openshift:
+            type: boolean
+        required:
+        - openshift
+        type: object
       enabled:
         type: boolean
       env:
@@ -3842,11 +3856,6 @@ properties:
         - registry
         - repository
         - tag
-        type: object
-      platform:
-        properties:
-          openshift:
-            type: boolean
         type: object
       podAnnotations:
         additionalProperties:

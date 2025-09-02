@@ -2974,6 +2974,13 @@ properties:
     type: object
   criticalAddon:
     type: boolean
+  distro:
+    properties:
+      openshift:
+        type: boolean
+    required:
+    - openshift
+    type: object
   env:
     description: 'List of environment variables to set in the container.
 
@@ -3568,11 +3575,6 @@ properties:
     - registry
     - repository
     - tag
-    type: object
-  platform:
-    properties:
-      openshift:
-        type: boolean
     type: object
   podAnnotations:
     additionalProperties:

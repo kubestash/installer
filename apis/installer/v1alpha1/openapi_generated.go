@@ -310,7 +310,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubestash.dev/installer/apis/installer/v1alpha1.KubestashOperatorValues": schema_installer_apis_installer_v1alpha1_KubestashOperatorValues(ref),
 		"kubestash.dev/installer/apis/installer/v1alpha1.KubestashSpec":           schema_installer_apis_installer_v1alpha1_KubestashSpec(ref),
 		"kubestash.dev/installer/apis/installer/v1alpha1.Monitoring":              schema_installer_apis_installer_v1alpha1_Monitoring(ref),
-		"kubestash.dev/installer/apis/installer/v1alpha1.Platform":                schema_installer_apis_installer_v1alpha1_Platform(ref),
+		"kubestash.dev/installer/apis/installer/v1alpha1.DistroSpec":              schema_installer_apis_installer_v1alpha1_Platform(ref),
 		"kubestash.dev/installer/apis/installer/v1alpha1.SeccompSpec":             schema_installer_apis_installer_v1alpha1_SeccompSpec(ref),
 		"kubestash.dev/installer/apis/installer/v1alpha1.SecuritySpec":            schema_installer_apis_installer_v1alpha1_SecuritySpec(ref),
 		"kubestash.dev/installer/apis/installer/v1alpha1.ServiceAccountSpec":      schema_installer_apis_installer_v1alpha1_ServiceAccountSpec(ref),
@@ -15074,7 +15074,7 @@ func schema_installer_apis_installer_v1alpha1_KubestashOperatorSpec(ref common.R
 					"platform": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("kubestash.dev/installer/apis/installer/v1alpha1.Platform"),
+							Ref:     ref("kubestash.dev/installer/apis/installer/v1alpha1.DistroSpec"),
 						},
 					},
 					"license": {
@@ -15096,7 +15096,7 @@ func schema_installer_apis_installer_v1alpha1_KubestashOperatorSpec(ref common.R
 			},
 		},
 		Dependencies: []string{
-			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodSecurityContext", "k8s.io/api/core/v1.Toleration", "kubestash.dev/installer/apis/installer/v1alpha1.CleanerRef", "kubestash.dev/installer/apis/installer/v1alpha1.ContianerRef", "kubestash.dev/installer/apis/installer/v1alpha1.Monitoring", "kubestash.dev/installer/apis/installer/v1alpha1.Platform", "kubestash.dev/installer/apis/installer/v1alpha1.SecuritySpec", "kubestash.dev/installer/apis/installer/v1alpha1.ServiceAccountSpec", "kubestash.dev/installer/apis/installer/v1alpha1.WebHookSpec"},
+			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodSecurityContext", "k8s.io/api/core/v1.Toleration", "kubestash.dev/installer/apis/installer/v1alpha1.CleanerRef", "kubestash.dev/installer/apis/installer/v1alpha1.ContianerRef", "kubestash.dev/installer/apis/installer/v1alpha1.Monitoring", "kubestash.dev/installer/apis/installer/v1alpha1.DistroSpec", "kubestash.dev/installer/apis/installer/v1alpha1.SecuritySpec", "kubestash.dev/installer/apis/installer/v1alpha1.ServiceAccountSpec", "kubestash.dev/installer/apis/installer/v1alpha1.WebHookSpec"},
 	}
 }
 
@@ -15272,7 +15272,7 @@ func schema_installer_apis_installer_v1alpha1_KubestashOperatorValues(ref common
 					"platform": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("kubestash.dev/installer/apis/installer/v1alpha1.Platform"),
+							Ref:     ref("kubestash.dev/installer/apis/installer/v1alpha1.DistroSpec"),
 						},
 					},
 					"license": {
@@ -15294,7 +15294,7 @@ func schema_installer_apis_installer_v1alpha1_KubestashOperatorValues(ref common
 			},
 		},
 		Dependencies: []string{
-			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodSecurityContext", "k8s.io/api/core/v1.Toleration", "kubestash.dev/installer/apis/installer/v1alpha1.CleanerRef", "kubestash.dev/installer/apis/installer/v1alpha1.ContianerRef", "kubestash.dev/installer/apis/installer/v1alpha1.Monitoring", "kubestash.dev/installer/apis/installer/v1alpha1.Platform", "kubestash.dev/installer/apis/installer/v1alpha1.SecuritySpec", "kubestash.dev/installer/apis/installer/v1alpha1.ServiceAccountSpec", "kubestash.dev/installer/apis/installer/v1alpha1.WebHookSpec"},
+			"k8s.io/api/core/v1.Affinity", "k8s.io/api/core/v1.PodSecurityContext", "k8s.io/api/core/v1.Toleration", "kubestash.dev/installer/apis/installer/v1alpha1.CleanerRef", "kubestash.dev/installer/apis/installer/v1alpha1.ContianerRef", "kubestash.dev/installer/apis/installer/v1alpha1.Monitoring", "kubestash.dev/installer/apis/installer/v1alpha1.DistroSpec", "kubestash.dev/installer/apis/installer/v1alpha1.SecuritySpec", "kubestash.dev/installer/apis/installer/v1alpha1.ServiceAccountSpec", "kubestash.dev/installer/apis/installer/v1alpha1.WebHookSpec"},
 	}
 }
 
