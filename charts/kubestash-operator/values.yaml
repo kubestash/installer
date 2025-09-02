@@ -163,7 +163,7 @@ security:
   seccomp:
     # `Optional:` Allows the default seccomp profile, requires setting the default.
     enabled: false
-platform:
+distro:
   # Set true, if installed in OpenShift
   openshift: false
 # Network volume accessor configurations

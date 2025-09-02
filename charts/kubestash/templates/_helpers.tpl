@@ -160,3 +160,10 @@ imagePullSecrets:
 imagePullSecrets:
 {{- toYaml $secrets | nindent 2 }}
 {{- end -}}
+
+{{/*
+Returns whether the OpenShift distribution is used
+*/}}
+{{- define "distro.openshift" -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.global.distro.openshift (and .Values.distro .Values.distro.openshift) -}}
+{{- end }}

@@ -87,6 +87,8 @@ type GlobalValues struct {
 	TaskQueue TaskQueue `json:"taskQueue,omitempty"`
 	// +optional
 	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+	// +optional
+	Distro DistroSpec `json:"distro"`
 }
 
 type TaskQueue struct {

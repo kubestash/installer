@@ -49,8 +49,7 @@ type PetsetSpec struct {
 	FullnameOverride string    `json:"fullnameOverride"`
 	RegistryFQDN     string    `json:"registryFQDN"`
 	ReplicaCount     int32     `json:"replicaCount"`
-	Operator         Container `json:"operator"`
-	RbacProxy        Container `json:"rbacproxy"`
+	Image            Container `json:"image"`
 	ImagePullPolicy  string    `json:"imagePullPolicy"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
@@ -78,21 +77,28 @@ type PetsetSpec struct {
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
 	ServiceAccount     ServiceAccountSpec       `json:"serviceAccount"`
 	// +optional
-	Apiserver  PetsetApiserver `json:"apiserver"`
-	Monitoring Monitoring      `json:"monitoring"`
+	Apiserver  SupervisorApiserver `json:"apiserver"`
+	Monitoring Monitoring          `json:"monitoring"`
 	// +optional
-	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+	NetworkPolicy NetworkPolicySpec `json:"networkPolicy"`
+	// +optional
+	Features PetsetFeatures `json:"features"`
+	// +optional
+	Distro DistroSpec `json:"distro"`
 }
 
-type PetsetApiserver struct {
-	GroupPriorityMinimum        int             `json:"groupPriorityMinimum"`
-	VersionPriority             int             `json:"versionPriority"`
-	EnableMutatingWebhook       bool            `json:"enableMutatingWebhook"`
-	EnableValidatingWebhook     bool            `json:"enableValidatingWebhook"`
-	BypassValidatingWebhookXray bool            `json:"bypassValidatingWebhookXray"`
-	UseKubeapiserverFqdnForAks  bool            `json:"useKubeapiserverFqdnForAks"`
-	Healthcheck                 HealthcheckSpec `json:"healthcheck"`
-	ServingCerts                ServingCerts    `json:"servingCerts"`
+type PetsetFeatures struct {
+	// +optional
+	Ocm OCMSpec `json:"ocm"`
+}
+type OCMSpec struct {
+	Enabled   bool         `json:"enabled"`
+	Placement OCMPlacement `json:"placement"`
+}
+
+type OCMPlacement struct {
+	Create bool   `json:"create"`
+	Name   string `json:"name"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

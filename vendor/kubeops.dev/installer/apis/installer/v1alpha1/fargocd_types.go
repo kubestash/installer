@@ -22,12 +22,12 @@ import (
 )
 
 const (
-	ResourceKindPanopticon = "Panopticon"
-	ResourcePanopticon     = "panopticon"
-	ResourcePanopticons    = "panopticons"
+	ResourceKindFargocd = "Fargocd"
+	ResourceFargocd     = "fargocd"
+	ResourceFargocds    = "fargocds"
 )
 
-// Panopticon defines the schama for Panopticon Installer.
+// Fargocd defines the schama for Fargocd operator installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -35,25 +35,23 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=panopticons,singular=panopticon,categories={kubeops,appscode}
-type Panopticon struct {
+// +kubebuilder:resource:path=aceshifters,singular=aceshifter,categories={kubeops,appscode}
+type Fargocd struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              PanopticonSpec `json:"spec,omitempty"`
+	Spec              FargocdSpec `json:"spec,omitempty"`
 }
 
-// PanopticonSpec is the schema for Panopticon Operator values file
-type PanopticonSpec struct {
+// FargocdSpec is the schema for Identity Server values file
+type FargocdSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride  string     `json:"fullnameOverride"`
-	ReplicaCount      int32      `json:"replicaCount"`
-	RegistryFQDN      string     `json:"registryFQDN"`
-	NamespaceSelector string     `json:"namespaceSelector"`
-	Image             Container  `json:"image"`
-	Cleaner           CleanerRef `json:"cleaner"`
-	ImagePullPolicy   string     `json:"imagePullPolicy"`
+	FullnameOverride string    `json:"fullnameOverride"`
+	ReplicaCount     int       `json:"replicaCount"`
+	RegistryFQDN     string    `json:"registryFQDN"`
+	Image            Container `json:"image"`
+	ImagePullPolicy  string    `json:"imagePullPolicy"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional
@@ -65,38 +63,33 @@ type PanopticonSpec struct {
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector" protobuf:"bytes,12,rep,name=nodeSelector"`
-	// If specified, the pod's tolerations.
-	// +optional
-	Tolerations []core.Toleration `json:"tolerations" protobuf:"bytes,13,rep,name=tolerations"`
-	// If specified, the pod's scheduling constraints
-	// +optional
-	Affinity *core.Affinity `json:"affinity" protobuf:"bytes,14,opt,name=affinity"`
+	PodLabels map[string]string `json:"podLabels"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector"`
 	// PodSecurityContext holds pod-level security attributes and common container settings.
 	// Optional: Defaults to empty.  See type description for default values of each field.
 	// +optional
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
-	ServiceAccount     ServiceAccountSpec       `json:"serviceAccount"`
-	Apiserver          WebHookSpec              `json:"apiserver"`
-	Monitoring         Monitoring               `json:"monitoring"`
+	// If specified, the pod's tolerations.
 	// +optional
-	License string `json:"license"`
+	Tolerations []core.Toleration `json:"tolerations"`
+	// If specified, the pod's scheduling constraints
 	// +optional
-	LicenseSecretName string `json:"licenseSecretName"`
+	Affinity       *core.Affinity      `json:"affinity"`
+	ServiceAccount ServiceAccountSpec  `json:"serviceAccount"`
+	Apiserver      SupervisorApiserver `json:"apiserver"`
+	Monitoring     Monitoring          `json:"monitoring"`
 
 	// +optional
 	NetworkPolicy NetworkPolicySpec `json:"networkPolicy"`
-
-	//+optional
-	AceUserRoles AceUserRolesValues `json:"ace-user-roles"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// PanopticonList is a list of Panopticons
-type PanopticonList struct {
+// FargocdList is a list of Fargocds
+type FargocdList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of Panopticon CRD objects
-	Items []Panopticon `json:"items,omitempty"`
+	// Items is a list of Fargocd CRD objects
+	Items []Fargocd `json:"items,omitempty"`
 }
