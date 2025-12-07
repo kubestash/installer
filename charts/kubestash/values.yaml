@@ -40,6 +40,8 @@ global:
   distro:
     # Set true, if installed in OpenShift
     openshift: false
+    # Set operator or all to use ubi images
+    ubi: ""
 
 # Pass values to kubestash-operator chart
 kubestash-operator:
