@@ -65,3 +65,10 @@ Create the name of the service account to use
 {{- define "image.ghcr" -}}
 {{ list .Values.proxies.ghcr ._repo | compact | join "/" }}
 {{- end }}
+
+{{/*
+Returns if ubi images are to be used
+*/}}
+{{- define "catalog.ubi" -}}
+{{ ternary "-ubi" "" (list "catalog" "all" | has .Values.distro.ubi) }}
+{{- end }}

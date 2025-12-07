@@ -475,8 +475,8 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.14
 ## explicit; go 1.23.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20250820194218-ae3ef975f5df
-## explicit; go 1.23.0
+# kmodules.xyz/image-packer v0.0.0-20251207101219-5eac37d8b469
+## explicit; go 1.24.0
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/schema-checker v0.4.2
 ## explicit; go 1.22.0

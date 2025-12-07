@@ -145,6 +145,13 @@ Returns whether the OpenShift distribution is used
 {{- end }}
 
 {{/*
+Returns if ubi images are to be used
+*/}}
+{{- define "operator.ubi" -}}
+{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
+{{- end }}
+
+{{/*
 Prepare certs
 */}}
 {{- define "kubestash-operator.prepare-certs" -}}

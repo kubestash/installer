@@ -16,7 +16,7 @@ require (
 	k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff
 	kmodules.xyz/client-go v0.32.8
 	kmodules.xyz/go-containerregistry v0.0.14
-	kmodules.xyz/image-packer v0.0.0-20250820194218-ae3ef975f5df
+	kmodules.xyz/image-packer v0.0.0-20251207101219-5eac37d8b469
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/installer v0.0.0-20250902033726-2d6945608620
 	sigs.k8s.io/yaml v1.4.0

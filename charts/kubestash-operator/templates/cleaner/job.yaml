@@ -19,7 +19,7 @@ spec:
       serviceAccountName: {{ include "kubestash-operator.serviceAccountName" . }}-cleaner
       containers:
       - name: busybox
-        image: "{{ include "cleaner.registry" . }}/{{ .Values.cleaner.repository }}:{{ .Values.cleaner.tag }}"
+        image: {{ include "cleaner.registry" . }}/{{ .Values.cleaner.repository }}:{{ .Values.cleaner.tag }}{{ include "operator.ubi" . }}
         command:
           - sh
           - -c

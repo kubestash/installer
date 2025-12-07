@@ -37,7 +37,7 @@ spec:
       serviceAccountName: {{ include "kubestash-operator.serviceAccountName" . }}
       containers:
       - name: operator
-        image: "{{ include "operator.registry" . }}/{{ .Values.operator.repository }}:{{ .Values.operator.tag | default .Chart.AppVersion }}"
+        image: {{ include "operator.registry" . }}/{{ .Values.operator.repository }}:{{ .Values.operator.tag | default .Chart.AppVersion }}{{ include "operator.ubi" . }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         securityContext:
           {{- toYaml .Values.operator.securityContext | nindent 10 }}
