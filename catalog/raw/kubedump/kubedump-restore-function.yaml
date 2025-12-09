@@ -20,4 +20,4 @@ spec:
   - --override-resources=${OverrideResources:=}
   - --storage-class-mappings=${StorageClassMappings:=}
   - --restore-pvs=${RestorePVs:=}
-  image: ghcr.io/kubestash/kubedump:v0.20.0
+  image: ghcr.io/kubestash/kubedump:v0.21.0-rc.0

@@ -324,6 +324,7 @@ func (in *KubestashCatalogSpec) DeepCopyInto(out *KubestashCatalogSpec) {
 	out.Volumesnapshot = in.Volumesnapshot
 	out.Workload = in.Workload
 	out.Manifest = in.Manifest
+	out.Distro = in.Distro
 	return
 }
 

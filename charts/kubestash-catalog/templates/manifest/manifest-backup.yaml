@@ -13,6 +13,6 @@ spec:
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
   - --include-rbac-resources=${includeRBACResources:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.13.0{{ include "catalog.ubi" $ }}'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.14.0-rc.0{{ include "catalog.ubi" $ }}'
 {{ end }}
 

@@ -51,6 +51,8 @@ type KubestashCatalogSpec struct {
 	Volumesnapshot StashVolumesnapshotSpec `json:"volumesnapshot"`
 	Workload       StashWorkloadSpec       `json:"workload"`
 	Manifest       StashManifestSpec       `json:"manifest"`
+	// +optional
+	Distro DistroSpec `json:"distro"`
 }
 
 type RegistryProxies struct {
