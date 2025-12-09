@@ -3,6 +3,9 @@ description: KubeStash, Kubernetes native backup operator by AppsCode
 name: kubestash-operator
 version: v0.21.0
 appVersion: v0.21.0
+kubeVersion: ">=1.28.0"
+annotations:
+  charts.openshift.io/name: kubestash-operator
 home: https://kubestash.com/
 icon: https://cdn.appscode.com/images/products/stash/kubestash-operator-icon.png
 sources:
