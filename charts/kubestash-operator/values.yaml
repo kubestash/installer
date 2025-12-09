@@ -35,11 +35,11 @@ operator:
   # Operator container image tag
   tag: ""
   # Compute Resources required by the operator container
-  resources: # +doc-gen:break
+  resources:  # +doc-gen:break
     requests:
       cpu: "100m"
   # Security options this container should run with
-  securityContext: # +doc-gen:break
+  securityContext:  # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
@@ -59,7 +59,7 @@ cleaner:
   # Skip generating cleaner YAML
   skip: false
   # Security options this container should run with
-  securityContext: # +doc-gen:break
+  securityContext:  # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
@@ -69,7 +69,7 @@ cleaner:
     seccompProfile:
       type: RuntimeDefault
   # Node labels for pod assignment
-  nodeSelector: # +doc-gen:break
+  nodeSelector:  # +doc-gen:break
     kubernetes.io/os: linux
   # Tolerations for pod assignment
   tolerations: []
@@ -97,14 +97,14 @@ podAnnotations: {}
 # Labels passed to operator pod(s)
 podLabels: {}
 # Node labels for pod assignment
-nodeSelector: # +doc-gen:break
+nodeSelector:  # +doc-gen:break
   kubernetes.io/os: linux
 # Tolerations for pod assignment
 tolerations: []
 # Affinity rules for pod assignment
 affinity: {}
 # Security options the operator pod should run with.
-podSecurityContext: # +doc-gen:break
+podSecurityContext:  # +doc-gen:break
   fsGroup: 65535
 serviceAccount:
   # Specifies whether a service account should be created
@@ -178,8 +178,6 @@ netVolAccessor:
   runAsUser: 2000
   # Run the network volume accessor deployments in privileged mode
   privileged: false
-
-
 # List of sources to populate environment variables in the container
 envFrom: []
 # List of environment variables to set in the container
