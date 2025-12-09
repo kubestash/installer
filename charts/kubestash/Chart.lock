@@ -13,6 +13,6 @@ dependencies:
   version: v2025.3.14
 - name: taskqueue
   repository: oci://ghcr.io/appscode-charts
-  version: v2025.6.30
-digest: sha256:af525e70968dbed05dd89f3f7462aa9d86fc27ab13f2b1ae455011a10d7a80ba
-generated: "2025-10-17T08:01:36.346129916Z"
+  version: v2025.12.15
+digest: sha256:9ed556a957ced505f31d350d4a978e40dea617c1a892f999ab9f25e88521b1a8
+generated: "2025-12-09T12:41:27.414416+06:00"

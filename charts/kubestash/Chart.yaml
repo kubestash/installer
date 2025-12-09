@@ -4,6 +4,9 @@ name: kubestash
 type: application
 version: v2025.10.17
 appVersion: v2025.10.17
+kubeVersion: ">=1.28.0"
+annotations:
+  charts.openshift.io/name: kubestash
 home: https://kubestash.com
 icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
 sources:
@@ -29,6 +32,6 @@ dependencies:
   condition: ace-user-roles.enabled
   version: v2025.3.14
 - name: taskqueue
-  version: v2025.6.30
+  version: v2025.12.15
   condition: global.taskQueue.enabled
   repository: oci://ghcr.io/appscode-charts
