@@ -2,8 +2,8 @@ apiVersion: v2
 name: kubestash-metrics
 description: KubeStash State Metrics
 type: application
-version: v2025.12.9-rc.0
-appVersion: v2025.12.9-rc.0
+version: v2025.12.15
+appVersion: v2025.12.15
 kubeVersion: '>=1.28.0'
 annotations:
   charts.openshift.io/name: kubestash-metrics

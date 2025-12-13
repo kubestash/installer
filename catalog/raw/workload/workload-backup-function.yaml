@@ -11,4 +11,4 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --paths=${paths:=}
   - --exclude=${exclude:=}
-  image: ghcr.io/kubestash/workload:v0.21.0-rc.0
+  image: ghcr.io/kubestash/workload:v0.21.0
