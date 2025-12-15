@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
 const (
@@ -84,7 +85,7 @@ type KubestashOperatorSpec struct {
 	Monitoring Monitoring   `json:"monitoring"`
 	Security   SecuritySpec `json:"security"`
 	// +optional
-	Distro DistroSpec `json:"distro"`
+	Distro shared.DistroSpec `json:"distro"`
 	// +optional
 	NetVolAccessor NetVolAccessor `json:"netVolAccessor"`
 	// +optional
@@ -203,14 +204,6 @@ type ApparmorSpec struct {
 type SeccompSpec struct {
 	//+optional
 	Enabled bool `json:"enabled"`
-}
-
-// +kubebuilder:validation:Enum=all;catalog;operator
-type UBIMode string
-
-type DistroSpec struct {
-	Openshift bool    `json:"openshift"`
-	UBI       UBIMode `json:"ubi"`
 }
 
 type NetVolAccessor struct {

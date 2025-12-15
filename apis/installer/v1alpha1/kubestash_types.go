@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"kmodules.xyz/resource-metadata/apis/shared"
 	kubeopsinstaller "kubeops.dev/installer/apis/installer/v1alpha1"
 )
 
@@ -88,7 +89,7 @@ type GlobalValues struct {
 	// +optional
 	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
 	// +optional
-	Distro DistroSpec `json:"distro"`
+	Distro shared.DistroSpec `json:"distro"`
 }
 
 type TaskQueue struct {

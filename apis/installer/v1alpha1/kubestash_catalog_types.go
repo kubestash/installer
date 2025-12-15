@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
 const (
@@ -52,7 +53,7 @@ type KubestashCatalogSpec struct {
 	Workload       StashWorkloadSpec       `json:"workload"`
 	Manifest       StashManifestSpec       `json:"manifest"`
 	// +optional
-	Distro DistroSpec `json:"distro"`
+	Distro shared.DistroSpec `json:"distro"`
 }
 
 type RegistryProxies struct {
