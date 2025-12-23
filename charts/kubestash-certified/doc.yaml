@@ -1,18 +1,18 @@
-project:
-  name: KubeStash by AppsCode
-  shortName: KubeStash
-  url: https://github.com/kubestash
-  description: Backup your Kubernetes native applications
-  app: Backup operator
-repository:
-  url: https://charts.appscode.com/stable/
-  name: appscode
 chart:
-  name: kubestash
+  name: kubestash-certified
   values: -- generate from values file --
   valuesExample: global.registry=stashed
 prerequisites:
 - Kubernetes 1.14+
+project:
+  app: Backup operator
+  description: Backup your Kubernetes native applications
+  name: kubestash-certified
+  shortName: kubestash-certified
+  url: https://github.com/kubestash
 release:
-  name: kubestash
+  name: kubestash-certified
   namespace: kubestash
+repository:
+  name: appscode
+  url: https://charts.appscode.com/stable/
