@@ -306,6 +306,7 @@ unit-tests: $(BUILD_DIRS)
 CT_COMMAND     ?= lint-and-install
 TEST_CHARTS    ?=
 KUBE_NAMESPACE ?=
+CT_CLEANUP     ?= true
 
 ifeq ($(CT_COMMAND),lint-and-install)
 	ct_namespace = --namespace=$(KUBE_NAMESPACE)
@@ -337,7 +338,7 @@ ct: $(BUILD_DIRS)
 	    $(CHART_TEST_IMAGE)                                     \
 	    /bin/sh -c "                                            \
 	      set -x; \
-	      kubectl delete crds --all; \
+	      [ $(CT_CLEANUP) = true ] && kubectl delete crds --all; \
 	      ./hack/scripts/update-chart-dependencies.sh; \
 	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
 	    "

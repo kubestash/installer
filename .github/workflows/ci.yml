@@ -90,6 +90,7 @@ jobs:
           # ref: https://github.com/mikefarah/yq/issues/230#issuecomment-487458629
           yqq w -i ./charts/kubestash-operator/ci/ci-values.yaml license --tag '!!str' -- "${LICENSE_KEY}"
           yqq w -i ./charts/kubestash/ci/ci-values.yaml global.license --tag '!!str' -- "${LICENSE_KEY}"
+          yqq w -i ./charts/kubestash-certified/ci/ci-values.yaml global.license --tag '!!str' -- "${LICENSE_KEY}"
 
       - name: Test charts
         run: |
