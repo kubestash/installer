@@ -1,0 +1,18 @@
+chart:
+  name: kubestash-certified-crds
+  values: -- generate from values file --
+  valuesExample: global.registry=stashed
+prerequisites:
+- Kubernetes 1.14+
+project:
+  app: Backup operator
+  description: Backup your Kubernetes native applications
+  name: kubestash-certified-crds
+  shortName: kubestash-certified-crds
+  url: https://github.com/kubestash
+release:
+  name: kubestash-certified-crds
+  namespace: kubestash
+repository:
+  name: appscode
+  url: https://charts.appscode.com/stable/
