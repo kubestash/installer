@@ -17,7 +17,7 @@ require (
 	kmodules.xyz/client-go v0.34.2
 	kmodules.xyz/go-containerregistry v0.0.15
 	kmodules.xyz/image-packer v0.0.0-20251207101219-5eac37d8b469
-	kmodules.xyz/resource-metadata v0.40.2
+	kmodules.xyz/resource-metadata v0.41.0
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/installer v0.0.0-20251215120607-2679d0cb5864
 	sigs.k8s.io/yaml v1.6.0
