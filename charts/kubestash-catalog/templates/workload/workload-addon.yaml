@@ -1,4 +1,9 @@
-{{ if .Values.workload.enabled }}
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.workload.enabled (not (eq $ubi "operator")) }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Addon
 metadata:
@@ -126,4 +131,3 @@ spec:
         emptyDir: {}
       usage: Holds temporary files and restic cache.
 {{ end }}
-

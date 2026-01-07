@@ -1,4 +1,9 @@
-{{ if .Values.pvc.enabled }}
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.pvc.enabled (not (eq $ubi "operator")) }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Addon
 metadata:
@@ -107,4 +112,3 @@ spec:
     name: volume-snapshot-restore
     singleton: true
 {{ end }}
-
