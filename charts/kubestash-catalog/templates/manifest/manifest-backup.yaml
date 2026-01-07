@@ -1,4 +1,9 @@
-{{ if .Values.manifest.enabled }}
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.manifest.enabled (not (eq $ubi "operator")) }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
@@ -15,4 +20,3 @@ spec:
   - --include-rbac-resources=${includeRBACResources:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/manifest") $) }}:v0.14.0{{ include "catalog.ubi" $ }}'
 {{ end }}
-

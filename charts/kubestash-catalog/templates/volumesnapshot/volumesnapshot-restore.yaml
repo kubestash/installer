@@ -1,4 +1,9 @@
-{{ if .Values.volumesnapshot.enabled }}
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.volumesnapshot.enabled (not (eq $ubi "operator")) }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
@@ -14,4 +19,3 @@ spec:
   - --task-name=${taskName:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/volume-snapshotter") $) }}:v0.21.0{{ include "catalog.ubi" $ }}'
 {{ end }}
-

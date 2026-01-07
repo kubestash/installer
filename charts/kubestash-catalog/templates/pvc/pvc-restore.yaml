@@ -1,4 +1,9 @@
-{{ if .Values.pvc.enabled }}
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.pvc.enabled (not (eq $ubi "operator")) }}
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
@@ -15,4 +20,3 @@ spec:
   - --scratch-dir=${scratchDir:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.21.0{{ include "catalog.ubi" $ }}'
 {{ end }}
-
