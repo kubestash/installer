@@ -138,6 +138,16 @@ type ContianerRef struct {
 	Resources core.ResourceRequirements `json:"resources"`
 }
 
+type Container struct {
+	ImageRef `json:",inline"`
+	// Compute Resources required by the sidecar container.
+	// +optional
+	Resources core.ResourceRequirements `json:"resources"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
+}
+
 type ServiceAccountSpec struct {
 	Create bool `json:"create"`
 	//+optional
