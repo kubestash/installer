@@ -40,7 +40,7 @@ spec:
       imagePullPolicy: {{ .Values.imagePullPolicy  }}
       {{- if dig "kubestash-operator" "enabled" false (.Values | toJson | fromJson) }}
       command: ['curl']
-      args: ['--fail', '{{ include "kubestash.webhook-server-svc" . }}:8081/healthz']
+      args: ['--silent', '--fail', '{{ include "kubestash.webhook-server-svc" . }}:8081/healthz']
       {{- else }}
       command: ["true"]
       {{- end }}
