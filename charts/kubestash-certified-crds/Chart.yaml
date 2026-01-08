@@ -1,7 +1,7 @@
 annotations:
   charts.openshift.io/name: kubestash
 apiVersion: v2
-appVersion: v2025.12.15
+appVersion: v2026.1.8-rc.0
 description: Chart containing only CRDs from kubestash chart
 home: https://kubestash.com
 icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
@@ -12,4 +12,4 @@ maintainers:
 name: kubestash-certified-crds
 sources:
 - https://github.com/kubestash
-version: v2025.12.15
+version: v2026.1.8-rc.0
