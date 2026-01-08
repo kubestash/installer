@@ -27,9 +27,9 @@ tar -zxvf $TARBALL
 CMD="./crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.21.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.21.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.22.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.22.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.14.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.14.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.21.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.21.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.21.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.21.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.21.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.21.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.22.0-rc.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.22.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.23.0-rc.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.23.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.15.0-rc.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.15.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.22.0-rc.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.22.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.22.0-rc.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.22.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.22.0-rc.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.22.0-rc.0
