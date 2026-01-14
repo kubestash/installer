@@ -1,4 +1,4 @@
-- ghcr.io/appscode/kubectl-nonroot:1.31
+- ghcr.io/appscode/kubectl-nonroot:1.34
 - ghcr.io/kubestash/kubedump:v0.22.0-rc.0
 - ghcr.io/kubestash/kubestash:v0.23.0-rc.0
 - ghcr.io/kubestash/manifest:v0.15.0-rc.0
