@@ -1,5 +1,5 @@
 annotations:
-  charts.openshift.io/name: kubestash
+  charts.openshift.io/name: kubestash-certified
 apiVersion: v2
 appVersion: v2026.1.8-rc.0
 dependencies:
@@ -34,4 +34,4 @@ name: kubestash-certified
 sources:
 - https://github.com/kubestash
 type: application
-version: v2026.1.8-rc.0
+version: 2026.1.8-rc.0
