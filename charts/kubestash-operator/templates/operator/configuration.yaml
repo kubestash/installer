@@ -34,9 +34,7 @@ data:
         enable: {{ .Values.apiserver.enableMutatingWebhook }}
         name: {{ include "kubestash-operator.fullname" . }}
     docker:
-      registry: {{ include "operator.registry" . }}
-      image: {{ .Values.operator.repository }}
-      tag: {{ .Values.operator.tag | default .Chart.AppVersion }}{{ include "operator.ubi" . }}
+      image: {{ include "operator.registry" . }}/{{ .Values.operator.repository }}:{{ .Values.operator.tag | default .Chart.AppVersion }}{{ include "operator.ubi" . }}
     netVolAccessor:
       cpu: {{ .Values.netVolAccessor.cpu }}
       memory: {{ .Values.netVolAccessor.memory }}
