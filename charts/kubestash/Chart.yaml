@@ -2,8 +2,8 @@ apiVersion: v2
 description: KubeStash by AppsCode - Backup your Kubernetes native applications
 name: kubestash
 type: application
-version: v2026.1.8-rc.0
-appVersion: v2026.1.8-rc.0
+version: v2026.1.19
+appVersion: v2026.1.19
 kubeVersion: '>=1.28.0'
 annotations:
   charts.openshift.io/name: kubestash
@@ -18,15 +18,15 @@ dependencies:
 - name: kubestash-operator
   repository: file://../kubestash-operator
   condition: kubestash-operator.enabled
-  version: v0.23.0-rc.0
+  version: v0.23.0
 - name: kubestash-catalog
   repository: file://../kubestash-catalog
   condition: kubestash-catalog.enabled
-  version: v2026.1.8-rc.0
+  version: v2026.1.19
 - name: kubestash-metrics
   repository: file://../kubestash-metrics
   condition: kubestash-metrics.enabled
-  version: v2026.1.8-rc.0
+  version: v2026.1.19
 - name: ace-user-roles
   repository: oci://ghcr.io/appscode-charts
   condition: ace-user-roles.enabled
