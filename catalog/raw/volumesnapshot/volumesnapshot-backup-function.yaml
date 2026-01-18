@@ -8,4 +8,4 @@ spec:
   - --namespace=${namespace:=default}
   - --backupsession=${backupSession:=}
   - --volume-snapshot-class-name=${volumeSnapshotClassName:=}
-  image: ghcr.io/kubestash/volume-snapshotter:v0.22.0-rc.0
+  image: ghcr.io/kubestash/volume-snapshotter:v0.22.0
