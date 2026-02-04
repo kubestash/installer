@@ -4,7 +4,7 @@ description: KubeStash State Metrics
 type: application
 version: v2026.1.19
 appVersion: v2026.1.19
-kubeVersion: '>=1.28.0'
+kubeVersion: '>=1.28.0-0'
 annotations:
   charts.openshift.io/name: kubestash-metrics
 home: https://kubestash.com
