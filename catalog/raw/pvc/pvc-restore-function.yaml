@@ -10,4 +10,4 @@ spec:
   - --snapshot=${snapshot:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  image: ghcr.io/kubestash/pvc:v0.22.0
+  image: ghcr.io/kubestash/pvc:v0.23.0-rc.0
