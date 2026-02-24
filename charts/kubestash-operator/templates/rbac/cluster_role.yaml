@@ -129,6 +129,12 @@ rules:
       - storageclasses
     verbs: [ "get", "list", "watch" ]
   - apiGroups:
+      - cluster.open-cluster-management.io
+    resources:
+      - clusterclaims
+    verbs: ["get"]
+    resourceNames: ["features.ace.info"]
+  - apiGroups:
       - catalog.kubedb.com
     resources:
       - elasticsearchs
@@ -158,4 +164,3 @@ rules:
     resources:
       - pendingtasks
     verbs: [ "create", "get", "list", "watch", "patch" ]
-
