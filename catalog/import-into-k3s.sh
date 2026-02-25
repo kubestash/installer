@@ -25,9 +25,9 @@ TARBALL=${1:-}
 tar -zxvf $TARBALL
 
 k3s ctr images import images/appscode-kubectl-nonroot-1.34.tar
-k3s ctr images import images/kubestash-kubedump-v0.23.0-rc.0.tar
-k3s ctr images import images/kubestash-kubestash-v0.24.0-rc.0.tar
-k3s ctr images import images/kubestash-manifest-v0.16.0-rc.0.tar
-k3s ctr images import images/kubestash-pvc-v0.23.0-rc.0.tar
-k3s ctr images import images/kubestash-volume-snapshotter-v0.23.0-rc.0.tar
-k3s ctr images import images/kubestash-workload-v0.23.0-rc.0.tar
+k3s ctr images import images/kubestash-kubedump-v0.23.0.tar
+k3s ctr images import images/kubestash-kubestash-v0.24.0.tar
+k3s ctr images import images/kubestash-manifest-v0.16.0.tar
+k3s ctr images import images/kubestash-pvc-v0.23.0.tar
+k3s ctr images import images/kubestash-volume-snapshotter-v0.23.0.tar
+k3s ctr images import images/kubestash-workload-v0.23.0.tar
