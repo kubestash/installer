@@ -28,5 +28,5 @@ spec:
   - --override-resources=${OverrideResources:=}
   - --storage-class-mappings=${StorageClassMappings:=}
   - --restore-pvs=${RestorePVs:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.23.0{{ include "catalog.ubi" $ }}'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubedump") $) }}:v0.24.0{{ include "catalog.ubi" $ }}'
 {{ end }}

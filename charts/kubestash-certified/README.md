@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/kubestash-certified --version=2026.2.27
-$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.27
+$ helm search repo appscode/kubestash-certified --version=2026.2.28
+$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.28
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys Backup operator on a [Kubernetes](http://kubernetes.io) clust
 To install/upgrade the chart with the release name `kubestash-certified`:
 
 ```bash
-$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.27
+$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.28
 ```
 
 The command deploys Backup operator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -95,12 +95,12 @@ The following table lists the configurable parameters of the `kubestash-certifie
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.27 --set global.registry=stashed
+$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.28 --set global.registry=stashed
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.27 --values values.yaml
+$ helm upgrade -i kubestash-certified appscode/kubestash-certified -n kubestash --create-namespace --version=2026.2.28 --values values.yaml
 ```
