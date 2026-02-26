@@ -19,5 +19,5 @@ spec:
   - --scratch-dir=${scratchDir:=}
   - --exclude=${exclude:=}
   - --paths=${paths:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.24.0{{ include "catalog.ubi" $ }}'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/pvc") $) }}:v0.25.0{{ include "catalog.ubi" $ }}'
 {{ end }}
