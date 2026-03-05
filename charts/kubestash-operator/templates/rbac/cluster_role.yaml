@@ -164,3 +164,8 @@ rules:
     resources:
       - pendingtasks
     verbs: [ "create", "get", "list", "watch", "patch" ]
+  - apiGroups:
+      - discovery.k8s.io
+    resources:
+      - endpointslices
+    verbs: [ "get", "list", "watch" ]
