@@ -1,3 +1,4 @@
+{{- if not .Values.apiserver.servingCerts.certManager.enabled }}
 {{ template "kubestash-operator.prepare-certs" $ }}
 
 {{- if or .Values.apiserver.enableMutatingWebhook .Values.apiserver.enableValidatingWebhook }}
@@ -15,4 +16,5 @@ data:
   tls.crt: {{ $._serverCrt }}
   tls.key: {{ $._serverKey }}
 
+{{- end }}
 {{- end }}

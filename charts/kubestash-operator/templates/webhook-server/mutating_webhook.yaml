@@ -5,11 +5,15 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   name: {{ include "kubestash-operator.fullname" . }}
+  {{- $caInject := include "kubestash-operator.webhook-ca-inject-annotations" . }}
   labels:
     {{- include "kubestash-operator.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": pre-install,pre-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation
+    {{- if $caInject }}
+    {{- $caInject | nindent 4 }}
+    {{- end }}
 webhooks:
   - admissionReviewVersions:
       - v1
@@ -18,7 +22,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /mutate-storage-kubestash-com-v1alpha1-backupstorage
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: mbackupstorage.kb.io
     rules:
@@ -39,7 +43,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /mutate-storage-kubestash-com-v1alpha1-retentionpolicy
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: mretentionpolicy.kb.io
     rules:
@@ -60,7 +64,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /mutate-core-kubestash-com-v1alpha1-backupblueprint
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: mbackupblueprint.kb.io
     rules:
@@ -81,7 +85,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /mutate-core-kubestash-com-v1alpha1-backupconfiguration
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: mbackupconfiguration.kb.io
     rules:
@@ -102,7 +106,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /mutate-core-kubestash-com-v1alpha1-hooktemplate
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: mhooktemplate.kb.io
     rules:

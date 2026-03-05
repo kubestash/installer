@@ -5,11 +5,15 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   name: {{ include "kubestash-operator.fullname" . }}
+  {{- $caInject := include "kubestash-operator.webhook-ca-inject-annotations" . }}
   labels:
     {{- include "kubestash-operator.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": pre-install,pre-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation
+    {{- if $caInject }}
+    {{- $caInject | nindent 4 }}
+    {{- end }}
 webhooks:
   - admissionReviewVersions:
       - v1
@@ -18,7 +22,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-storage-kubestash-com-v1alpha1-backupstorage
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vbackupstorage.kb.io
     rules:
@@ -39,7 +43,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-storage-kubestash-com-v1alpha1-repository
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vrepository.kb.io
     rules:
@@ -60,7 +64,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-storage-kubestash-com-v1alpha1-retentionpolicy
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vretentionpolicy.kb.io
     rules:
@@ -81,7 +85,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-backupbatch
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vbackupbatch.kb.io
     rules:
@@ -102,7 +106,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-backupblueprint
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vbackupblueprint.kb.io
     rules:
@@ -123,7 +127,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-backupconfiguration
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vbackupconfiguration.kb.io
     rules:
@@ -144,7 +148,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-backupsession
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vbackupsession.kb.io
     rules:
@@ -165,7 +169,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-hooktemplate
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vhooktemplate.kb.io
     rules:
@@ -186,7 +190,7 @@ webhooks:
         name: {{ include "kubestash-operator.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
         path: /validate-core-kubestash-com-v1alpha1-restoresession
-      caBundle: {{ $._caCrt }}
+{{- include "kubestash-operator.webhook-ca-bundle" $ | nindent 6 }}
     failurePolicy: Fail
     name: vrestoresession.kb.io
     rules:
