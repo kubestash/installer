@@ -45,6 +45,7 @@ if [ "$#" -ne 1 ]; then
     crd_dir=${tmp_dir}/${repo_dir}/crds
 fi
 
+CERT_MANAGER_CERT_MANAGER_TAG=${CERT_MANAGER_CERT_MANAGER_TAG:-v1.19.3}
 KMODULES_CUSTOM_RESOURCES_TAG=${KMODULES_CUSTOM_RESOURCES_TAG:-v0.34.0}
 
 crd-importer \
@@ -62,6 +63,12 @@ crd-importer \
 crd-importer \
     --no-description \
     --input=${crd_dir} \
+    --out=./charts/kubestash-operator/crds
+
+crd-importer \
+    --no-description \
+    --input=https://github.com/cert-manager/cert-manager/raw/${CERT_MANAGER_CERT_MANAGER_TAG}/deploy/crds/cert-manager.io_certificates.yaml \
+    --input=https://github.com/cert-manager/cert-manager/raw/${CERT_MANAGER_CERT_MANAGER_TAG}/deploy/crds/cert-manager.io_issuers.yaml \
     --out=./charts/kubestash-operator/crds
 
 crd-importer \
