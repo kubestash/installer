@@ -176,11 +176,28 @@ type HealthcheckSpec struct {
 type ServingCerts struct {
 	Generate bool `json:"generate"`
 	//+optional
+	CertManager CertManagerCerts `json:"certManager"`
+	//+optional
 	CaCrt string `json:"caCrt"`
 	//+optional
 	ServerCrt string `json:"serverCrt"`
 	//+optional
 	ServerKey string `json:"serverKey"`
+}
+
+type CertManagerCerts struct {
+	Enabled bool `json:"enabled"`
+	//+optional
+	IssuerRef CertManagerIssuerRef `json:"issuerRef"`
+}
+
+type CertManagerIssuerRef struct {
+	//+optional
+	Name string `json:"name"`
+	//+optional
+	Kind string `json:"kind"`
+	//+optional
+	Group string `json:"group"`
 }
 
 // +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin
