@@ -30,8 +30,8 @@ dependencies:
 - name: ace-user-roles
   repository: oci://ghcr.io/appscode-charts
   condition: ace-user-roles.enabled
-  version: v2025.3.14
+  version: v2026.2.16
 - name: taskqueue
-  version: v2026.1.15
+  version: v2026.2.16
   condition: global.taskQueue.enabled
   repository: oci://ghcr.io/appscode-charts

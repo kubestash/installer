@@ -18,11 +18,11 @@ dependencies:
 - condition: ace-user-roles.enabled
   name: ace-user-roles
   repository: oci://ghcr.io/appscode-charts
-  version: v2025.3.14
+  version: v2026.2.16
 - condition: global.taskQueue.enabled
   name: taskqueue
   repository: oci://ghcr.io/appscode-charts
-  version: v2026.1.15
+  version: v2026.2.16
 description: KubeStash by AppsCode - Backup your Kubernetes native applications
 home: https://kubestash.com
 icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
