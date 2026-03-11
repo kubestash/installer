@@ -22,9 +22,11 @@ spec:
       {{- include "kubestash-operator.selectorLabels" . | nindent 6 }}
   endpoints:
   {{- if .Values.monitoring.operator }}
-  - bearerTokenSecret:
-      name: {{ include "kubestash-operator.fullname" . }}-monitoring-token
-      key: token
+  - authorization:
+      type: Bearer
+      credentials:
+        name: {{ include "kubestash-operator.fullname" . }}-monitoring-token
+        key: token
     path: /metrics
     port: metrics
     scheme: https
