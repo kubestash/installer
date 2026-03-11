@@ -22,7 +22,9 @@ spec:
       {{- include "kubestash-operator.selectorLabels" . | nindent 6 }}
   endpoints:
   {{- if .Values.monitoring.operator }}
-  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+  - bearerTokenSecret:
+      name: {{ include "kubestash-operator.fullname" . }}-monitoring-token
+      key: token
     path: /metrics
     port: metrics
     scheme: https
