@@ -44,12 +44,14 @@ spec:
                         - VolumeSnapshotter
                         - Solr
                         - Medusa
+                        - ClickHouseBackup
                       - enum:
                         - Restic
                         - WalG
                         - Medusa
                         - VolumeSnapshotter
                         - Solr
+                        - ClickHouseBackup
                       type: string
                     executor:
                       enum:
@@ -1068,12 +1070,14 @@ spec:
                         - VolumeSnapshotter
                         - Solr
                         - Medusa
+                        - ClickHouseBackup
                       - enum:
                         - Restic
                         - WalG
                         - Medusa
                         - VolumeSnapshotter
                         - Solr
+                        - ClickHouseBackup
                       type: string
                     executor:
                       enum:
@@ -65191,6 +65195,19 @@ spec:
               components:
                 additionalProperties:
                   properties:
+                    clickHouseStats:
+                      properties:
+                        finishTime:
+                          format: date-time
+                          type: string
+                        id:
+                          type: string
+                        startTime:
+                          format: date-time
+                          type: string
+                        status:
+                          type: string
+                      type: object
                     driver:
                       enum:
                       - Restic
@@ -65198,6 +65215,7 @@ spec:
                       - VolumeSnapshotter
                       - Solr
                       - Medusa
+                      - ClickHouseBackup
                       type: string
                     duration:
                       type: string
