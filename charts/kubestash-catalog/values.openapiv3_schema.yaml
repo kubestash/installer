@@ -54,6 +54,13 @@ properties:
     required:
     - enabled
     type: object
+  vault:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   volumesnapshot:
     properties:
       enabled:
@@ -75,6 +82,7 @@ required:
 - kubedump
 - manifest
 - pvc
+- vault
 - volumesnapshot
 - waitTimeout
 - workload
