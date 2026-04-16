@@ -169,3 +169,8 @@ rules:
     resources:
       - endpointslices
     verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - kubevault.com
+    resources:
+      - vaultservers
+    verbs: [ "get" ]
