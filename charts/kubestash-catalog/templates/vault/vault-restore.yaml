@@ -1,0 +1,28 @@
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.vault.enabled (not (eq $ubi "operator")) }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: 'vault-restore'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --scratch-dir=${scratchDir:=/kubestash-tmp}
+  - --enable-cache=${enableCache:=false}
+  - --interim-data-dir=${interimDataDir:=/kubestash-interim}
+  - --wait-timeout=${waitTimeout:={{ .Values.waitTimeout}}}
+  - --vault-args=${vaultArgs:=}
+  - --force=${force:=}
+  - --key-prefix=${keyPrefix:=}
+  - --old-key-prefix=${oldKeyPrefix:=}
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/vault-restic-backup") $) }}:v0.26.0-rc.0{{ include "catalog.ubi" $ }}'
+{{ end }}
