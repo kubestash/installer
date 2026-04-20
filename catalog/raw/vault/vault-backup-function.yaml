@@ -1,0 +1,16 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: vault-backup
+spec:
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --scratch-dir=${scratchDir:=/kubestash-tmp}
+  - --enable-cache=${enableCache:=false}
+  - --interim-data-dir=${interimDataDir:=/kubestash-interim}
+  - --wait-timeout=${waitTimeout:=300}
+  - --vault-args=${vaultArgs:=}
+  - --key-prefix=${keyPrefix:=}
+  image: ghcr.io/kubestash/vault:v0.1.0-rc.0

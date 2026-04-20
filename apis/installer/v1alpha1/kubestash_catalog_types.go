@@ -52,6 +52,7 @@ type KubestashCatalogSpec struct {
 	Volumesnapshot StashVolumesnapshotSpec `json:"volumesnapshot"`
 	Workload       StashWorkloadSpec       `json:"workload"`
 	Manifest       StashManifestSpec       `json:"manifest"`
+	Vault          StashVaultSpec          `json:"vault"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
 }
@@ -86,6 +87,10 @@ type StashWorkloadSpec struct {
 }
 
 type StashManifestSpec struct {
+	Enabled bool `json:"enabled"`
+}
+
+type StashVaultSpec struct {
 	Enabled bool `json:"enabled"`
 }
 

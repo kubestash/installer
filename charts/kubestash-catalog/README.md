@@ -57,6 +57,7 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 | volumesnapshot.enabled            | If true, deploys VolumeSnapshot addon                                                                                           | <code>true</code>    |
 | workload.enabled                  | If true, deploys Workload addon                                                                                                 | <code>true</code>    |
 | manifest.enabled                  | If true, deploys Manifest addon                                                                                                 | <code>true</code>    |
+| vault.enabled                     | If true, deploys Vault addon                                                                                                    | <code>true</code>    |
 | distro.openshift                  | Set true, if installed in OpenShift                                                                                             | <code>false</code>   |
 | distro.ubi                        | Set operator or all to use ubi images                                                                                           | <code>""</code>      |
 

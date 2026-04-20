@@ -1,0 +1,107 @@
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.vault.enabled (not (eq $ubi "operator")) }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: 'vault-addon'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  backupTasks:
+  - driver: Restic
+    executor: Job
+    function: vault-backup
+    name: vault-backup
+    parameters:
+    - default: "false"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    - default: /kubestash-interim
+      name: interimDataDir
+      required: false
+      usage: Directory to temporarily store the vault snapshot and key files before uploading to backend.
+    - default: "300"
+      name: waitTimeout
+      required: false
+      usage: Number of seconds to wait for Vault to be ready.
+    - name: vaultArgs
+      required: false
+      usage: Additional arguments to pass to the vault CLI.
+    - name: keyPrefix
+      required: false
+      usage: Prefix appended to root-token and unseal-key names in the store.
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    - mountPath: /kubestash-interim
+      name: kubestash-interim-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+    - name: kubestash-interim-volume
+      source:
+        emptyDir: {}
+      usage: Holds the vault snapshot and key files before upload.
+  restoreTasks:
+  - driver: Restic
+    executor: Job
+    function: vault-restore
+    name: vault-restore
+    parameters:
+    - default: "false"
+      name: enableCache
+      required: false
+      usage: Enable or disable caching. Disabling caching may impact restore performance.
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+      usage: Directory for holding temporary files and restic cache.
+    - default: /kubestash-interim
+      name: interimDataDir
+      required: false
+      usage: Directory where restic will restore the vault snapshot and key files.
+    - default: "300"
+      name: waitTimeout
+      required: false
+      usage: Number of seconds to wait for Vault to be ready.
+    - name: vaultArgs
+      required: false
+      usage: Additional arguments to pass to the vault CLI.
+    - default: "false"
+      name: force
+      required: false
+      usage: Force restore onto a different vault cluster (passes -force to vault and triggers key migration).
+    - name: keyPrefix
+      required: false
+      usage: New prefix for root-token and unseal-key names in the store (used with --force).
+    - name: oldKeyPrefix
+      required: false
+      usage: Old prefix that was used for root-token and unseal-key names in the backup (used with --force).
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    - mountPath: /kubestash-interim
+      name: kubestash-interim-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+      usage: Holds temporary files and restic cache.
+    - name: kubestash-interim-volume
+      source:
+        emptyDir: {}
+      usage: Holds the restored vault snapshot and key files before apply.
+{{ end }}
