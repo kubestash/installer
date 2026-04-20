@@ -173,4 +173,4 @@ rules:
       - kubevault.com
     resources:
       - vaultservers
-    verbs: [ "get" ]
+    verbs: [ "get", "list", "watch" ]
