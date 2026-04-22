@@ -16,4 +16,4 @@ spec:
   - --force=${force:=}
   - --key-prefix=${keyPrefix:=}
   - --old-key-prefix=${oldKeyPrefix:=}
-  image: ghcr.io/kubestash/vault:v0.1.0-rc.0
+  image: ghcr.io/kubestash/vault:v0.1.0
