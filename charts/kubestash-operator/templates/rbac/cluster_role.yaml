@@ -174,3 +174,8 @@ rules:
     resources:
       - vaultservers
     verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - ops.kubedb.com
+    resources:
+      - neo4jopsrequests
+    verbs: [ "get", "list", "create", "watch" ]
