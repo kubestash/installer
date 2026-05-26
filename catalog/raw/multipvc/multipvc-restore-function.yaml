@@ -9,10 +9,4 @@ spec:
   - --backupsession=${backupSession:=}
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=}
-  - --and-label-selectors=${ANDedLabelSelectors:=}
-  - --or-label-selectors=${ORedLabelSelectors:=}
-  - --include-namespaces=${IncludeNamespaces:=}
-  - --exclude-namespaces=${ExcludeNamespaces:=}
-  - --include-resources=${IncludeResources:=}
-  - --exclude-resources=${ExcludeResources:=}
   image: arnabbaishnab7620/multipvc-backup-plugin:multipvc-backup_linux_amd64_000_000_001

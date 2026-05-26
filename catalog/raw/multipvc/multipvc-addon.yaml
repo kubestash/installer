@@ -47,17 +47,11 @@ spec:
       usage: List of resources to exclude during backup.
       required: false
     volumeTemplate:
-    - name: kubestash-data-volume
-      source:
-        persistentVolumeClaim:
-          claimName: ${PVC_NAME}
     - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: kubestash-data-volume
-      mountPath: /kubestash-data
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
   - name: volume-snapshot
@@ -84,17 +78,11 @@ spec:
       required: false
       default: /kubestash-tmp
     volumeTemplate:
-    - name: kubestash-data-volume
-      source:
-        persistentVolumeClaim:
-          claimName: ${PVC_NAME}
     - name: kubestash-tmp-volume
       usage: Holds temporary files and restic cache.
       source:
         emptyDir: {}
     volumeMounts:
-    - name: kubestash-data-volume
-      mountPath: /kubestash-data
     - name: kubestash-tmp-volume
       mountPath: /kubestash-tmp
   - name: volume-clone
