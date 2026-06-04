@@ -14,12 +14,12 @@ require (
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
 	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912
-	kmodules.xyz/client-go v0.34.2
+	kmodules.xyz/client-go v0.34.3
 	kmodules.xyz/go-containerregistry v0.0.15
-	kmodules.xyz/image-packer v0.0.0-20251207101219-5eac37d8b469
-	kmodules.xyz/resource-metadata v0.40.2
+	kmodules.xyz/image-packer v0.0.0-20260603060232-aba754904b6a
+	kmodules.xyz/resource-metadata v0.46.0
 	kmodules.xyz/schema-checker v0.4.2
-	kubeops.dev/installer v0.0.0-20251215120607-2679d0cb5864
+	kubeops.dev/installer v0.0.0-20260604074414-f8eed8b7cc8b
 	sigs.k8s.io/yaml v1.6.0
 )
 
@@ -66,7 +66,6 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.18.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
@@ -98,7 +97,7 @@ require (
 	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/oauth2 v0.33.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/sys v0.39.0 // indirect
+	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/term v0.38.0 // indirect
 	golang.org/x/text v0.32.0 // indirect
 	golang.org/x/time v0.13.0 // indirect

@@ -195,8 +195,6 @@ github.com/klauspost/compress/zstd/internal/xxhash
 # github.com/klauspost/cpuid/v2 v2.2.5
 ## explicit; go 1.15
 github.com/klauspost/cpuid/v2
-# github.com/mattn/go-colorable v0.1.14
-## explicit; go 1.18
 # github.com/mitchellh/copystructure v1.2.0
 ## explicit; go 1.15
 github.com/mitchellh/copystructure
@@ -313,7 +311,7 @@ golang.org/x/oauth2/internal
 # golang.org/x/sync v0.19.0
 ## explicit; go 1.24.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.39.0
+# golang.org/x/sys v0.40.0
 ## explicit; go 1.24.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
@@ -828,7 +826,7 @@ k8s.io/utils/lru
 k8s.io/utils/net
 k8s.io/utils/ptr
 k8s.io/utils/trace
-# kmodules.xyz/client-go v0.34.2
+# kmodules.xyz/client-go v0.34.3
 ## explicit; go 1.24.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -839,17 +837,17 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.15
 ## explicit; go 1.24.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20251207101219-5eac37d8b469
-## explicit; go 1.24.0
+# kmodules.xyz/image-packer v0.0.0-20260603060232-aba754904b6a
+## explicit; go 1.25
 kmodules.xyz/image-packer/pkg/lib
-# kmodules.xyz/resource-metadata v0.40.2
-## explicit; go 1.24.0
+# kmodules.xyz/resource-metadata v0.46.0
+## explicit; go 1.25
 kmodules.xyz/resource-metadata/apis/shared
 # kmodules.xyz/schema-checker v0.4.2
 ## explicit; go 1.22.0
 kmodules.xyz/schema-checker
-# kubeops.dev/installer v0.0.0-20251215120607-2679d0cb5864
-## explicit; go 1.24.0
+# kubeops.dev/installer v0.0.0-20260604074414-f8eed8b7cc8b
+## explicit; go 1.25
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
 # kubeops.dev/scanner v0.0.19
