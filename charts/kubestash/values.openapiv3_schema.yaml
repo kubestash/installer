@@ -1369,6 +1369,12 @@ properties:
         properties:
           enabled:
             type: boolean
+          flavor:
+            default: kubernetes
+            enum:
+            - kubernetes
+            - cilium
+            type: string
         required:
         - enabled
         type: object
@@ -4855,6 +4861,19 @@ properties:
             type: boolean
           runAsUser:
             type: integer
+        type: object
+      networkPolicy:
+        properties:
+          enabled:
+            type: boolean
+          flavor:
+            default: kubernetes
+            enum:
+            - kubernetes
+            - cilium
+            type: string
+        required:
+        - enabled
         type: object
       nodeSelector:
         additionalProperties:

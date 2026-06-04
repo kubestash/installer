@@ -125,8 +125,19 @@ type TaskQueue struct {
 	MaxConcurrentSessions int `json:"maxConcurrentSessions"`
 }
 
+// +kubebuilder:validation:Enum=kubernetes;cilium
+type NetworkPolicyFlavor string
+
+const (
+	NetworkPolicyFlavorKubernetes NetworkPolicyFlavor = "kubernetes"
+	NetworkPolicyFlavorCilium     NetworkPolicyFlavor = "cilium"
+)
+
 type NetworkPolicy struct {
 	Enabled bool `json:"enabled"`
+	// +optional
+	// +kubebuilder:default=kubernetes
+	Flavor NetworkPolicyFlavor `json:"flavor,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

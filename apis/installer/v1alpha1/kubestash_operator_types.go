@@ -85,6 +85,8 @@ type KubestashOperatorSpec struct {
 	Monitoring Monitoring   `json:"monitoring"`
 	Security   SecuritySpec `json:"security"`
 	// +optional
+	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+	// +optional
 	Distro shared.DistroSpec `json:"distro"`
 	// +optional
 	NetVolAccessor NetVolAccessor `json:"netVolAccessor"`

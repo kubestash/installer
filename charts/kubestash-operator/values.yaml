@@ -176,6 +176,12 @@ distro:
   openshift: false
   # Set operator or all to use ubi images
   ubi: ""
+# Controls the network policy creation
+networkPolicy:
+  enabled: false
+  # flavor selects which network policy API is used.
+  # Accepted values: "kubernetes" (default) or "cilium".
+  flavor: kubernetes
 # Network volume accessor configurations
 netVolAccessor:
   # CPU resource for each network volume accessor deployment
