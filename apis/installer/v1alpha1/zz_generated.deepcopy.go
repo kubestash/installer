@@ -579,6 +579,7 @@ func (in *KubestashOperatorSpec) DeepCopyInto(out *KubestashOperatorSpec) {
 	out.Apiserver = in.Apiserver
 	in.Monitoring.DeepCopyInto(&out.Monitoring)
 	out.Security = in.Security
+	out.NetworkPolicy = in.NetworkPolicy
 	out.Distro = in.Distro
 	out.NetVolAccessor = in.NetVolAccessor
 	if in.EnvFrom != nil {
