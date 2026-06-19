@@ -45,6 +45,7 @@ spec:
                         - Solr
                         - Medusa
                         - ClickHouseBackup
+                        - Neo4jAdmin
                       - enum:
                         - Restic
                         - WalG
@@ -52,6 +53,7 @@ spec:
                         - VolumeSnapshotter
                         - Solr
                         - ClickHouseBackup
+                        - Neo4jAdmin
                       type: string
                     executor:
                       enum:
@@ -1071,6 +1073,7 @@ spec:
                         - Solr
                         - Medusa
                         - ClickHouseBackup
+                        - Neo4jAdmin
                       - enum:
                         - Restic
                         - WalG
@@ -1078,6 +1081,7 @@ spec:
                         - VolumeSnapshotter
                         - Solr
                         - ClickHouseBackup
+                        - Neo4jAdmin
                       type: string
                     executor:
                       enum:
@@ -65288,6 +65292,7 @@ spec:
                       - Solr
                       - Medusa
                       - ClickHouseBackup
+                      - Neo4jAdmin
                       type: string
                     duration:
                       type: string
@@ -65361,6 +65366,33 @@ spec:
                         status:
                           type: string
                       type: object
+                    neo4jStats:
+                      items:
+                        properties:
+                          compressed:
+                            type: boolean
+                          database:
+                            type: string
+                          databaseID:
+                            type: string
+                          file:
+                            type: string
+                          full:
+                            type: boolean
+                          highestTX:
+                            format: int64
+                            type: integer
+                          lowestTX:
+                            format: int64
+                            type: integer
+                          recovered:
+                            type: boolean
+                          storeIDHash:
+                            type: string
+                          time:
+                            type: string
+                        type: object
+                      type: array
                     path:
                       type: string
                     phase:
