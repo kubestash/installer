@@ -47,6 +47,22 @@ Auxiliary helpers (invoked outside Make):
 - `./hack/scripts/import-crds.sh` — pull CRDs from sibling KubeStash repos into each chart's `crds/`.
 - `./hack/scripts/update-chart-dependencies.sh` — refresh `Chart.lock` / subchart pins.
 
+## Regenerating the -certified charts
+
+Do not edit `charts/kubestash-certified` or `charts/kubestash-certified-crds` by hand. Regenerate them from `charts/kubestash` whenever `charts/kubestash` or any of its subcharts change:
+
+```
+rm -rf charts/kubestash-certified charts/kubestash-certified-crds
+chart-packer crd-less --input charts/kubestash --output charts
+chart-packer crd-only --input charts/kubestash --output charts
+make gen-chart-doc
+```
+
+Then:
+
+- If any subcharts changed, run `./hack/scripts/update-chart-dependencies.sh`.
+- If any chart changed, run `./hack/scripts/update-catalog.sh`.
+
 Run a single Go test (requires a local Go toolchain):
 
 ```
@@ -61,4 +77,4 @@ go test ./apis/installer/v1alpha1/... -run TestName -v
 - Sign off commits (`git commit -s`); contributions follow the DCO (`DCO`, `CONTRIBUTING.md`).
 - Vendor directory is checked in — `go mod tidy && go mod vendor` must leave the tree clean (enforced by `verify-modules`).
 - CRDs for charts are **imported** from the upstream `kubestash.dev/apimachinery` repo via `import-crds.sh`; do not hand-author `charts/*/crds/*.yaml`.
-- The `-certified` charts mirror the standard charts for Red Hat certification — bumps must apply to both pairs (`kubestash-operator` ↔ `kubestash-certified`, top-level CRDs ↔ `kubestash-certified-crds`).
+- The `-certified` charts (`charts/kubestash-certified`, `charts/kubestash-certified-crds`) are **generated** from `charts/kubestash` for Red Hat certification — never hand-edit them. Regenerate whenever `charts/kubestash` or its subcharts change (see "Regenerating the -certified charts" below).
