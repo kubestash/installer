@@ -27,10 +27,10 @@ tar -zxvf $TARBALL
 CMD="./crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.27.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.27.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.28.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.28.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.20.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.20.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.27.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.27.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-vault-v0.2.0.tar $IMAGE_REGISTRY/kubestash/vault:v0.2.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.27.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.27.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.27.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.27.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.28.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.28.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.29.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.29.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.21.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.21.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.28.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.28.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-vault-v0.3.0.tar $IMAGE_REGISTRY/kubestash/vault:v0.3.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.28.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.28.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.28.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.28.0
