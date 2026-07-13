@@ -208,6 +208,9 @@ manifests: gen-crds gen-values-schema gen-chart-doc
 .PHONY: gen
 gen: clientset manifests
 
+.PHONY: refresh
+refresh: gen update-catalog fmt
+
 BIN_DIR ?= $(CURDIR)/bin/$(OS)_$(ARCH)
 
 .PHONY: install-image-packer
@@ -413,7 +416,7 @@ $(BUILD_DIRS):
 dev: gen fmt
 
 .PHONY: verify
-verify: verify-modules verify-catalog
+verify: verify-modules verify-gen verify-catalog
 
 .PHONY: verify-modules
 verify-modules: gen fmt
