@@ -24,6 +24,11 @@ rules:
       - "*"
     verbs: ["*"]
   - apiGroups:
+      - ops.kubedb.com
+    resources:
+      - solropsrequests
+    verbs: ["get", "create", "patch", "delete"]
+  - apiGroups:
       - storage.kubestash.com
     resources:
       - "*"
