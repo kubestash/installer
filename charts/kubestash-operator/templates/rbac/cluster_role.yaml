@@ -179,3 +179,9 @@ rules:
     resources:
       - vaultservers
     verbs: [ "get", "list", "watch" ]
+  - apiGroups:
+      - virtual-secrets.dev
+    resources:
+      - secrets
+      - secrets/mount
+    verbs: [ "get", "list", "watch" ]
