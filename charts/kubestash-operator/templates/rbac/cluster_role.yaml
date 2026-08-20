@@ -28,6 +28,51 @@ rules:
     resources:
       - solropsrequests
     verbs: ["get", "create", "patch", "delete"]
+  # KubeVirt VirtualMachine backup/restore.
+  #
+  # Two separate needs are covered here. First, the operator resolves a
+  # BackupConfiguration target by GETting it (pkg/target/target.go) through its
+  # cached client, so list and watch are required alongside get; without them
+  # the target check fails with Forbidden rather than NotFound and the
+  # BackupConfiguration never becomes Ready. Second, the operator creates the
+  # backup/restore job ClusterRoles that grant these same permissions to the
+  # addon's ServiceAccount, and RBAC forbids granting permissions the granter
+  # does not hold — so this list must remain a superset of the KubeVirt rules in
+  # the operator's pkg/rbac backup and restore job roles.
+  - apiGroups:
+      - kubevirt.io
+    resources:
+      - virtualmachines
+    verbs: ["get", "list", "watch", "create", "update"]
+  - apiGroups:
+      - kubevirt.io
+    resources:
+      - virtualmachineinstances
+    verbs: ["get", "list", "watch"]
+  - apiGroups:
+      - snapshot.kubevirt.io
+    resources:
+      - virtualmachinesnapshots
+      - virtualmachinesnapshotcontents
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups:
+      - cdi.kubevirt.io
+    resources:
+      - datavolumes
+    verbs: ["get", "list", "create"]
+  - apiGroups:
+      - instancetype.kubevirt.io
+    resources:
+      - virtualmachineinstancetypes
+      - virtualmachineclusterinstancetypes
+      - virtualmachinepreferences
+      - virtualmachineclusterpreferences
+    verbs: ["get", "list"]
+  - apiGroups:
+      - apps
+    resources:
+      - controllerrevisions
+    verbs: ["get", "list", "create"]
   - apiGroups:
       - storage.kubestash.com
     resources:
