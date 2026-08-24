@@ -55,6 +55,7 @@ The following table lists the configurable parameters of the `kubestash-catalog`
 | kubedump.backup.includeDependants | Specify whether to include the dependants resources along with it's parent                                                      | <code>false</code>   |
 | pvc.enabled                       | If true, deploys PVC addon                                                                                                      | <code>true</code>    |
 | volumesnapshot.enabled            | If true, deploys VolumeSnapshot addon                                                                                           | <code>true</code>    |
+| kubevirt.enabled                  | If true, deploys KubeVirt addon                                                                                                  | <code>true</code>    |
 | workload.enabled                  | If true, deploys Workload addon                                                                                                 | <code>true</code>    |
 | manifest.enabled                  | If true, deploys Manifest addon                                                                                                 | <code>true</code>    |
 | vault.enabled                     | If true, deploys Vault addon                                                                                                    | <code>true</code>    |

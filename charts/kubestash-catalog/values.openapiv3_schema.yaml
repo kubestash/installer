@@ -71,6 +71,13 @@ properties:
   waitTimeout:
     format: int64
     type: integer
+  kubevirt:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   workload:
     properties:
       enabled:
@@ -85,5 +92,6 @@ required:
 - vault
 - volumesnapshot
 - waitTimeout
+- kubevirt
 - workload
 type: object

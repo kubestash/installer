@@ -1,0 +1,12 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubevirt-manifest-backup
+spec:
+  args:
+  - backup-manifest
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=/kubestash-tmp}
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
