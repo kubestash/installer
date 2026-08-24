@@ -28,6 +28,42 @@ rules:
     resources:
       - solropsrequests
     verbs: ["get", "create", "patch", "delete"]
+  # KubeVirt VirtualMachine backup/restore: read access resolves the target, and the
+  # rest must stay a superset of the pkg/rbac job roles the operator grants.
+  - apiGroups:
+      - kubevirt.io
+    resources:
+      - virtualmachines
+    verbs: ["get", "list", "watch", "create", "update"]
+  - apiGroups:
+      - kubevirt.io
+    resources:
+      - virtualmachineinstances
+    verbs: ["get", "list", "watch"]
+  - apiGroups:
+      - snapshot.kubevirt.io
+    resources:
+      - virtualmachinesnapshots
+      - virtualmachinesnapshotcontents
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups:
+      - cdi.kubevirt.io
+    resources:
+      - datavolumes
+    verbs: ["get", "list", "create"]
+  - apiGroups:
+      - instancetype.kubevirt.io
+    resources:
+      - virtualmachineinstancetypes
+      - virtualmachineclusterinstancetypes
+      - virtualmachinepreferences
+      - virtualmachineclusterpreferences
+    verbs: ["get", "list"]
+  - apiGroups:
+      - apps
+    resources:
+      - controllerrevisions
+    verbs: ["get", "list", "create"]
   - apiGroups:
       - storage.kubestash.com
     resources:
