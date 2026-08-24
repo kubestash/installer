@@ -1,0 +1,13 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubevirt-restore
+spec:
+  args:
+  - logical-restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --components=${components:=}
+  - --override-resources=${overrideResources:=false}
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0

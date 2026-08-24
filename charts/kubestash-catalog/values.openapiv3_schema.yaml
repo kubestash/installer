@@ -34,6 +34,13 @@ properties:
     - backup
     - enabled
     type: object
+  kubevirt:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   manifest:
     properties:
       enabled:
@@ -80,6 +87,7 @@ properties:
     type: object
 required:
 - kubedump
+- kubevirt
 - manifest
 - pvc
 - vault

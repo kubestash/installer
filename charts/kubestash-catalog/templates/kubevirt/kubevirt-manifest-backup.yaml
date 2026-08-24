@@ -1,0 +1,21 @@
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.kubevirt.enabled (not (eq $ubi "operator")) }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: 'kubevirt-manifest-backup'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  args:
+  - backup-manifest
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=/kubestash-tmp}
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.1.0{{ include "catalog.ubi" $ }}'
+{{ end }}

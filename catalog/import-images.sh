@@ -29,6 +29,7 @@ CMD="./crane"
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.28.0-rc.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.28.0-rc.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.29.0-rc.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.29.0-rc.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubevirt-plugin-v0.1.0.tar $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.21.0-rc.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.21.0-rc.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.28.0-rc.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.28.0-rc.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-vault-v0.3.0-rc.0.tar $IMAGE_REGISTRY/kubestash/vault:v0.3.0-rc.0

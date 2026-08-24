@@ -1,0 +1,12 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubevirt-volume-restore
+spec:
+  args:
+  - restore-volume
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --components=${components:=}
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0

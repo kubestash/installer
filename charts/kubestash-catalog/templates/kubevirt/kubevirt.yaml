@@ -1,0 +1,111 @@
+{{ $ubi := .Values.distro.ubi }}
+{{- if .Values.global }}
+  {{ $ubi = default .Values.distro.ubi .Values.global.distro.ubi }}
+{{- end }}
+
+{{ if and .Values.kubevirt.enabled (not (eq $ubi "operator")) }}
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: 'kubevirt'
+  labels:
+    {{- include "kubestash-catalog.labels" . | nindent 4 }}
+spec:
+  backupTasks:
+  - driver: Restic
+    executor: Job
+    function: kubevirt-backup
+    name: logical-backup
+    parameters:
+    - default: 10m
+      name: snapshotReadyTimeout
+      required: false
+      usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - default: "true"
+      name: enableCache
+      required: false
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+  - driver: Restic
+    executor: Job
+    function: kubevirt-manifest-backup
+    name: manifest-backup
+    parameters:
+    - default: "true"
+      name: enableCache
+      required: false
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+  - driver: Restic
+    executor: Job
+    function: kubevirt-volume-backup
+    name: volume-backup
+    parameters:
+    - default: 10m
+      name: snapshotReadyTimeout
+      required: false
+      usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - default: "true"
+      name: enableCache
+      required: false
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+  restoreTasks:
+  - driver: Restic
+    executor: Job
+    function: kubevirt-restore
+    name: logical-restore
+    parameters:
+    - name: components
+      required: false
+      usage: restore only the listed volume components
+    - default: "false"
+      name: overrideResources
+      required: false
+    singleton: true
+  - driver: Restic
+    executor: Job
+    function: kubevirt-volume-restore
+    name: volume-restore
+    parameters:
+    - name: components
+      required: false
+      usage: restore only the listed volume components
+    singleton: true
+  - driver: Restic
+    executor: Job
+    function: kubevirt-manifest-restore
+    name: manifest-restore
+    parameters:
+    - default: "false"
+      name: overrideResources
+      required: false
+    singleton: true
+{{ end }}

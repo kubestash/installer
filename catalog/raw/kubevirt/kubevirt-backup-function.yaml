@@ -1,0 +1,13 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubevirt-backup
+spec:
+  args:
+  - logical-backup
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=/kubestash-tmp}
+  - --snapshot-ready-timeout=${snapshotReadyTimeout:=10m}
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
