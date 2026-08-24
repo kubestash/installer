@@ -41,6 +41,12 @@ rules:
       - virtualmachineinstances
     verbs: ["get", "list", "watch"]
   - apiGroups:
+      - backup.kubevirt.io
+    resources:
+      - virtualmachinebackups
+      - virtualmachinebackuptrackers
+    verbs: ["get", "list", "watch", "create", "update", "delete"]
+  - apiGroups:
       - snapshot.kubevirt.io
     resources:
       - virtualmachinesnapshots
