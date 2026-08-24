@@ -14,6 +14,17 @@ spec:
       required: false
       default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+  - name: backupMode
+    required: false
+    default: vmsnapshot
+    usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+  - name: forceFull
+    required: false
+    default: 'false'
+    usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+  - name: cbtScratchStorageClass
+    required: false
+    usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
     - name: enableCache
       required: false
       default: 'true'
@@ -56,6 +67,17 @@ spec:
       required: false
       default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+  - name: backupMode
+    required: false
+    default: vmsnapshot
+    usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+  - name: forceFull
+    required: false
+    default: 'false'
+    usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+  - name: cbtScratchStorageClass
+    required: false
+    usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
     - name: enableCache
       required: false
       default: 'true'
