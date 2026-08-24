@@ -1,7 +1,7 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: kubevirt-logical-restore
+  name: kubevirt-restore
 spec:
   args:
   - logical-restore

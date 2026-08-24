@@ -7,13 +7,13 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Addon
 metadata:
-  name: 'kubevirt-addon'
+  name: 'kubevirt'
   labels:
     {{- include "kubestash-catalog.labels" . | nindent 4 }}
 spec:
   backupTasks:
   - name: logical-backup
-    function: kubevirt-logical-backup
+    function: kubevirt-backup
     driver: Restic
     executor: Job
     singleton: true
@@ -79,7 +79,7 @@ spec:
         emptyDir: {}
   restoreTasks:
   - name: logical-restore
-    function: kubevirt-logical-restore
+    function: kubevirt-restore
     driver: Restic
     executor: Job
     singleton: true

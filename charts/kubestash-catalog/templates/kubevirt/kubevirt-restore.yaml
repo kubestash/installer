@@ -7,16 +7,16 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: 'kubevirt-logical-backup'
+  name: 'kubevirt-restore'
   labels:
     {{- include "kubestash-catalog.labels" . | nindent 4 }}
 spec:
   args:
-  - logical-backup
+  - logical-restore
   - --namespace=${namespace:=default}
-  - --backupsession=${backupSession:=}
-  - --enable-cache=${enableCache:=}
-  - --scratch-dir=${scratchDir:=/kubestash-tmp}
-  - --snapshot-ready-timeout=${snapshotReadyTimeout:=10m}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --components=${components:=}
+  - --override-resources=${overrideResources:=false}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.1.0{{ include "catalog.ubi" $ }}'
 {{ end }}
