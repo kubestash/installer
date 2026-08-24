@@ -20,8 +20,8 @@ kubedump:
     labelSelector: ""
     # Specify whether to include the dependants resources along with it's parent
     includeDependants: false
-# If true, deploys KubeVirt addon
 kubevirt:
+  # If true, deploys KubeVirt addon
   enabled: true
 pvc:
   # If true, deploys PVC addon

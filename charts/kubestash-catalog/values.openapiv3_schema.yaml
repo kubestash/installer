@@ -34,6 +34,13 @@ properties:
     - backup
     - enabled
     type: object
+  kubevirt:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   manifest:
     properties:
       enabled:
@@ -71,13 +78,6 @@ properties:
   waitTimeout:
     format: int64
     type: integer
-  kubevirt:
-    properties:
-      enabled:
-        type: boolean
-    required:
-    - enabled
-    type: object
   workload:
     properties:
       enabled:
@@ -87,11 +87,11 @@ properties:
     type: object
 required:
 - kubedump
+- kubevirt
 - manifest
 - pvc
 - vault
 - volumesnapshot
 - waitTimeout
-- kubevirt
 - workload
 type: object

@@ -51,6 +51,7 @@ type KubestashCatalogSpec struct {
 	Pvc            StashPvcSpec            `json:"pvc"`
 	Volumesnapshot StashVolumesnapshotSpec `json:"volumesnapshot"`
 	Workload       StashWorkloadSpec       `json:"workload"`
+	KubeVirt       StashKubeVirtSpec       `json:"kubevirt"`
 	Manifest       StashManifestSpec       `json:"manifest"`
 	Vault          StashVaultSpec          `json:"vault"`
 	// +optional
@@ -83,6 +84,10 @@ type StashVolumesnapshotSpec struct {
 }
 
 type StashWorkloadSpec struct {
+	Enabled bool `json:"enabled"`
+}
+
+type StashKubeVirtSpec struct {
 	Enabled bool `json:"enabled"`
 }
 

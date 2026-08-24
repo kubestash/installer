@@ -12,100 +12,100 @@ metadata:
     {{- include "kubestash-catalog.labels" . | nindent 4 }}
 spec:
   backupTasks:
-  - name: logical-backup
+  - driver: Restic
+    executor: Job
     function: kubevirt-backup
-    driver: Restic
-    executor: Job
-    singleton: true
+    name: logical-backup
     parameters:
-    - name: snapshotReadyTimeout
+    - default: 10m
+      name: snapshotReadyTimeout
       required: false
-      default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
-    - name: enableCache
+    - default: "true"
+      name: enableCache
       required: false
-      default: 'true'
-    - name: scratchDir
+    - default: /kubestash-tmp
+      name: scratchDir
       required: false
-      default: /kubestash-tmp
+    singleton: true
     volumeMounts:
-    - name: kubestash-tmp-volume
-      mountPath: /kubestash-tmp
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
     volumeTemplate:
     - name: kubestash-tmp-volume
       source:
         emptyDir: {}
-  - name: manifest-backup
+  - driver: Restic
+    executor: Job
     function: kubevirt-manifest-backup
-    driver: Restic
-    executor: Job
-    singleton: true
+    name: manifest-backup
     parameters:
-    - name: enableCache
+    - default: "true"
+      name: enableCache
       required: false
-      default: 'true'
-    - name: scratchDir
+    - default: /kubestash-tmp
+      name: scratchDir
       required: false
-      default: /kubestash-tmp
+    singleton: true
     volumeMounts:
-    - name: kubestash-tmp-volume
-      mountPath: /kubestash-tmp
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
     volumeTemplate:
     - name: kubestash-tmp-volume
       source:
         emptyDir: {}
-  - name: volume-backup
-    function: kubevirt-volume-backup
-    driver: Restic
+  - driver: Restic
     executor: Job
-    singleton: true
+    function: kubevirt-volume-backup
+    name: volume-backup
     parameters:
-    - name: snapshotReadyTimeout
+    - default: 10m
+      name: snapshotReadyTimeout
       required: false
-      default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
-    - name: enableCache
+    - default: "true"
+      name: enableCache
       required: false
-      default: 'true'
-    - name: scratchDir
+    - default: /kubestash-tmp
+      name: scratchDir
       required: false
-      default: /kubestash-tmp
+    singleton: true
     volumeMounts:
-    - name: kubestash-tmp-volume
-      mountPath: /kubestash-tmp
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
     volumeTemplate:
     - name: kubestash-tmp-volume
       source:
         emptyDir: {}
   restoreTasks:
-  - name: logical-restore
+  - driver: Restic
+    executor: Job
     function: kubevirt-restore
-    driver: Restic
-    executor: Job
-    singleton: true
+    name: logical-restore
     parameters:
     - name: components
       required: false
       usage: restore only the listed volume components
-    - name: overrideResources
+    - default: "false"
+      name: overrideResources
       required: false
-      default: 'false'
-  - name: volume-restore
+    singleton: true
+  - driver: Restic
+    executor: Job
     function: kubevirt-volume-restore
-    driver: Restic
-    executor: Job
-    singleton: true
+    name: volume-restore
     parameters:
     - name: components
       required: false
       usage: restore only the listed volume components
-  - name: manifest-restore
-    function: kubevirt-manifest-restore
-    driver: Restic
-    executor: Job
     singleton: true
+  - driver: Restic
+    executor: Job
+    function: kubevirt-manifest-restore
+    name: manifest-restore
     parameters:
-    - name: overrideResources
+    - default: "false"
+      name: overrideResources
       required: false
-      default: 'false'
+    singleton: true
 {{ end }}
