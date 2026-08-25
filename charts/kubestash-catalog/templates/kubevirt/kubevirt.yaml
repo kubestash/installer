@@ -99,6 +99,40 @@ spec:
     - name: kubestash-tmp-volume
       source:
         emptyDir: {}
+  - driver: BlockCAS
+    executor: Job
+    function: kubevirt-volume-backup
+    name: cbt-volume-backup
+    parameters:
+    - default: 10m
+      name: snapshotReadyTimeout
+      required: false
+      usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - default: cbt
+      name: backupMode
+      required: false
+      usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+    - default: "false"
+      name: forceFull
+      required: false
+      usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtScratchStorageClass
+      required: false
+      usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - default: "true"
+      name: enableCache
+      required: false
+    - default: /kubestash-tmp
+      name: scratchDir
+      required: false
+    singleton: true
+    volumeMounts:
+    - mountPath: /kubestash-tmp
+      name: kubestash-tmp-volume
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
   restoreTasks:
   - driver: Restic
     executor: Job
