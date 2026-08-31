@@ -1,7 +1,6 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  creationTimestamp: null
   labels:
     app.kubernetes.io/name: kubestash
   name: snapshots.storage.kubestash.com
@@ -103,11 +102,46 @@ spec:
                           type: integer
                         checkpoint:
                           type: string
+                        checkpointIndexKey:
+                          type: string
+                        failedCheckpoints:
+                          format: int64
+                          type: integer
+                        firstCheckpointTime:
+                          format: date-time
+                          type: string
+                        lastCheckpointTime:
+                          format: date-time
+                          type: string
+                        lastFailure:
+                          type: string
                         manifestKey:
                           type: string
                         parentSnapshotID:
                           type: string
+                        recentCheckpoints:
+                          items:
+                            properties:
+                              blocksUploaded:
+                                format: int64
+                                type: integer
+                              bytesUploaded:
+                                format: int64
+                                type: integer
+                              manifestKey:
+                                type: string
+                              name:
+                                type: string
+                              time:
+                                format: date-time
+                                type: string
+                            type: object
+                          type: array
+                          x-kubernetes-list-type: atomic
                         slotsConsidered:
+                          format: int64
+                          type: integer
+                        totalCheckpoints:
                           format: int64
                           type: integer
                         zeroSlots:
@@ -299,6 +333,8 @@ spec:
                         properties:
                           backupId:
                             type: integer
+                          backupName:
+                            type: string
                           collection:
                             type: string
                           indexFileCount:
