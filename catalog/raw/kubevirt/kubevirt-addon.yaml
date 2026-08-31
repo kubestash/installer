@@ -14,6 +14,17 @@ spec:
       required: false
       default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - name: backupMode
+      required: false
+      default: vmsnapshot
+      usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+    - name: forceFull
+      required: false
+      default: 'false'
+      usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtScratchStorageClass
+      required: false
+      usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
     - name: enableCache
       required: false
       default: 'true'
@@ -56,6 +67,54 @@ spec:
       required: false
       default: 10m
       usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - name: backupMode
+      required: false
+      default: vmsnapshot
+      usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+    - name: forceFull
+      required: false
+      default: 'false'
+      usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtScratchStorageClass
+      required: false
+      usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - name: enableCache
+      required: false
+      default: 'true'
+    - name: scratchDir
+      required: false
+      default: /kubestash-tmp
+    volumeMounts:
+    - name: kubestash-tmp-volume
+      mountPath: /kubestash-tmp
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      source:
+        emptyDir: {}
+  # Changed block tracking stores disks in the content-addressed block store,
+  # not restic, so it declares its own driver: that is what makes the retention
+  # policy job run this addon's cleaner for the blocks.
+  - name: cbt-volume-backup
+    function: kubevirt-volume-backup
+    driver: BlockCAS
+    executor: Job
+    singleton: true
+    parameters:
+    - name: snapshotReadyTimeout
+      required: false
+      default: 10m
+      usage: wait for the VirtualMachineSnapshot to become readyToUse (running VMs)
+    - name: backupMode
+      required: false
+      default: cbt
+      usage: 'Hot-backup mechanism for a running VM: vmsnapshot | cbt | auto'
+    - name: forceFull
+      required: false
+      default: 'false'
+      usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtScratchStorageClass
+      required: false
+      usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
     - name: enableCache
       required: false
       default: 'true'

@@ -5421,6 +5421,9 @@ spec:
                         format: date-time
                         type: string
                     type: object
+                  pointInTime:
+                    format: date-time
+                    type: string
                   repository:
                     type: string
                   snapshot:

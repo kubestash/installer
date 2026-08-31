@@ -10,4 +10,7 @@ spec:
   - --enable-cache=${enableCache:=}
   - --scratch-dir=${scratchDir:=/kubestash-tmp}
   - --snapshot-ready-timeout=${snapshotReadyTimeout:=10m}
+  - --backup-mode=${backupMode:=vmsnapshot}
+  - --force-full=${forceFull:=false}
+  - --cbt-scratch-storage-class=${cbtScratchStorageClass:=}
   image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
