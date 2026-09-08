@@ -46,6 +46,8 @@ spec:
                         - Medusa
                         - ClickHouseBackup
                         - Neo4jAdmin
+                        - Weaviate
+                        - Milvus
                       - enum:
                         - Restic
                         - WalG
@@ -54,6 +56,8 @@ spec:
                         - Solr
                         - ClickHouseBackup
                         - Neo4jAdmin
+                        - Weaviate
+                        - Milvus
                       type: string
                     executor:
                       enum:
@@ -1074,6 +1078,8 @@ spec:
                         - Medusa
                         - ClickHouseBackup
                         - Neo4jAdmin
+                        - Weaviate
+                        - Milvus
                       - enum:
                         - Restic
                         - WalG
@@ -1082,6 +1088,8 @@ spec:
                         - Solr
                         - ClickHouseBackup
                         - Neo4jAdmin
+                        - Weaviate
+                        - Milvus
                       type: string
                     executor:
                       enum:
@@ -65293,6 +65301,8 @@ spec:
                       - Medusa
                       - ClickHouseBackup
                       - Neo4jAdmin
+                      - Weaviate
+                      - Milvus
                       type: string
                     duration:
                       type: string
@@ -65364,6 +65374,17 @@ spec:
                         startTime:
                           type: string
                         status:
+                          type: string
+                      type: object
+                    milvusStats:
+                      properties:
+                        id:
+                          type: string
+                        startTime:
+                          format: date-time
+                          type: string
+                        stopTime:
+                          format: date-time
                           type: string
                       type: object
                     neo4jStats:
@@ -65489,6 +65510,17 @@ spec:
                           items:
                             type: string
                           type: array
+                        id:
+                          type: string
+                        startTime:
+                          format: date-time
+                          type: string
+                        stopTime:
+                          format: date-time
+                          type: string
+                      type: object
+                    weaviateStats:
+                      properties:
                         id:
                           type: string
                         startTime:
