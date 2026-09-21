@@ -26,8 +26,12 @@ rules:
   - apiGroups:
       - ops.kubedb.com
     resources:
+      - oracleopsrequests
       - solropsrequests
-    verbs: ["get", "create", "patch", "delete"]
+    # The operator binds kubestash-backup-job to resident and scheduled backup
+    # Jobs. Kubernetes rejects that binding unless the operator itself holds a
+    # superset of every granted verb.
+    verbs: ["get", "list", "watch", "create", "patch", "delete"]
   # KubeVirt VirtualMachine backup/restore: read access resolves the target, and the
   # rest must stay a superset of the pkg/rbac job roles the operator grants.
   - apiGroups:
