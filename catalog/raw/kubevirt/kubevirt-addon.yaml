@@ -22,6 +22,10 @@ spec:
       required: false
       default: 'false'
       usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtArtifact
+      required: false
+      default: 'false'
+      usage: Store native KubeVirt CBT map-and-extent artifacts instead of raw disk images (internal archiver mode)
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
@@ -75,6 +79,10 @@ spec:
       required: false
       default: 'false'
       usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtArtifact
+      required: false
+      default: 'false'
+      usage: Store native KubeVirt CBT map-and-extent artifacts instead of raw disk images (internal archiver mode)
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
