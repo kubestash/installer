@@ -50,6 +50,8 @@ spec:
                         - Neo4jAdmin
                         - Weaviate
                         - Milvus
+                        - OracleBackup
+                        - BlockCAS
                       - enum:
                         - Restic
                         - WalG
@@ -60,6 +62,8 @@ spec:
                         - Neo4jAdmin
                         - Weaviate
                         - Milvus
+                        - OracleBackup
+                        - BlockCAS
                       type: string
                     executor:
                       enum:
@@ -1082,6 +1086,8 @@ spec:
                         - Neo4jAdmin
                         - Weaviate
                         - Milvus
+                        - OracleBackup
+                        - BlockCAS
                       - enum:
                         - Restic
                         - WalG
@@ -1092,6 +1098,8 @@ spec:
                         - Neo4jAdmin
                         - Weaviate
                         - Milvus
+                        - OracleBackup
+                        - BlockCAS
                       type: string
                     executor:
                       enum:
