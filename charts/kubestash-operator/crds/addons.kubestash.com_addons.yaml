@@ -50,7 +50,6 @@ spec:
                         - Weaviate
                         - Milvus
                         - OracleBackup
-                        - BlockCAS
                       - enum:
                         - Restic
                         - WalG
@@ -62,7 +61,6 @@ spec:
                         - Weaviate
                         - Milvus
                         - OracleBackup
-                        - BlockCAS
                       type: string
                     executor:
                       enum:
@@ -1086,7 +1084,6 @@ spec:
                         - Weaviate
                         - Milvus
                         - OracleBackup
-                        - BlockCAS
                       - enum:
                         - Restic
                         - WalG
@@ -1098,7 +1095,6 @@ spec:
                         - Weaviate
                         - Milvus
                         - OracleBackup
-                        - BlockCAS
                       type: string
                     executor:
                       enum:

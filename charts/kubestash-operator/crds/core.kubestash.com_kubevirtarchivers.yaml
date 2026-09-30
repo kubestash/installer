@@ -1266,7 +1266,6 @@ spec:
                     - Weaviate
                     - Milvus
                     - OracleBackup
-                    - BlockCAS
                     type: string
                   jobTemplate:
                     properties:
