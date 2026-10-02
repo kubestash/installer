@@ -14,4 +14,5 @@ spec:
   - --force-full=${forceFull:=false}
   - --cbt-artifact=${cbtArtifact:=false}
   - --cbt-scratch-storage-class=${cbtScratchStorageClass:=}
+  - --cbt-scratch-size=${cbtScratchSize:=2Gi}
   image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
