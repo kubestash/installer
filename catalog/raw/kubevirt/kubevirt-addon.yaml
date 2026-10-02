@@ -29,6 +29,10 @@ spec:
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - default: 2Gi
+      name: cbtScratchSize
+      required: false
+      usage: Size of the scratch PVC a CBT backup requires
     - name: enableCache
       required: false
       default: 'true'
@@ -86,6 +90,10 @@ spec:
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - default: 2Gi
+      name: cbtScratchSize
+      required: false
+      usage: Size of the scratch PVC a CBT backup requires
     - name: enableCache
       required: false
       default: 'true'
