@@ -9,4 +9,7 @@ spec:
   - --restoresession=${restoreSession:=}
   - --snapshot=${snapshot:=}
   - --components=${components:=}
+  - --checkpoint=${checkpoint:=}
+  - --target-name=${targetName:=}
+  - --target-namespace=${targetNamespace:=}
   image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
