@@ -1,0 +1,80 @@
+# Default values for kubestash-opscenter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  # License for the product.
+  # Get a license by following the steps from [here](https://kubestash.com/docs/latest/setup/install/enterprise#get-a-trial-license).
+  # Example:
+  # helm install appscode/kubestash-opscenter \
+  #   --set-file global.license=/path/to/license/file
+  # or
+  # helm install appscode/kubestash-opscenter \
+  #   --set global.license=<license file content>
+  license: ""
+
+  # Name of Secret with the license as key.txt key
+  licenseSecretName: ""
+
+  # Docker registry used to pull KubeStash related images
+  registry: ""
+
+  # Docker registry fqdn used to pull KubeStash related images.
+  # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
+  registryFQDN: ghcr.io
+
+  # Specify an array of imagePullSecrets.
+  # Secrets must be manually created in the namespace.
+  #
+  # Example:
+  # helm template charts/kubestash-opscenter \
+  #   --set global.imagePullSecrets[0].name=sec0 \
+  #   --set global.imagePullSecrets[1].name=sec1
+  imagePullSecrets: []
+
+  monitoring:
+    # Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin")
+    agent: ""
+    serviceMonitor:
+      # Specify the labels for ServiceMonitor.
+      # Prometheus crd will select ServiceMonitor using these labels.
+      # Only usable when monitoring agent is `prometheus.io/operator`.
+      labels: # +doc-gen:break
+        monitoring.appscode.com/prometheus: auto
+
+  # Controls the network policy creation
+  networkPolicy:
+    enabled: false
+    # flavor selects which network policy API is used.
+    # Accepted values: "kubernetes" (default) or "cilium".
+    flavor: kubernetes
+
+  distro:
+    openshift: false
+    ubi: ""
+
+kubestash-metrics:
+  # If enabled, installs the kubestash-metrics chart
+  enabled: true
+kubestash-ui-server:
+  # If enabled, installs the kubestash-ui-server chart
+  enabled: true
+ace-user-roles:
+  # If enabled, installs the ace-user-roles chart
+  enabled: true
+  enableClusterRoles:
+    ace: false
+    appcatalog: false
+    audit: false
+    catalog: false
+    cert-manager: false
+    kubedb-ui: false
+    kubedb: false
+    kubestash: false
+    kubevault: false
+    license-proxyserver: false
+    metrics: true
+    prometheus: false
+    secrets-store: false
+    stash: false
+    virtual-secrets: false

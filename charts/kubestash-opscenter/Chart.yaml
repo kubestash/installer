@@ -1,0 +1,29 @@
+apiVersion: v2
+name: kubestash-opscenter
+description: KubeStash Opscenter by AppsCode
+type: application
+version: v2026.8.12-rc.0
+appVersion: v2026.8.12-rc.0
+kubeVersion: '>=1.26.0-0'
+annotations:
+  charts.openshift.io/name: kubestash-opscenter
+home: https://kubestash.com
+icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
+sources:
+- https://github.com/kubestash
+maintainers:
+- name: appscode
+  email: support@appscode.com
+dependencies:
+- name: kubestash-metrics
+  repository: file://../kubestash-metrics
+  condition: kubestash-metrics.enabled
+  version: v2026.8.12-rc.0
+- name: kubestash-ui-server
+  repository: file://../kubestash-ui-server
+  condition: kubestash-ui-server.enabled
+  version: v2026.8.12-rc.0
+- name: ace-user-roles
+  repository: oci://ghcr.io/appscode-charts
+  condition: ace-user-roles.enabled
+  version: v2026.6.12

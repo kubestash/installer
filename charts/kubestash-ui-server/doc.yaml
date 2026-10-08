@@ -1,0 +1,18 @@
+project:
+  name: KubeStash UI Server by AppsCode
+  shortName: KubeStash UI Server
+  url: https://github.com/kubestash/ui-server
+  description: KubeStash UI Server for ByteBuilders
+  app: a KubeStash UI Server
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: kubestash-ui-server
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.26+
+release:
+  name: kubestash-ui-server
+  namespace: kubestash

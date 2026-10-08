@@ -1,0 +1,53 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "kubestash-ui-server.fullname" . }}
+  labels:
+    {{- include "kubestash-ui-server.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - ui.kubestash.com
+  resources:
+  - "*"
+  verbs: ["*"]
+- apiGroups:
+  - core.kubestash.com
+  - storage.kubestash.com
+  - addons.kubestash.com
+  resources:
+  - "*"
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - core.kubestash.com
+  resources:
+  - restoresessions
+  verbs: ["create"]
+- apiGroups:
+  - kubedb.com
+  resources:
+  - "*"
+  verbs: ["get", "list", "create"]
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  resourceNames:
+  - ace-info
+  verbs: ["get"]
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs: ["get", "list", "watch", "create", "patch", "delete"]
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - clusterroles
+  - clusterrolebindings
+  - roles
+  - rolebindings
+  verbs: ["get", "list", "watch"]
+- nonResourceURLs:
+  - ""
+  - "/apis/ui.kubestash.com/v1alpha1"
+  verbs: ["get"]
