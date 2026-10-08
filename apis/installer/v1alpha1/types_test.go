@@ -31,6 +31,8 @@ func TestDefaultValues(t *testing.T) {
 		schemachecker.TestCase{Obj: v1alpha1.KubestashSpec{}},
 		schemachecker.TestCase{Obj: v1alpha1.KubestashOperatorSpec{}},
 		schemachecker.TestCase{Obj: v1alpha1.KubestashCatalogSpec{}},
+		schemachecker.TestCase{Obj: v1alpha1.KubestashUiServerSpec{}},
+		schemachecker.TestCase{Obj: v1alpha1.KubestashOpscenterSpec{}},
 	)
 	checker.TestAll(t)
 }

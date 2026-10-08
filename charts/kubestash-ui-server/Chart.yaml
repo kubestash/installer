@@ -1,0 +1,16 @@
+apiVersion: v2
+name: kubestash-ui-server
+description: A Helm chart for kubestash-ui-server by AppsCode
+type: application
+version: v2026.8.12-rc.0
+appVersion: v2026.8.12-rc.0
+kubeVersion: '>=1.26.0-0'
+annotations:
+  charts.openshift.io/name: kubestash-ui-server
+home: https://kubestash.com
+icon: https://cdn.appscode.com/images/products/kubestash/stash-icon.png
+sources:
+- https://github.com/kubestash/ui-server
+maintainers:
+- name: appscode
+  email: support@appscode.com
