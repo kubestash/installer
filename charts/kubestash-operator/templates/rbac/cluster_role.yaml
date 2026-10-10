@@ -47,6 +47,13 @@ rules:
       - virtualmachinebackups
       - virtualmachinebackuptrackers
     verbs: ["get", "list", "watch", "create", "update", "delete"]
+  # The per-VM CBT Lease that serialises KubeVirt changed-block-tracking
+  # backups; must stay a superset of the backup job role the operator grants.
+  - apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+    verbs: ["get", "create", "update"]
   - apiGroups:
       - snapshot.kubevirt.io
     resources:

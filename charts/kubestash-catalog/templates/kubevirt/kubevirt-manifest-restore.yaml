@@ -17,5 +17,9 @@ spec:
   - --restoresession=${restoreSession:=}
   - --snapshot=${snapshot:=}
   - --override-resources=${overrideResources:=false}
+  - --checkpoint=${checkpoint:=}
+  - --manifest-repository=${manifestRepository:=}
+  - --target-name=${targetName:=}
+  - --target-namespace=${targetNamespace:=}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.1.0{{ include "catalog.ubi" $ }}'
 {{ end }}

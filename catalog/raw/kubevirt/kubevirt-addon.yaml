@@ -22,9 +22,17 @@ spec:
       required: false
       default: 'false'
       usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtArtifact
+      required: false
+      default: 'false'
+      usage: Store native KubeVirt CBT map-and-extent artifacts instead of raw disk images (internal archiver mode)
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - default: 2Gi
+      name: cbtScratchSize
+      required: false
+      usage: Size of the scratch PVC a CBT backup requires
     - name: enableCache
       required: false
       default: 'true'
@@ -75,9 +83,17 @@ spec:
       required: false
       default: 'false'
       usage: Force a full CBT backup even when a checkpoint exists (required while data lands in restic)
+    - name: cbtArtifact
+      required: false
+      default: 'false'
+      usage: Store native KubeVirt CBT map-and-extent artifacts instead of raw disk images (internal archiver mode)
     - name: cbtScratchStorageClass
       required: false
       usage: StorageClass for the scratch PVC a CBT backup requires (empty = cluster default)
+    - default: 2Gi
+      name: cbtScratchSize
+      required: false
+      usage: Size of the scratch PVC a CBT backup requires
     - name: enableCache
       required: false
       default: 'true'
@@ -113,6 +129,15 @@ spec:
     - name: components
       required: false
       usage: restore only the listed volume components
+    - name: checkpoint
+      required: false
+      usage: Immutable KubeVirt CBT checkpoint selected by KubeVirtArchiverRestore
+    - name: targetName
+      required: false
+      usage: Name of the new VirtualMachine target
+    - name: targetNamespace
+      required: false
+      usage: Namespace of the new VirtualMachine target
   - name: manifest-restore
     function: kubevirt-manifest-restore
     driver: Restic
@@ -122,3 +147,15 @@ spec:
     - name: overrideResources
       required: false
       default: 'false'
+    - name: checkpoint
+      required: false
+      usage: Immutable KubeVirt CBT checkpoint selected by KubeVirtArchiverRestore
+    - name: manifestRepository
+      required: false
+      usage: Repository holding the selected manifest artifact
+    - name: targetName
+      required: false
+      usage: Name of the new VirtualMachine target
+    - name: targetNamespace
+      required: false
+      usage: Namespace of the new VirtualMachine target

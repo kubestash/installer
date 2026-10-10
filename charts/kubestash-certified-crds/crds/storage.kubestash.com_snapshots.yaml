@@ -1,6 +1,7 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  creationTimestamp: null
   labels:
     app.kubernetes.io/name: kubestash
   name: snapshots.storage.kubestash.com
@@ -114,6 +115,7 @@ spec:
                       - Neo4jAdmin
                       - Weaviate
                       - Milvus
+                      - OracleBackup
                       type: string
                     duration:
                       type: string
@@ -225,6 +227,19 @@ spec:
                             type: string
                         type: object
                       type: array
+                    oracleStats:
+                      properties:
+                        dbid:
+                          type: string
+                        incarnation:
+                          type: string
+                        pieceCount:
+                          type: integer
+                        tag:
+                          type: string
+                        untilSCN:
+                          type: string
+                      type: object
                     path:
                       type: string
                     phase:
@@ -234,6 +249,32 @@ spec:
                       - Succeeded
                       - Failed
                       type: string
+                    resticCBTStats:
+                      items:
+                        properties:
+                          artifactPath:
+                            type: string
+                          capturedAt:
+                            type: string
+                          checkpoint:
+                            type: string
+                          diskSize:
+                            format: int64
+                            type: integer
+                          kind:
+                            type: string
+                          mapChecksum:
+                            type: string
+                          parentCheckpoint:
+                            type: string
+                          parentSnapshot:
+                            type: string
+                          payloadChecksum:
+                            type: string
+                          resticSnapshotID:
+                            type: string
+                        type: object
+                      type: array
                     resticStats:
                       items:
                         properties:
