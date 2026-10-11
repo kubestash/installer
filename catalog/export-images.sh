@@ -33,13 +33,14 @@ mv /tmp/crane images
 CMD="./images/crane"
 
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.34 images/appscode-kubectl-nonroot-1.34.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.28.0-rc.0 images/kubestash-kubedump-v0.28.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.29.0-rc.0 images/kubestash-kubestash-v0.29.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.1.0 images/kubestash-kubevirt-plugin-v0.1.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.21.0-rc.0 images/kubestash-manifest-v0.21.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.28.0-rc.0 images/kubestash-pvc-v0.28.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/vault:v0.3.0-rc.0 images/kubestash-vault-v0.3.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.28.0-rc.0 images/kubestash-volume-snapshotter-v0.28.0-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.28.0-rc.0 images/kubestash-workload-v0.28.0-rc.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.29.0 images/kubestash-kubedump-v0.29.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash-ui-server:v0.2.0 images/kubestash-kubestash-ui-server-v0.2.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.30.0 images/kubestash-kubestash-v0.30.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.2.0 images/kubestash-kubevirt-plugin-v0.2.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.22.0 images/kubestash-manifest-v0.22.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.29.0 images/kubestash-pvc-v0.29.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/vault:v0.4.0 images/kubestash-vault-v0.4.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.29.0 images/kubestash-volume-snapshotter-v0.29.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.29.0 images/kubestash-workload-v0.29.0.tar
 
 tar -czvf images.tar.gz images
