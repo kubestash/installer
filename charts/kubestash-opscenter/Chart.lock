@@ -1,0 +1,12 @@
+dependencies:
+- name: kubestash-metrics
+  repository: file://../kubestash-metrics
+  version: v2026.10.12
+- name: kubestash-ui-server
+  repository: file://../kubestash-ui-server
+  version: v0.2.0
+- name: ace-user-roles
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.6.12
+digest: sha256:d0980235d30eca357aaf8aa88e51a63a3ac0f79df9a4b8a7bd60c43d7f9708de
+generated: "2026-10-11T04:30:10.550142715Z"

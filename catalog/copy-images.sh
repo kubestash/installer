@@ -36,11 +36,12 @@ mv /tmp/crane .
 CMD="./crane"
 
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.34 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.28.0-rc.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.28.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.29.0-rc.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.29.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.1.0 $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.1.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.21.0-rc.0 $IMAGE_REGISTRY/kubestash/manifest:v0.21.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.28.0-rc.0 $IMAGE_REGISTRY/kubestash/pvc:v0.28.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/vault:v0.3.0-rc.0 $IMAGE_REGISTRY/kubestash/vault:v0.3.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.28.0-rc.0 $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.28.0-rc.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.28.0-rc.0 $IMAGE_REGISTRY/kubestash/workload:v0.28.0-rc.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.29.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.29.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash-ui-server:v0.2.0 $IMAGE_REGISTRY/kubestash/kubestash-ui-server:v0.2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.30.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.30.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.2.0 $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.22.0 $IMAGE_REGISTRY/kubestash/manifest:v0.22.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.29.0 $IMAGE_REGISTRY/kubestash/pvc:v0.29.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/vault:v0.4.0 $IMAGE_REGISTRY/kubestash/vault:v0.4.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/volume-snapshotter:v0.29.0 $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.29.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/workload:v0.29.0 $IMAGE_REGISTRY/kubestash/workload:v0.29.0

@@ -10,4 +10,4 @@ spec:
   - --snapshot=${snapshot:=}
   - --components=${components:=}
   - --override-resources=${overrideResources:=false}
-  image: ghcr.io/kubestash/kubevirt-plugin:v0.1.0
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.2.0
