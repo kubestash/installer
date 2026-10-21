@@ -1,0 +1,12 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: multipvc-restore
+spec:
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --backupsession=${backupSession:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  image: arnabbaishnab7620/multipvc-backup-plugin:multipvc-backup_linux_amd64_000_000_001
