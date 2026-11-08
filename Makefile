@@ -216,7 +216,7 @@ BIN_DIR ?= $(CURDIR)/bin/$(OS)_$(ARCH)
 .PHONY: install-image-packer
 install-image-packer:
 	@mkdir -p $(BIN_DIR)
-	curl -fsSL -o $(BIN_DIR)/image-packer.tar.gz https://github.com/kmodules/image-packer/releases/latest/download/image-packer-$(OS)-$(ARCH).tar.gz
+	curl -fsSL --retry 10 --retry-all-errors --retry-delay 5 -o $(BIN_DIR)/image-packer.tar.gz https://github.com/kmodules/image-packer/releases/latest/download/image-packer-$(OS)-$(ARCH).tar.gz
 	tar -xzf $(BIN_DIR)/image-packer.tar.gz -C $(BIN_DIR)
 	chmod +x $(BIN_DIR)/image-packer-$(OS)-$(ARCH)
 	mv $(BIN_DIR)/image-packer-$(OS)-$(ARCH) $(BIN_DIR)/image-packer
@@ -225,7 +225,7 @@ install-image-packer:
 .PHONY: install-chart-packer
 install-chart-packer:
 	@mkdir -p $(BIN_DIR)
-	curl -fsSL -o $(BIN_DIR)/chart-packer.tar.gz https://github.com/kmodules/chart-packer/releases/latest/download/chart-packer-$(OS)-$(ARCH).tar.gz
+	curl -fsSL --retry 10 --retry-all-errors --retry-delay 5 -o $(BIN_DIR)/chart-packer.tar.gz https://github.com/kmodules/chart-packer/releases/latest/download/chart-packer-$(OS)-$(ARCH).tar.gz
 	tar -xzf $(BIN_DIR)/chart-packer.tar.gz -C $(BIN_DIR)
 	chmod +x $(BIN_DIR)/chart-packer-$(OS)-$(ARCH)
 	mv $(BIN_DIR)/chart-packer-$(OS)-$(ARCH) $(BIN_DIR)/chart-packer

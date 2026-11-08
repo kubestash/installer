@@ -27,6 +27,7 @@ _testmain.go
 /.crds
 /charts/kubestash/charts
 /charts/kubestash-certified/charts
+/charts/kubestash-opscenter/charts
 
 /.idea
 /.markdownlint.json
