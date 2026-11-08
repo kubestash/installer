@@ -39,6 +39,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-n
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.29.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.29.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash-ui-server:v0.2.0 $IMAGE_REGISTRY/kubestash/kubestash-ui-server:v0.2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.30.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.30.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.1.0 $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubevirt-plugin:v0.2.0 $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/manifest:v0.22.0 $IMAGE_REGISTRY/kubestash/manifest:v0.22.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/pvc:v0.29.0 $IMAGE_REGISTRY/kubestash/pvc:v0.29.0
