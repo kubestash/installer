@@ -19,7 +19,7 @@ image:
   # Operator container image tag
   tag: ""
   # Security options this container should run with
-  securityContext: # +doc-gen:break
+  securityContext:  # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
@@ -59,7 +59,7 @@ tolerations: []
 # Affinity rules for pod assignment
 affinity: {}
 # Security options the operator pod should run with.
-podSecurityContext: # +doc-gen:break
+podSecurityContext:  # +doc-gen:break
   fsGroup: 65534
 serviceAccount:
   # Specifies whether a service account should be created
@@ -108,7 +108,7 @@ monitoring:
     # Specify the labels for ServiceMonitor.
     # Prometheus crd will select ServiceMonitor using these labels.
     # Only usable when monitoring agent is `prometheus.io/operator`.
-    labels: # +doc-gen:break
+    labels:  # +doc-gen:break
       monitoring.appscode.com/prometheus: auto
 
 distro:
