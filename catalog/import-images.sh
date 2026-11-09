@@ -30,7 +30,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.29.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.29.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-ui-server-v0.2.0.tar $IMAGE_REGISTRY/kubestash/kubestash-ui-server:v0.2.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.30.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.30.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubevirt-plugin-v0.1.0.tar $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubevirt-plugin-v0.2.0.tar $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.2.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.22.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.22.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.29.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.29.0

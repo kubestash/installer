@@ -23,5 +23,5 @@ spec:
   - --cbt-artifact=${cbtArtifact:=false}
   - --cbt-scratch-storage-class=${cbtScratchStorageClass:=}
   - --cbt-scratch-size=${cbtScratchSize:=2Gi}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.1.0{{ include "catalog.ubi" $ }}'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.2.0{{ include "catalog.ubi" $ }}'
 {{ end }}
