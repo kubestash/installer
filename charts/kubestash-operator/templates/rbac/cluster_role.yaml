@@ -48,6 +48,11 @@ rules:
       - virtualmachinebackuptrackers
     verbs: ["get", "list", "watch", "create", "update", "delete"]
   - apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+    verbs: ["get", "list", "watch", "create", "update"]
+  - apiGroups:
       - snapshot.kubevirt.io
     resources:
       - virtualmachinesnapshots
