@@ -53,7 +53,7 @@ rules:
       - coordination.k8s.io
     resources:
       - leases
-    verbs: ["get", "create", "update"]
+    verbs: ["get", "list", "watch", "create", "update"]
   - apiGroups:
       - snapshot.kubevirt.io
     resources:
