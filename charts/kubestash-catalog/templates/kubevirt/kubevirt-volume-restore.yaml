@@ -20,5 +20,5 @@ spec:
   - --checkpoint=${checkpoint:=}
   - --target-name=${targetName:=}
   - --target-namespace=${targetNamespace:=}
-  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.2.0{{ include "catalog.ubi" $ }}'
+  image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.3.0{{ include "catalog.ubi" $ }}'
 {{ end }}

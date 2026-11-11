@@ -15,4 +15,4 @@ spec:
   - --cbt-artifact=${cbtArtifact:=false}
   - --cbt-scratch-storage-class=${cbtScratchStorageClass:=}
   - --cbt-scratch-size=${cbtScratchSize:=2Gi}
-  image: ghcr.io/kubestash/kubevirt-plugin:v0.2.0
+  image: ghcr.io/kubestash/kubevirt-plugin:v0.3.0
