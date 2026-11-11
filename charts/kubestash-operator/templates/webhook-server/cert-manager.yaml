@@ -25,6 +25,9 @@ metadata:
     {{- include "kubestash-operator.labels" . | nindent 4 }}
 spec:
   secretName: {{ $fullname }}-cert
+  secretTemplate:
+    annotations:
+      cert-manager.io/allow-direct-injection: "true"
   dnsNames:
   - {{ include "kubestash-operator.webhookServiceName" . }}
   - {{ include "kubestash-operator.webhookServiceName" . }}.{{ .Release.Namespace }}
