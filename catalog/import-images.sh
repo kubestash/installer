@@ -27,12 +27,12 @@ tar -zxvf $TARBALL
 CMD="./crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.30.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.30.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-ui-server-v0.3.0.tar $IMAGE_REGISTRY/kubestash/kubestash-ui-server:v0.3.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.31.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.31.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubevirt-plugin-v0.3.0.tar $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.3.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.23.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.23.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.30.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.30.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-vault-v0.5.0.tar $IMAGE_REGISTRY/kubestash/vault:v0.5.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.30.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.30.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.30.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.30.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.31.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.31.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-ui-server-v0.4.0.tar $IMAGE_REGISTRY/kubestash/kubestash-ui-server:v0.4.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.32.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.32.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubevirt-plugin-v0.4.0.tar $IMAGE_REGISTRY/kubestash/kubevirt-plugin:v0.4.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-manifest-v0.24.0.tar $IMAGE_REGISTRY/kubestash/manifest:v0.24.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-pvc-v0.31.0.tar $IMAGE_REGISTRY/kubestash/pvc:v0.31.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-vault-v0.6.0.tar $IMAGE_REGISTRY/kubestash/vault:v0.6.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-volume-snapshotter-v0.31.0.tar $IMAGE_REGISTRY/kubestash/volume-snapshotter:v0.31.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-workload-v0.31.0.tar $IMAGE_REGISTRY/kubestash/workload:v0.31.0
