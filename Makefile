@@ -21,7 +21,7 @@ BIN      := installer
 CRD_OPTIONS          ?= "crd:crdVersions={v1}"
 # https://github.com/appscodelabs/gengo-builder
 CODE_GENERATOR_IMAGE ?= ghcr.io/appscode/gengo:release-1.32
-API_GROUPS           ?= installer:v1alpha1
+API_GROUPS           ?= installer:v1
 
 # This version-strategy uses git tags to set the version string
 git_branch       := $(shell git rev-parse --abbrev-ref HEAD)
@@ -174,6 +174,9 @@ gen-crds:
 			$(CRD_OPTIONS)                  \
 			paths="./apis/..."              \
 			output:crd:artifacts:config=.crds
+	@mkdir -p bundle/manifests config/crd/bases
+	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' .crds/installer.kubestash.com_kubestashs.yaml > bundle/manifests/installer.kubestash.com_kubestashs.yaml
+	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' .crds/installer.kubestash.com_kubestashs.yaml > config/crd/bases/installer.kubestash.com_kubestashs.yaml
 
 .PHONY: gen-values-schema
 gen-values-schema: $(BUILD_DIRS)
@@ -255,6 +258,8 @@ update-certified-charts: update-chart-dependencies install-chart-packer
 .PHONY: update-catalog
 update-catalog: update-certified-charts install-image-packer
 	PATH="$(BIN_DIR):$$PATH" ./hack/scripts/update-catalog.sh
+
+include olm.mk
 
 CHART_REGISTRY     ?= appscode
 CHART_REGISTRY_URL ?= https://charts.appscode.com/stable/
