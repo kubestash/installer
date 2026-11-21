@@ -14,13 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1alpha1_test
+package v1_test
 
 import (
 	"os"
 	"testing"
 
-	"kubestash.dev/installer/apis/installer/v1alpha1"
+	v1 "kubestash.dev/installer/apis/installer/v1"
 
 	schemachecker "kmodules.xyz/schema-checker"
 )
@@ -28,11 +28,11 @@ import (
 func TestDefaultValues(t *testing.T) {
 	checker := schemachecker.New(
 		os.DirFS("../../.."),
-		schemachecker.TestCase{Obj: v1alpha1.KubestashSpec{}},
-		schemachecker.TestCase{Obj: v1alpha1.KubestashOperatorSpec{}},
-		schemachecker.TestCase{Obj: v1alpha1.KubestashCatalogSpec{}},
-		schemachecker.TestCase{Obj: v1alpha1.KubestashUiServerSpec{}},
-		schemachecker.TestCase{Obj: v1alpha1.KubestashOpscenterSpec{}},
+		schemachecker.TestCase{Obj: v1.KubestashSpec{}},
+		schemachecker.TestCase{Obj: v1.KubestashOperatorSpec{}},
+		schemachecker.TestCase{Obj: v1.KubestashCatalogSpec{}},
+		schemachecker.TestCase{Obj: v1.KubestashUiServerSpec{}},
+		schemachecker.TestCase{Obj: v1.KubestashOpscenterSpec{}},
 	)
 	checker.TestAll(t)
 }

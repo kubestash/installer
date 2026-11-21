@@ -1,0 +1,18 @@
+apiVersion: installer.kubestash.com/v1
+kind: Kubestash
+metadata:
+  name: kubestash-sample
+spec:
+  global:
+    license: ""
+    registry: ""
+    registryFQDN: ""
+    imagePullSecrets: []
+    networkPolicy:
+      enabled: false
+  kubestash-operator:
+    enabled: true
+  kubestash-catalog:
+    enabled: true
+  kubestash-metrics:
+    enabled: true

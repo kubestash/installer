@@ -17,7 +17,7 @@ limitations under the License.
 package fuzzer
 
 import (
-	"kubestash.dev/installer/apis/installer/v1alpha1"
+	v1 "kubestash.dev/installer/apis/installer/v1"
 
 	fuzz "github.com/google/gofuzz"
 	runtimeserializer "k8s.io/apimachinery/pkg/runtime/serializer"
@@ -26,7 +26,7 @@ import (
 // Funcs returns the fuzzer functions for this api group.
 var Funcs = func(codecs runtimeserializer.CodecFactory) []any {
 	return []any{
-		func(s *v1alpha1.Kubestash, c fuzz.Continue) {
+		func(s *v1.Kubestash, c fuzz.Continue) {
 			c.FuzzNoCustom(s) // fuzz self without calling this function again
 		},
 	}

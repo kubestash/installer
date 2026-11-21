@@ -1,0 +1,12 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: installer.kubestash.com
+  version: v1
+  kind: Kubestash
+  chart: helm-charts/kubestash
+  watchDependentResources: false
+  dryRunOption: server
+  overrideValues:
+    global.distro.openshift: true
+    global.distro.ubi: all
+    kubestash-operator.apiserver.servingCerts.certManager.enabled: true
+# +kubebuilder:scaffold:watch

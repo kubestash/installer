@@ -1,4 +1,3 @@
----
 properties:
   affinity:
     description: If specified, the pod's scheduling constraints
