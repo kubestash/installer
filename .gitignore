@@ -25,6 +25,8 @@ _testmain.go
 /.go
 /.idea
 /.crds
+/cache
+/bundle-*
 /charts/kubestash/charts
 /charts/kubestash-certified/charts
 /charts/kubestash-opscenter/charts
@@ -43,3 +45,5 @@ _testmain.go
 *.tfstate*
 
 chartverifier
+
+.DS_Store

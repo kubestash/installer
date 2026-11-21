@@ -6,5 +6,7 @@
   watchDependentResources: false
   dryRunOption: server
   overrideValues:
+    global.distro.openshift: true
+    global.distro.ubi: all
     kubestash-operator.apiserver.servingCerts.certManager.enabled: true
 # +kubebuilder:scaffold:watch
