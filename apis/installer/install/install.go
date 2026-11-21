@@ -17,7 +17,7 @@ limitations under the License.
 package install
 
 import (
-	"kubestash.dev/installer/apis/installer/v1"
+	v1 "kubestash.dev/installer/apis/installer/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"

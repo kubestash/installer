@@ -17,7 +17,7 @@ limitations under the License.
 package fuzzer
 
 import (
-	"kubestash.dev/installer/apis/installer/v1"
+	v1 "kubestash.dev/installer/apis/installer/v1"
 
 	fuzz "github.com/google/gofuzz"
 	runtimeserializer "k8s.io/apimachinery/pkg/runtime/serializer"

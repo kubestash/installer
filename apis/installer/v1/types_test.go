@@ -20,7 +20,7 @@ import (
 	"os"
 	"testing"
 
-	"kubestash.dev/installer/apis/installer/v1"
+	v1 "kubestash.dev/installer/apis/installer/v1"
 
 	schemachecker "kmodules.xyz/schema-checker"
 )
