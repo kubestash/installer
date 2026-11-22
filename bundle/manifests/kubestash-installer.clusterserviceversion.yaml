@@ -11,31 +11,258 @@ metadata:
             "name": "kubestash-sample"
           },
           "spec": {
+            "ace-user-roles": {
+              "enableClusterRoles": {
+                "ace": false,
+                "appcatalog": true,
+                "audit": true,
+                "catalog": false,
+                "cert-manager": false,
+                "kubedb": false,
+                "kubedb-ui": false,
+                "kubestash": true,
+                "kubevault": false,
+                "license-proxyserver": true,
+                "metrics": true,
+                "prometheus": false,
+                "secrets-store": false,
+                "stash": false,
+                "virtual-secrets": false
+              },
+              "enabled": true
+            },
+            "affinity": {},
+            "fullnameOverride": "",
             "global": {
+              "distro": {
+                "openshift": false,
+                "ubi": "all"
+              },
               "imagePullSecrets": [],
               "license": "",
               "networkPolicy": {
-                "enabled": false
+                "enabled": false,
+                "flavor": "kubernetes"
               },
               "registry": "",
-              "registryFQDN": ""
+              "registryFQDN": "",
+              "skipCleaner": false,
+              "taskQueue": {
+                "enabled": false,
+                "maxConcurrentSessions": 10
+              }
             },
+            "imagePullPolicy": "IfNotPresent",
+            "imagePullSecrets": [],
             "kubestash-catalog": {
-              "enabled": true
+              "distro": {
+                "openshift": false,
+                "ubi": "all"
+              },
+              "enabled": true,
+              "kubedump": {
+                "backup": {
+                  "includeDependants": false,
+                  "labelSelector": "",
+                  "sanitize": true
+                },
+                "enabled": true
+              },
+              "kubevirt": {
+                "enabled": true
+              },
+              "manifest": {
+                "enabled": true
+              },
+              "proxies": {
+                "ghcr": "ghcr.io"
+              },
+              "pvc": {
+                "enabled": true
+              },
+              "vault": {
+                "enabled": true
+              },
+              "volumesnapshot": {
+                "enabled": true
+              },
+              "waitTimeout": 300,
+              "workload": {
+                "enabled": true
+              }
             },
-            "kubestash-metrics": {
-              "enabled": true
-            },
+            "kubestash-metrics": null,
             "kubestash-operator": {
-              "enabled": true
-            }
+              "affinity": {},
+              "annotations": {},
+              "apiserver": {
+                "bypassValidatingWebhookXray": false,
+                "enableMutatingWebhook": true,
+                "enableValidatingWebhook": true,
+                "groupPriorityMinimum": 10000,
+                "healthcheck": {
+                  "enabled": false
+                },
+                "servingCerts": {
+                  "caCrt": "",
+                  "certManager": {
+                    "enabled": false,
+                    "issuerRef": {
+                      "group": "cert-manager.io",
+                      "kind": "Issuer",
+                      "name": ""
+                    }
+                  },
+                  "generate": true,
+                  "serverCrt": "",
+                  "serverKey": ""
+                },
+                "useKubeapiserverFqdnForAks": true,
+                "versionPriority": 15
+              },
+              "cleaner": {
+                "affinity": {},
+                "nodeSelector": {
+                  "kubernetes.io/os": "linux"
+                },
+                "registry": "appscode",
+                "repository": "kubectl-nonroot",
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true,
+                  "runAsNonRoot": true,
+                  "runAsUser": 65534,
+                  "seccompProfile": {
+                    "type": "RuntimeDefault"
+                  }
+                },
+                "skip": false,
+                "tag": "1.34",
+                "tolerations": []
+              },
+              "criticalAddon": false,
+              "distro": {
+                "openshift": false,
+                "ubi": "all"
+              },
+              "enabled": true,
+              "env": [],
+              "envFrom": [],
+              "fullnameOverride": "",
+              "imagePullPolicy": "IfNotPresent",
+              "imagePullSecrets": [],
+              "license": "",
+              "logLevel": 3,
+              "monitoring": {
+                "agent": "none",
+                "backup": false,
+                "operator": false,
+                "serviceMonitor": {
+                  "labels": {}
+                }
+              },
+              "nameOverride": "",
+              "netVolAccessor": {
+                "cpu": "100m",
+                "memory": "128Mi",
+                "privileged": false,
+                "runAsUser": 2000
+              },
+              "networkPolicy": {
+                "enabled": false,
+                "flavor": "kubernetes"
+              },
+              "nodeSelector": {
+                "kubernetes.io/os": "linux"
+              },
+              "operator": {
+                "registry": "kubestash",
+                "repository": "kubestash",
+                "resources": {
+                  "requests": {
+                    "cpu": "100m"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true,
+                  "runAsNonRoot": true,
+                  "runAsUser": 65534,
+                  "seccompProfile": {
+                    "type": "RuntimeDefault"
+                  }
+                },
+                "tag": ""
+              },
+              "podAnnotations": {},
+              "podLabels": {},
+              "podSecurityContext": {
+                "fsGroup": 65535
+              },
+              "registryFQDN": "ghcr.io",
+              "replicaCount": 1,
+              "security": {
+                "apparmor": {
+                  "enabled": false
+                },
+                "seccomp": {
+                  "enabled": false
+                }
+              },
+              "serviceAccount": {
+                "annotations": {},
+                "create": true,
+                "name": null
+              },
+              "taskQueue": {
+                "enabled": false,
+                "maxConcurrentSessions": 10
+              },
+              "tolerations": []
+            },
+            "nameOverride": "",
+            "nodeSelector": {},
+            "podLabels": {},
+            "podSecurityContext": {},
+            "registryFQDN": "ghcr.io",
+            "tester": {
+              "registry": "appscode",
+              "repository": "kubectl-nonroot",
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsNonRoot": true,
+                "runAsUser": 65534,
+                "seccompProfile": {
+                  "type": "RuntimeDefault"
+                }
+              },
+              "tag": "1.34"
+            },
+            "tolerations": []
           }
         }
       ]
     capabilities: Auto Pilot
     categories: Storage
     containerImage: ghcr.io/kubestash/kubestash-installer:v2026.11.15
-    createdAt: "2026-11-21T05:48:16Z"
+    createdAt: "2026-11-22T06:11:19Z"
     description: Kubernetes-native backup and recovery for your applications, volumes
       and databases
     features.operators.openshift.io/disconnected: "true"
@@ -281,8 +508,13 @@ spec:
           resources:
           - certificates
           verbs:
-          - create
-          - get
+          - '*'
+        - apiGroups:
+          - cert-manager.io
+          resources:
+          - issuers
+          verbs:
+          - '*'
         - apiGroups:
           - cluster.open-cluster-management.io
           resourceNames:
@@ -482,8 +714,10 @@ spec:
           resources:
           - clusterroles
           verbs:
+          - bind
           - create
           - delete
+          - escalate
           - get
           - list
           - patch
@@ -506,13 +740,21 @@ spec:
           resources:
           - roles
           verbs:
+          - bind
           - create
           - delete
+          - escalate
           - get
           - list
           - patch
           - update
           - watch
+        - apiGroups:
+          - security.openshift.io
+          resources:
+          - securitycontextconstraints
+          verbs:
+          - '*'
         - apiGroups:
           - snapshot.kubevirt.io
           resources:
@@ -726,6 +968,27 @@ spec:
           - deployments
           verbs:
           - '*'
+        - apiGroups:
+          - cert-manager.io
+          resources:
+          - issuers
+          - certificates
+          verbs:
+          - '*'
+        - apiGroups:
+          - security.openshift.io
+          resources:
+          - securitycontextconstraints
+          verbs:
+          - '*'
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - clusterroles
+          - roles
+          verbs:
+          - escalate
+          - bind
         - apiGroups:
           - authentication.k8s.io
           resources:

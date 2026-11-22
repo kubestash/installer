@@ -175,8 +175,13 @@ rules:
   resources:
   - certificates
   verbs:
-  - create
-  - get
+  - '*'
+- apiGroups:
+  - cert-manager.io
+  resources:
+  - issuers
+  verbs:
+  - '*'
 - apiGroups:
   - cluster.open-cluster-management.io
   resourceNames:
@@ -376,8 +381,10 @@ rules:
   resources:
   - clusterroles
   verbs:
+  - bind
   - create
   - delete
+  - escalate
   - get
   - list
   - patch
@@ -400,13 +407,21 @@ rules:
   resources:
   - roles
   verbs:
+  - bind
   - create
   - delete
+  - escalate
   - get
   - list
   - patch
   - update
   - watch
+- apiGroups:
+  - security.openshift.io
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - '*'
 - apiGroups:
   - snapshot.kubevirt.io
   resources:
@@ -490,14 +505,6 @@ rules:
   - configmaps
   verbs:
   - get
-- apiGroups:
-  - ""
-  resources:
-  - endpoints
-  verbs:
-  - get
-  - list
-  - watch
 - apiGroups:
   - ""
   resources:
