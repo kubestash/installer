@@ -1,0 +1,114 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: multipvc-addon
+spec:
+  backupTasks:
+  - name: logical-backup
+    function: multipvc-backup
+    driver: Restic
+    executor: Job
+    singleton: true
+    parameters:
+    - name: paths
+      usage: List of file paths to backup.
+      required: false
+      default: /kubestash-data
+    - name: exclude
+      usage: List of patterns for the files that should be ignored during restore.
+      required: false
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp
+    - name: ANDedLabelSelectors
+      usage: List of AND-ed label selectors to filter the PVCs.
+      required: false
+    - name: ORedLabelSelectors
+      usage: List of OR-ed label selectors to filter the PVCs.
+      required: false
+    - name: IncludeClusterResources
+      usage: Specifies whether to include cluster-scoped resources.
+      required: false
+    - name: IncludeNamespaces
+      usage: List of namespaces to include during backup.
+      required: false
+    - name: ExcludeNamespaces
+      usage: List of namespaces to exclude during backup.
+      required: false
+    - name: IncludeResources
+      usage: List of resources to include during backup.
+      required: false
+    - name: ExcludeResources
+      usage: List of resources to exclude during backup.
+      required: false
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: kubestash-tmp-volume
+      mountPath: /kubestash-tmp
+  - name: volume-snapshot
+    function: volumesnapshot-backup
+    singleton: true
+    driver: VolumeSnapshotter
+    parameters:
+      - name: volumeSnapshotClassName
+        usage: The VolumeSnapshotClassName to be used by volumeSnapshot
+        required: false
+  restoreTasks:
+  - name: logical-backup-restore
+    function: multipvc-restore
+    driver: Restic
+    executor: Job
+    singleton: true
+    parameters:
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: kubestash-tmp-volume
+      mountPath: /kubestash-tmp
+  - name: volume-clone
+    function: multipvc-restore
+    driver: Restic
+    executor: Job
+    singleton: false
+    parameters:
+    - name: enableCache
+      usage: Enable or disable caching. Disabling caching may impact backup performance.
+      required: false
+      default: "true"
+    - name: scratchDir
+      usage: Directory for holding temporary files and restic cache.
+      required: false
+      default: /kubestash-tmp
+    volumeTemplate:
+    - name: kubestash-tmp-volume
+      usage: Holds temporary files and restic cache.
+      source:
+        emptyDir: {}
+    volumeMounts:
+    - name: kubestash-tmp-volume
+      mountPath: /kubestash-tmp
+  - name: volume-snapshot-restore
+    function: volumesnapshot-restore
+    driver: VolumeSnapshotter
+    executor: Job
+    singleton: true
