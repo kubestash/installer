@@ -175,8 +175,9 @@ gen-crds:
 			paths="./apis/..."              \
 			output:crd:artifacts:config=.crds
 	@mkdir -p bundle/manifests config/crd/bases
-	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' .crds/installer.kubestash.com_kubestashs.yaml > bundle/manifests/installer.kubestash.com_kubestashs.yaml
-	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' .crds/installer.kubestash.com_kubestashs.yaml > config/crd/bases/installer.kubestash.com_kubestashs.yaml
+	@# controller-gen emits a duplicated allOf for core.Capability lists, which the API server rejects as non-structural.
+	@yq -y --indentless 'walk(if type=="object" and has("allOf") and ((.allOf|map(tojson)|unique|length)==1) then (.allOf[0] as $$a | del(.allOf) + $$a) else . end)' .crds/installer.kubestash.com_kubestashs.yaml > bundle/manifests/installer.kubestash.com_kubestashs.yaml
+	@cp bundle/manifests/installer.kubestash.com_kubestashs.yaml config/crd/bases/installer.kubestash.com_kubestashs.yaml
 
 .PHONY: gen-values-schema
 gen-values-schema: $(BUILD_DIRS)
