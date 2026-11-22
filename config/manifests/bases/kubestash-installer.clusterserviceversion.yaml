@@ -100,7 +100,7 @@ spec:
   - email: support@appscode.com
     name: AppsCode
   maturity: stable
-  minKubeVersion: 1.26.0-0
+  minKubeVersion: 1.28.0-0
   provider:
     name: AppsCode Inc.
     url: https://appscode.com
