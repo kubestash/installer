@@ -21,6 +21,7 @@ spec:
   - --backup-mode=${backupMode:=vmsnapshot}
   - --force-full=${forceFull:=false}
   - --cbt-artifact=${cbtArtifact:=false}
+  - --cbt-driver=${cbtDriver:=}
   - --cbt-scratch-storage-class=${cbtScratchStorageClass:=}
   - --cbt-scratch-size=${cbtScratchSize:=2Gi}
   image: '{{ include "image.ghcr" (merge (dict "_repo" "kubestash/kubevirt-plugin") $) }}:v0.4.0{{ include "catalog.ubi" $ }}'
